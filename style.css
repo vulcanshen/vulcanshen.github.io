@@ -68,11 +68,13 @@ h3 {
 }
 
 p,
-ul {
+ul,
+ol {
   margin: 0 0 12px;
 }
 
-ul {
+ul,
+ol {
   padding-left: 1.4em;
 }
 
