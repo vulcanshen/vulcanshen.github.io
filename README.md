@@ -51,5 +51,6 @@ template/             支援頁與隱私權政策的範本，新 app 從這裡�
 
 - 純 HTML 沒有共用的頁首頁尾，每頁各複製一份。改了版面要逐頁同步。
 - 頁面跟著 app 一起公開：main 只放共用的骨架，每個 app 在自己的分支（例如 `alphade`、`helpknock`）做，從 main 開分支。App Review 會打開支援與隱私權政策網址，所以最晚在送審當天把該 app 的分支合併進 main 再推送。推送時只推 main，不要 `git push --all`。
+- 要改 main 或某個 app 的分支時，不要在 repo 旁邊多開資料夾：在暫存目錄用 `git worktree add <暫存目錄>/site <分支>` 臨時開一個 worktree，改完 commit 後用 `git worktree remove <暫存目錄>/site` 移除。分支名稱跟資料夾同名（例如 `alphade`），git 指令裡分不清時在後面加 `--`。
 - 推廣頁跟支援頁、隱私權政策放在同一個 app 分支，送審時一起公開。上架前還沒有商店連結，下載的地方不要放點了沒反應的按鈕；上架當天再換上 Apple 官方徽章與商店網址。徽章從 Apple 的行銷資源下載對應語言的圖檔，不要自己畫或改色，放在該 app 的資料夾裡。
 - 共用的東西（`style.css`、首頁版面、README 的表頭與這份說明）只在 main 改。app 分支要用到新的共用樣式時，把 main 合併進來（`git merge main`）。
