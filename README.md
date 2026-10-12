@@ -4,6 +4,7 @@ vulcan 的 app 支援頁與隱私權政策，用 GitHub Pages 發布：<https://
 
 | App | 支援頁 | 隱私權政策 |
 |---|---|---|
+| Alphade | <https://vulcanshen.github.io/alphade/> | <https://vulcanshen.github.io/alphade/privacy/> |
 
 App Store Connect 的「支援網址」與「隱私權政策網址」填該 app 的這兩個網址；繁體中文的在地化欄位在網址後面加 `#zh-Hant`，打開會直接跳到中文段落。
 
@@ -37,4 +38,4 @@ style.css           共用樣式
 ## 注意
 
 - 純 HTML 沒有共用的頁首頁尾，每頁各複製一份。改了版面要逐頁同步。
-- 頁面跟著 app 一起公開：main 只放共用的骨架，每個 app 在自己的分支（例如 `alphade`、`helpknock`）做，從 main 開分支。App Review 會打開支援與隱私權政策網址，所以最晚在送審當天把該 app 的分支合併進 main 再推送。推送時只推 main，不要 `git push --all`。
+- 頁面跟著 app 一起公開：還沒要公開的 app 在自己的分支做，到時才合併進 main。推送時只推 main，不要 `git push --all`。
