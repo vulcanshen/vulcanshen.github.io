@@ -141,6 +141,35 @@ footer {
   border-top: 1px solid var(--line);
 }
 
+/* Promo page: the download line holds "coming soon" text until the app is on the store, then
+   Apple's badge. */
+.download {
+  margin: 20px 0 28px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.download img {
+  display: block;
+  height: 40px;
+}
+
+/* Promo page: screenshots in a grid. Portrait phone shots fit several per row; a page with
+   landscape Mac shots sets --shot-min: 100% on the grid to give each one a full row. */
+.screenshots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--shot-min, 160px), 1fr));
+  gap: 12px;
+  margin: 12px 0 24px;
+}
+
+.screenshots img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
 /* Home page: one card per app. A card sets its app's accent like a page does, so --accent is
    resolved again on the card. */
 .app-card {
