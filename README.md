@@ -31,7 +31,10 @@ badges/               Apple 官方的下載徽章（第一個 app 上架時才�
 - **語言**：中英文寫在同一頁，分成 `<section id="en" lang="en">` 與 `<section id="zh-Hant" lang="zh-Hant">` 兩段，每段都要有 `lang`，中文才會用對字型。頁首放切換兩種語言的連結。
 - **頁首**：icon、app 名稱、語言切換。每段開頭用 `.lead` 放一句話簡介，跟商店的副標題一致。
 - **頁尾**：每段結尾放一組 `.section-links`（app 名稱連到推廣頁、支援、隱私權政策、所有 app），連結指向同一種語言的段落；最下面是 `© 年份 Vulcan Shen`。
-- **推廣頁**：頁首跟其他頁一樣。每段依序是 `.lead` 一句話簡介、下載（`.download`）、功能、截圖（`.screenshots`）、系統需求，結尾一樣是 `.section-links`。
+- **推廣頁**：頁首跟其他頁一樣。每段依序是 `h2`、`.lead` 一句話簡介、下載（`.download`）、功能、截圖（`.screenshots`）、系統需求，結尾一樣是 `.section-links`。
+  - `h2` 用一句話說明這是什麼 app，例如「Video watermark remover for Mac」／「Mac 上的影片浮水印去除工具」，不要寫「About／介紹」。
+  - 功能可以分成幾個 `h3`；截圖前加 `h3`「Screenshots／截圖」；系統需求用 `h3`「Requirements／系統需求」。
+  - `<title>` 寫成「App 名稱 · 同一句說明」，例如 `Alphade · Video Watermark Remover for Mac`，並加上 `<meta name="description">`。
 - **下載**：上架前寫「即將推出」，例如 `<p class="download">Coming soon to the App Store</p>` 與 `<p class="download">即將在 App Store 推出</p>`（Mac app 寫 Mac App Store）。上架當天換成 Apple 官方徽章：`<p class="download"><a href="商店網址"><img src="../badges/…" alt="Download on the App Store"></a></p>`。徽章從 Apple 的行銷資源下載對應語言的 SVG 放進 `badges/`，不要自己畫或改色。
 - **截圖**：放在 `<app>/screenshots/`，縮小後再放，不要直接用商店的原圖。`<div class="screenshots">` 裡一張一個 `<img>`，都要寫 `alt`；中英文段落各放自己語言的截圖。直式的手機截圖一列會排好幾張；橫式的 Mac 截圖在 `.screenshots` 上設 `style="--shot-min: 100%"`，一張佔一列。
 - **主色**：在 `<html>` 上設 `--accent-light`（淺色模式）與 `--accent-dark`（深色模式），首頁的卡片也一樣設在卡片上。
