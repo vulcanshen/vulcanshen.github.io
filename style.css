@@ -110,6 +110,14 @@ footer {
   margin-right: 16px;
 }
 
+/* Keep each link on one line, so a Chinese label never breaks mid-word on a narrow screen. */
+.langs a,
+.section-links a,
+.app-card .links a {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .lead {
   font-size: 1.1rem;
   color: var(--muted);
