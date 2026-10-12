@@ -1,107 +1,143 @@
 <!doctype html>
-<html lang="en" style="--accent-light: #1e66f5; --accent-dark: #89b4fa">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Alphade · Video Watermark Remover for Mac</title>
-  <meta name="description" content="Alphade removes semi-transparent watermarks, logos and text overlays from your videos on your Mac, and brings back the picture underneath.">
-  <link rel="stylesheet" href="../style.css">
+  <title>Alphade · Remove video watermarks on your Mac</title>
+  <meta name="description" content="Alphade removes semi-transparent watermarks from your videos and brings back the picture underneath, entirely on your Mac.">
+  <link rel="alternate" hreflang="en" href="https://vulcanshen.github.io/alphade/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://vulcanshen.github.io/alphade/zh-Hant/">
+  <link rel="alternate" hreflang="x-default" href="https://vulcanshen.github.io/alphade/">
+  <link rel="stylesheet" href="promo.css">
 </head>
 <body>
-<main>
-  <header class="app-header">
-    <picture>
-      <source srcset="icon-dark.png" media="(prefers-color-scheme: dark)">
-      <img src="icon.png" alt="">
-    </picture>
-    <div>
-      <h1>Alphade</h1>
-      <nav class="langs">
-        <a href="#en">English</a>
-        <a href="#zh-Hant" lang="zh-Hant">繁體中文</a>
+<header class="hero">
+  <div class="wrap">
+    <div class="topbar">
+      <a class="brand" href="./"><img src="icon.png" alt="">Alphade</a>
+      <nav>
+        <a href="support/#en">Support</a>
+        <a href="zh-Hant/" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a>
       </nav>
     </div>
-  </header>
-
-  <section id="en" lang="en">
-    <h2>Video watermark remover for Mac</h2>
-    <p class="lead">Restore what's under the logo.</p>
-    <p class="download">Coming soon to the Mac App Store</p>
-
-    <p>Alphade removes semi-transparent watermarks, logos and text overlays from your videos, and brings back the picture underneath instead of blurring it away. Draw a box around the overlay: Alphade studies the whole video, works out how the overlay was blended in, and reverses it in every frame.</p>
-
-    <h3>How it works</h3>
-    <ul>
-      <li>Open a video and drag a box around the watermark.</li>
-      <li>Click Analyze. Alphade checks every frame and tells you whether the watermark can be restored, can only be filled in, or isn't supported.</li>
-      <li>Step through the result frame by frame, compare it with the original, and loop the few seconds around any moment.</li>
-      <li>Export at the original size or downscale to 1080p or 720p, in H.264 or HEVC. Only the boxed area changes, and the audio is copied as is.</li>
-    </ul>
-
-    <h3>Private by design</h3>
-    <p>Everything runs on your Mac. Your videos are never uploaded, there is no account to create, and Alphade collects no data.</p>
-
-    <h3>Try it free</h3>
-    <p>Opening, analyzing and previewing are free. Exporting needs a one-time purchase, with no subscription.</p>
-
-    <h3>Screenshots</h3>
-    <div class="screenshots" style="--shot-min: 100%">
-      <img src="screenshots/en/1-compare.jpg" width="1280" height="800" loading="lazy" alt="Compare view: the left half of the box still shows the watermark, the right half is restored.">
-      <img src="screenshots/en/2-processed.jpg" width="1280" height="800" loading="lazy" alt="The processed frame, with the watermark removed.">
-      <img src="screenshots/en/3-boxed.jpg" width="1280" height="800" loading="lazy" alt="A box drawn around the watermark, ready to analyze.">
+    <img class="icon" src="icon.png" width="112" height="112" alt="">
+    <h1>Watermarks out.<br><span>Your picture back.</span></h1>
+    <p class="pitch">Alphade removes semi-transparent watermarks from your videos and recovers the picture underneath, right on your Mac.</p>
+    <p class="soon" aria-disabled="true">Coming soon to the Mac App Store</p>
+    <p class="fineprint">Free to try · One-time purchase · macOS 26 or later</p>
+    <div class="stage">
+      <video src="media/hero.mp4" poster="media/hero-poster.jpg" width="1280" height="720" autoplay muted loop playsinline
+             aria-label="A divider sweeps across a video: on the left the semi-transparent watermark is still there, on the right Alphade has removed it."></video>
+      <img class="still" src="media/hero-poster.jpg" width="1280" height="720"
+           alt="A video split down the middle: the watermark on the left, the picture restored by Alphade on the right.">
+      <span class="label left">Original</span>
+      <span class="label right">Alphade</span>
     </div>
+  </div>
+</header>
 
-    <h3>Requirements</h3>
-    <p>macOS 26 or later. Works best with semi-transparent watermarks that stay in the same place throughout the video; see <a href="support/#en">which watermarks are supported</a>.</p>
+<main>
+  <section>
+    <div class="wrap">
+      <p class="kicker">Restored, not blurred</p>
+      <h2>Get back what was under the watermark.</h2>
+      <p class="intro">Blurring a watermark leaves a smudge. Alphade works out how the watermark was blended into every frame and reverses it, so the picture underneath comes back clean.</p>
+      <div class="trio">
+        <figure>
+          <img src="media/compare-with-watermark.jpg" width="828" height="220" loading="lazy" alt="A semi-transparent watermark over a blue background.">
+          <figcaption>With the watermark</figcaption>
+        </figure>
+        <figure>
+          <img src="media/compare-blurred.jpg" width="828" height="220" loading="lazy" alt="The same spot with the watermark blurred: a visible smudge is left.">
+          <figcaption>Blurred out</figcaption>
+        </figure>
+        <figure class="win">
+          <img src="media/compare-restored.jpg" width="828" height="220" loading="lazy" alt="The same spot restored by Alphade: a clean blue background.">
+          <figcaption>Restored by Alphade</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
-    <nav class="section-links">
-      <a href="#en">Alphade</a>
+  <section class="alt">
+    <div class="wrap">
+      <p class="kicker">How it works</p>
+      <h2>Draw a box. Alphade does the rest.</h2>
+      <ol class="steps">
+        <li>
+          <img src="media/en/step-box.jpg" width="1140" height="600" loading="lazy" alt="A box drawn around a watermark in Alphade.">
+          <div class="text">
+            <h3>Mark the watermark</h3>
+            <p>Open a video and drag a box around the watermark.</p>
+          </div>
+        </li>
+        <li>
+          <img src="media/en/step-analyze.jpg" width="570" height="300" loading="lazy" alt="Alphade's analysis result: Restorable, solved from 8 frames.">
+          <div class="text">
+            <h3>Analyze</h3>
+            <p>Alphade studies the whole video and tells you how well it can restore it.</p>
+          </div>
+        </li>
+        <li>
+          <img src="media/en/step-export.jpg" width="570" height="300" loading="lazy" alt="Export settings: codec and resolution.">
+          <div class="text">
+            <h3>Export</h3>
+            <p>Save a clean copy in H.264 or HEVC, at full size or smaller.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="kicker">Before you export</p>
+      <h2>Check every frame.</h2>
+      <p class="intro">Compare the original and the result side by side, step through frame by frame and zoom in to 4×. Only the boxed area changes; the rest of the picture and the sound stay exactly as they were.</p>
+      <img class="shot" src="media/en/app-compare.jpg" width="1600" height="1000" loading="lazy"
+           alt="Alphade in compare mode: a divider splits the box, with the watermark on the left half and the restored picture on the right.">
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap pair">
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="4" y="10.5" width="16" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/>
+        </svg>
+        <h3>Your videos stay on your Mac.</h3>
+        <p>Nothing is uploaded and there's no account to create. Alphade collects no data. Read the <a href="privacy/#en">Privacy Policy</a>.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3.5 12.5V5a1.5 1.5 0 0 1 1.5-1.5h7.5l8 8-9 9-8-8z"/><circle cx="8.5" cy="8.5" r="1.5"/>
+        </svg>
+        <h3>Pay once.</h3>
+        <p>Analyze and preview for free. Unlock export with a single purchase, with no subscription.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="wrap">
+      <img src="icon.png" width="96" height="96" alt="">
+      <h2>Alphade</h2>
+      <p class="intro">Works best with semi-transparent watermarks that stay in one place. <a href="support/#en">See which videos work</a>.</p>
+      <p class="soon" aria-disabled="true">Coming soon to the Mac App Store</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav>
       <a href="support/#en">Support</a>
       <a href="privacy/#en">Privacy Policy</a>
+      <a href="zh-Hant/" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a>
       <a href="../">All apps</a>
     </nav>
-  </section>
-
-  <section id="zh-Hant" lang="zh-Hant">
-    <h2>Mac 上的影片浮水印去除工具</h2>
-    <p class="lead">還原浮水印底下的畫面。</p>
-    <p class="download">即將在 Mac App Store 推出</p>
-
-    <p>Alphade 能去除影片上的半透明浮水印、logo 與文字疊圖，而且是把底下原本的畫面還原回來，不是把它糊掉。在浮水印周圍拉一個框，Alphade 會分析整支影片，算出浮水印是怎麼疊上去的，再逐格反推回原本的畫面。</p>
-
-    <h3>使用方式</h3>
-    <ul>
-      <li>開啟影片，在浮水印周圍拉一個框。</li>
-      <li>按「分析」。Alphade 會檢查每一格，告訴你這個浮水印「可還原」、「只能填補」還是「不支援」。</li>
-      <li>逐格檢視結果、和原始畫面對照，也能循環播放任一位置前後幾秒。</li>
-      <li>輸出時可保留原始解析度，或縮小到 1080p、720p，格式可選 H.264 或 HEVC。只有框起來的區域會改變，音訊原樣保留。</li>
-    </ul>
-
-    <h3>完全在你的 Mac 上處理</h3>
-    <p>影片不會上傳，不需要註冊帳號，Alphade 也不收集任何資料。</p>
-
-    <h3>免費試用</h3>
-    <p>開啟、分析與預覽都免費。輸出需要一次買斷，不是訂閱。</p>
-
-    <h3>截圖</h3>
-    <div class="screenshots" style="--shot-min: 100%">
-      <img src="screenshots/zh-Hant/1-compare.jpg" width="1280" height="800" loading="lazy" alt="對照模式：框的左半邊還有浮水印，右半邊已經還原。">
-      <img src="screenshots/zh-Hant/2-processed.jpg" width="1280" height="800" loading="lazy" alt="處理後的畫面，浮水印已經去除。">
-      <img src="screenshots/zh-Hant/3-boxed.jpg" width="1280" height="800" loading="lazy" alt="在浮水印周圍拉好框，準備分析。">
-    </div>
-
-    <h3>系統需求</h3>
-    <p>macOS 26 或更新版本。最適合位置固定、整支影片都在同一處的半透明浮水印；詳見<a href="support/#zh-Hant">哪些浮水印可以去除</a>。</p>
-
-    <nav class="section-links">
-      <a href="#zh-Hant">Alphade</a>
-      <a href="support/#zh-Hant">支援</a>
-      <a href="privacy/#zh-Hant">隱私權政策</a>
-      <a href="../">所有 app</a>
-    </nav>
-  </section>
-
-  <footer>© 2026 Vulcan Shen</footer>
-</main>
+    <span>© 2026 Vulcan Shen</span>
+  </div>
+</footer>
 </body>
 </html>
