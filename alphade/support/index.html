@@ -34,8 +34,8 @@
     <ol>
       <li>Open a video: click Choose Video… in the sidebar, or drag a video into the window.</li>
       <li>Drag a box around the watermark in the picture. Drag the handles to adjust it.</li>
-      <li>Click Analyze. The result says whether the watermark is Restorable, Fill Only or Unsupported.</li>
-      <li>Check the result: switch between Original, Processed and Compare (Command-1 to 3), hold O to see the original, step frame by frame with the arrow keys, press Space to loop the few seconds around the current frame, and zoom to 2× or 4×.</li>
+      <li>Click Analyze. The result says whether the watermark removes cleanly, removes by filling, or will be blurry after removal.</li>
+      <li>Check the result: switch between Original, Processed and Compare (Command-1 to 3), hold O to see the original, step frame by frame with the arrow keys, press Space to play from the current frame, and zoom to 2× or 4× once the box is drawn.</li>
       <li>Choose the codec (H.264 or HEVC) and the resolution, click Export… and pick where to save.</li>
     </ol>
     <p>If something real passes through the box, such as a person or text, open Advanced and mark the area where detail should be kept.</p>
@@ -46,11 +46,11 @@
     <h3>Which watermarks can Alphade remove?</h3>
     <p>Semi-transparent watermarks, logos and text that stay in the same place for the whole video. Opaque logos can be filled in when the background behind them is simple, such as a solid color, a gradient or a slide. Watermarks that move, and opaque watermarks over detailed or live-action backgrounds, aren't supported.</p>
 
-    <h3>What do Restorable, Fill Only and Unsupported mean?</h3>
+    <h3>What do Removes Cleanly, Removes by Filling and Blurry After Removal mean?</h3>
     <ul>
-      <li><strong>Restorable</strong>: Alphade worked out how the watermark was blended in and recovers the original picture.</li>
-      <li><strong>Fill Only</strong>: the watermark is opaque, so the area is filled in from the surrounding background. What was under it can't be recovered.</li>
-      <li><strong>Unsupported</strong>: the area has to be filled in over a detailed background, so the result will look blurry.</li>
+      <li><strong>Removes Cleanly</strong>: Alphade worked out how the watermark was blended in, so whatever is under it is kept too.</li>
+      <li><strong>Removes by Filling</strong>: the watermark's place is filled from the surrounding background. Anything under it is lost; on a plain background it doesn't show.</li>
+      <li><strong>Blurry After Removal</strong>: the area has to be filled over a detailed background, so the filled area will show.</li>
     </ul>
 
     <h3>Why can't my video be opened?</h3>
@@ -91,8 +91,8 @@
     <ol>
       <li>開啟影片：按側欄的「選擇影片…」，或把影片拖進視窗。</li>
       <li>在畫面上的浮水印周圍拉一個框，拖曳控制點可以調整。</li>
-      <li>按「分析」。結果會顯示這個浮水印「可還原」、「只能填補」或「不支援」。</li>
-      <li>檢查結果：在「原始」、「處理後」、「對照」之間切換（⌘1 到 ⌘3），按住 O 看原片，用方向鍵逐格移動，按空白鍵循環播放目前位置前後幾秒，也能放大到 2 倍或 4 倍。</li>
+      <li>按「分析」。結果會顯示這個浮水印「可乾淨移除」、「可移除（用背景補上）」或「移除後會模糊」。</li>
+      <li>檢查結果：在「原始」、「處理後」、「對照」之間切換（⌘1 到 ⌘3），按住 O 看原片，用方向鍵逐格移動，按空白鍵從目前這一格開始播放；框好浮水印之後也能放大到 2 倍或 4 倍。</li>
       <li>選好編碼（H.264 或 HEVC）和解析度，按「輸出…」並選擇存檔位置。</li>
     </ol>
     <p>如果框裡有真實的內容經過（例如人物或文字），可以打開「進階」，標出要保留細節的區域。</p>
@@ -103,11 +103,11 @@
     <h3>哪些浮水印可以去除？</h3>
     <p>整支影片都固定在同一個位置的半透明浮水印、logo 與文字。不透明的 logo 如果背景很單純（純色、漸層、簡報畫面），可以用周圍的背景填補。會移動的浮水印，以及疊在細節豐富或實拍畫面上的不透明浮水印，目前不支援。</p>
 
-    <h3>「可還原」、「只能填補」、「不支援」是什麼意思？</h3>
+    <h3>「可乾淨移除」、「可移除（用背景補上）」、「移除後會模糊」是什麼意思？</h3>
     <ul>
-      <li><strong>可還原</strong>：Alphade 算出了浮水印是怎麼疊上去的，可以把原本的畫面還原回來。</li>
-      <li><strong>只能填補</strong>：浮水印是不透明的，只能用周圍的背景填補，底下原本的內容無法還原。</li>
-      <li><strong>不支援</strong>：需要在細節較多的背景上填補，結果會看起來模糊。</li>
+      <li><strong>可乾淨移除</strong>：Alphade 算出了浮水印是怎麼疊上去的，浮水印底下的內容也會保留。</li>
+      <li><strong>可移除（用背景補上）</strong>：浮水印的位置用周圍背景補上，底下若有內容會消失；背景單純時看不出痕跡。</li>
+      <li><strong>移除後會模糊</strong>：需要在細節較多的背景上補，補上的地方看得出來。</li>
     </ul>
 
     <h3>為什麼影片打不開？</h3>
