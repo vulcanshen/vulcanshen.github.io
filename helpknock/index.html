@@ -1,156 +1,139 @@
 <!doctype html>
-<html lang="en" style="--accent-light: #1B3A6B; --accent-dark: #9DB8E6; --icon-radius: 22.37%">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HelpKnock · Bluetooth Rescue Beacon for iPhone</title>
   <meta name="description" content="When a disaster takes the network down, HelpKnock turns phones into Bluetooth beacons so rescuers nearby can find you.">
-  <link rel="stylesheet" href="../style.css">
+  <link rel="alternate" hreflang="en" href="https://vulcanshen.github.io/helpknock/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://vulcanshen.github.io/helpknock/zh-Hant/">
+  <link rel="alternate" hreflang="x-default" href="https://vulcanshen.github.io/helpknock/">
+  <link rel="stylesheet" href="promo.css">
 </head>
 <body>
-<main>
-  <header class="app-header">
-    <img src="icon.png" alt="">
-    <div>
-      <h1>HelpKnock</h1>
+<header class="hero">
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand"><img src="icon.png" alt="">HelpKnock</div>
       <nav class="langs">
-        <a href="#en">English</a>
-        <a href="#zh-Hant" lang="zh-Hant">繁體中文</a>
+        <strong aria-current="page">English</strong>
+        <a href="zh-Hant/" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a>
       </nav>
     </div>
-  </header>
 
-  <section id="en" lang="en">
-    <h2>Bluetooth rescue beacon for iPhone</h2>
-    <p class="lead">Be found without a network.</p>
-    <p class="download">Coming soon to the App Store</p>
-    <p>When an earthquake or a collapsed building takes the network down, HelpKnock turns phones into Bluetooth beacons. People who need help can be found, show how they are, and talk with rescuers nearby, without any signal.</p>
-    <p class="notice">Not a replacement for emergency services. If you have any signal, call 119 or your local emergency number first.</p>
-
-    <h3>For people who need help</h3>
-    <ul>
-      <li>Tap “I need help” and your phone starts broadcasting at once. There is no SOS button and nothing else to press, and it keeps broadcasting with the screen locked.</li>
-      <li>Battery, how long since you last touched the phone, how long the phone has been still, and your last known position are shared automatically. Nothing to type. You can turn position sharing off on the home screen.</li>
-      <li>Quick report switches for fire, flooding, live wires, no way out, injuries and gas: one tap each, one hand.</li>
-      <li>Situation and needs ask only for facts, and every question can be skipped.</li>
-      <li>See when a rescuer has read your status and how many rescuers are nearby, and message them.</li>
-      <li>Tap a rescuer to see the unit and skills they entered and whether anyone nearby has reported them. Report or block anyone who seems wrong.</li>
-      <li>When you are safe, confirm it with the slider on the home screen and rescuers nearby are told.</li>
-    </ul>
-
-    <h3>For rescuers</h3>
-    <ul>
-      <li>A status board with one card per person: battery, idle and still time, hazards and headcount at a glance.</li>
-      <li>A radar of the beacons you can hear, plus people only other rescuers can hear, with where they were heard.</li>
-      <li>Open a card for the situation, needs and the details the person chose to share.</li>
-      <li>Mark “I am handling this” or “Marked safe”. Every rescuer in range sees every mark, and several rescuers can handle the same person.</li>
-      <li>Teams with a roster and a team chat, no network needed.</li>
-      <li>Messages to someone out of your range are passed on by rescuers who can hear them.</li>
-      <li>Report or block someone, and see who others nearby have reported.</li>
-    </ul>
-
-    <h3>Your data stays with you</h3>
-    <ul>
-      <li>No server and no account. The developer never receives anything you enter.</li>
-      <li>Personal and medical details stay in this phone's keychain. You decide in “What others can see” which of them are shared when you ask for help.</li>
-      <li>Anyone nearby who chose the rescuer role can read what you share, and none of it is verified. Bluetooth transfers are not encrypted in this version.</li>
-    </ul>
-
-    <h3>Before a disaster</h3>
-    <p>Fill in your details, choose what to share, and allow Bluetooth, Location and Motion &amp; Fitness while you are calm. When something happens, you only have to open the app and tap “I need help”.</p>
-
-    <h3>Screenshots</h3>
-    <div class="screenshots">
-      <img src="screenshots/en-01-victim.jpg" width="480" height="1043" loading="lazy" alt="Home screen of a person who needs help: broadcasting, a slider to confirm you are safe, and a note that a rescuer has seen your status.">
-      <img src="screenshots/en-02-rescuer.jpg" width="480" height="1043" loading="lazy" alt="The rescuer's Nearby screen: a radar of the beacons around you, ringed by signal strength.">
-      <img src="screenshots/en-03-nodeDetail.jpg" width="480" height="1043" loading="lazy" alt="A person's details for rescuers: battery, idle and still time, the I am handling this switch, and which rescuers are handling them.">
-      <img src="screenshots/en-04-victimRescuers.jpg" width="480" height="1043" loading="lazy" alt="Rescuers nearby, as seen by a person who needs help: a radar, messages, and each rescuer's card.">
-      <img src="screenshots/en-05-chat.jpg" width="480" height="1043" loading="lazy" alt="Messages between rescuers and a person who needs help, including a one-tap Injured report.">
-      <img src="screenshots/en-06-condition.jpg" width="480" height="1043" loading="lazy" alt="My situation: factual questions such as Can you move?, each one with a Skip option, and hazard switches such as fire and flooding.">
+    <div class="hero-grid">
+      <div>
+        <h1>Be found without a network.</h1>
+        <p class="pitch">When a disaster takes the network down, your phone becomes a Bluetooth beacon: rescuers nearby can find you, see how you are, and message you. No signal needed.</p>
+        <p class="soon" aria-disabled="true">Coming soon to the App Store</p>
+        <p class="fineprint">Free · iPhone and iPad · iOS 18.6 or later</p>
+        <p class="emergency">Not a replacement for emergency services. If you have any signal, call 119 or your local emergency number first.</p>
+      </div>
+      <img class="phone" src="screenshots/en-01-victim.jpg" width="720" height="1564" alt="HelpKnock broadcasting for a person who needs help, with a slider to confirm they are safe and a note that a rescuer has seen their status.">
     </div>
+  </div>
+</header>
 
-    <h3>Requirements</h3>
-    <p>iPhone or iPad with iOS 18.6 or later, and Bluetooth turned on.</p>
-    <ul>
-      <li>Both phones need HelpKnock.</li>
-      <li>Bluetooth reaches only a short distance, and less through walls and rubble.</li>
-      <li>Do not swipe HelpKnock away in the app switcher: iOS will not reopen it, and nobody can find you. After a restart, open it again.</li>
-    </ul>
+<main>
+  <section class="soft">
+    <div class="wrap">
+      <p class="kicker">How it works</p>
+      <h2>Three steps, and only one of them in an emergency.</h2>
+      <ol class="steps">
+        <li>
+          <span class="num">1</span>
+          <h3>Get ready today</h3>
+          <p>Fill in your details, choose what to share, and allow Bluetooth, Location and Motion &amp; Fitness while you are calm.</p>
+        </li>
+        <li>
+          <span class="num">2</span>
+          <h3>Tap “I need help”</h3>
+          <p>Your phone starts broadcasting at once and keeps going with the screen locked. No SOS button, nothing to type.</p>
+        </li>
+        <li>
+          <span class="num">3</span>
+          <h3>Rescuers find you</h3>
+          <p>Rescuers nearby see your battery, how long the phone has been still and your last known position, and can message you.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
 
-    <nav class="section-links">
-      <a href="#en">HelpKnock</a>
+  <section>
+    <div class="wrap feature">
+      <div class="text">
+        <p class="kicker">For people who need help</p>
+        <h2>One tap, then it keeps working for you.</h2>
+        <ul>
+          <li>Battery, time since you last touched the phone and your last position are shared automatically.</li>
+          <li>Report fire, flooding, live wires, gas or injuries with one switch each, one hand.</li>
+          <li>See how many rescuers are nearby and whether one has read your status, and message them.</li>
+          <li>Check the unit and skills a rescuer entered, and report or block anyone who seems wrong.</li>
+        </ul>
+      </div>
+      <img class="phone" src="screenshots/en-04-victimRescuers.jpg" width="720" height="1564" loading="lazy" alt="Rescuers nearby, as seen by a person who needs help: a radar, unread messages and a rescuer's card.">
+    </div>
+  </section>
+
+  <section class="soft">
+    <div class="wrap feature reverse">
+      <div class="text">
+        <p class="kicker">For rescuers</p>
+        <h2>See who needs help first.</h2>
+        <ul>
+          <li>One card per person: battery, idle and still time, hazards and headcount at a glance.</li>
+          <li>A radar of the beacons you can hear, plus people only other rescuers can hear.</li>
+          <li>Mark “I am handling this”, and every rescuer in range sees it.</li>
+          <li>Teams with a roster and a team chat, no network needed.</li>
+        </ul>
+      </div>
+      <img class="phone" src="screenshots/en-02-rescuer.jpg" width="720" height="1564" loading="lazy" alt="The rescuer's Nearby screen: a radar of the beacons around, ringed by signal strength.">
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap feature">
+      <div class="text">
+        <p class="kicker">Messages</p>
+        <h2>Messages that travel phone to phone.</h2>
+        <ul>
+          <li>Talk with rescuers over Bluetooth, with no signal at all.</li>
+          <li>A message to someone out of your range is passed on by rescuers who can hear them.</li>
+          <li>See when a message has been delivered and read.</li>
+        </ul>
+      </div>
+      <img class="phone" src="screenshots/en-05-chat.jpg" width="720" height="1564" loading="lazy" alt="Messages between rescuers and a person who needs help, including a one-tap Injured report.">
+    </div>
+  </section>
+
+  <section class="soft privacy">
+    <div class="wrap">
+      <p class="kicker">Privacy</p>
+      <h2>No server. No account.</h2>
+      <p class="intro">Your personal and medical details stay in your phone's keychain, and you choose what to share when you ask for help. The developer never receives anything you enter.</p>
+      <p class="intro">Anyone nearby in the rescuer role can read what you share, none of it is verified, and Bluetooth transfers are not encrypted in this version. <a href="privacy/#en">Read the privacy policy</a>.</p>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2>Set it up before you need it.</h2>
+      <p class="soon" aria-disabled="true">Coming soon to the App Store</p>
+      <p class="fineprint">Free · iPhone and iPad · iOS 18.6 or later · Both phones need HelpKnock</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav>
+      <a href="./">HelpKnock</a>
       <a href="support/#en">Support</a>
       <a href="privacy/#en">Privacy Policy</a>
       <a href="../">All apps</a>
     </nav>
-  </section>
-
-  <section id="zh-Hant" lang="zh-Hant">
-    <h2>iPhone 上的藍牙救援燈塔</h2>
-    <p class="lead">沒有網路，也能被找到。</p>
-    <p class="download">即將在 App Store 推出</p>
-    <p>地震或建築倒塌、網路斷掉的時候，HelpKnock 讓手機變成藍牙燈塔：需要幫助的人找得到、讓人知道他的狀況、能跟附近的救災人員傳訊息，完全不需要訊號。</p>
-    <p class="notice">這不是緊急救援專線的替代。只要還有訊號，請先打 119 或當地的緊急電話。</p>
-
-    <h3>給需要幫助的人</h3>
-    <ul>
-      <li>點「我需要幫助」，手機立刻開始廣播。沒有求救按鈕，也不用再按任何東西；螢幕鎖著照樣廣播。</li>
-      <li>電量、多久沒碰手機、手機多久沒動、最後一次定到的位置都自動送出，不用打字。位置可以在首頁關掉。</li>
-      <li>快速回報開關：起火、積水、電線、空間封閉、受傷、瓦斯，一個開關點一下，單手就能按。</li>
-      <li>現況與需求只問客觀事實，每一題都可以跳過。</li>
-      <li>看得到有沒有救災人員讀過你的狀態、附近有幾位救災人員，也能傳訊息給他們。</li>
-      <li>點救災人員可以看他自己填的單位與能力、附近有沒有人檢舉過他；覺得不對勁就檢舉或封鎖。</li>
-      <li>安全了就用首頁的滑桿確認，附近的救災人員會知道。</li>
-    </ul>
-
-    <h3>給救災人員</h3>
-    <ul>
-      <li>狀態板一人一張卡：電量、閒置與靜止時間、環境危害、人數，一眼看完。</li>
-      <li>雷達畫出你聽得到的燈塔，也畫出只有其他救災人員聽得到的人，以及他們是在哪裡被聽到的。</li>
-      <li>點開卡片看現況、需求，以及對方選擇分享的資料。</li>
-      <li>標記「我來處理」或「已安全」，範圍內每位救災人員都看得到；同一個人可以由好幾位救災人員一起處理。</li>
-      <li>小隊有名冊與隊內聊天室，不需要網路。</li>
-      <li>傳給不在你範圍內的人的訊息，會由聽得到他的救災人員轉交。</li>
-      <li>可以檢舉或封鎖別人，也看得到附近的人檢舉過誰。</li>
-    </ul>
-
-    <h3>你的資料留在你手上</h3>
-    <ul>
-      <li>沒有伺服器、沒有帳號，開發者收不到你輸入的任何內容。</li>
-      <li>個人與醫療資料存在這支手機的鑰匙圈。求助時分享哪些，由你在「別人可以看到什麼」裡決定。</li>
-      <li>附近任何選了救災者角色的人都讀得到你分享的內容，而且都沒有經過驗證。這個版本的藍牙傳輸沒有加密。</li>
-    </ul>
-
-    <h3>平時先準備好</h3>
-    <p>趁平常把資料填好、選好要分享什麼，並允許藍牙、定位與「動作與健身」。真的出事時，只要打開 app、點「我需要幫助」。</p>
-
-    <h3>截圖</h3>
-    <div class="screenshots">
-      <img src="screenshots/zh-Hant-01-victim.jpg" width="480" height="1043" loading="lazy" alt="需要幫助的人的首頁：正在廣播、滑動確認安全的滑桿，以及有救災人員看到你的狀態。">
-      <img src="screenshots/zh-Hant-02-rescuer.jpg" width="480" height="1043" loading="lazy" alt="救災人員的「附近」：依訊號強弱畫成一圈圈的雷達，標出周圍的燈塔。">
-      <img src="screenshots/zh-Hant-03-nodeDetail.jpg" width="480" height="1043" loading="lazy" alt="救災人員看到的個人詳情：電量、閒置與靜止時間、「我來處理」開關，以及哪些救災人員正在處理。">
-      <img src="screenshots/zh-Hant-04-victimRescuers.jpg" width="480" height="1043" loading="lazy" alt="需要幫助的人看到的「附近救災人員」：雷達、訊息，以及每位救災人員的卡片。">
-      <img src="screenshots/zh-Hant-05-chat.jpg" width="480" height="1043" loading="lazy" alt="救災人員與需要幫助的人之間的訊息，包括一鍵回報的「受傷」。">
-      <img src="screenshots/zh-Hant-06-condition.jpg" width="480" height="1043" loading="lazy" alt="我的現況：只問事實的題目，例如「你能移動嗎？」，每題都能跳過，下面是起火、積水等環境危害開關。">
-    </div>
-
-    <h3>系統需求</h3>
-    <p>iOS 18.6 或更新版本的 iPhone 或 iPad，並且開著藍牙。</p>
-    <ul>
-      <li>雙方的手機都要裝 HelpKnock。</li>
-      <li>藍牙只傳得到很短的距離，隔牆、隔瓦礫會更短。</li>
-      <li>不要在多工畫面把 HelpKnock 滑掉：iOS 不會再把它打開，別人就找不到你。重開機後要再打開一次。</li>
-    </ul>
-
-    <nav class="section-links">
-      <a href="#zh-Hant">HelpKnock</a>
-      <a href="support/#zh-Hant">支援</a>
-      <a href="privacy/#zh-Hant">隱私權政策</a>
-      <a href="../">所有 app</a>
-    </nav>
-  </section>
-
-  <footer>© 2026 Vulcan Shen</footer>
-</main>
+    <p>© 2026 Vulcan Shen</p>
+  </div>
+</footer>
 </body>
 </html>
