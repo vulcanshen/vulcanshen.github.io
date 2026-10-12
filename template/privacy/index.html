@@ -1,0 +1,105 @@
+<!doctype html>
+<!--
+  隱私權政策範本。複製到 <app>/privacy/index.html，把 {{…}} 換掉，照註解填內容，最後刪掉所有註解。
+  {{App}}            app 名稱，例如 Alphade（issues 與 mailto 網址裡的 [{{App}}] 名稱有空格的話寫成 %20）
+  {{accent-light}}   淺色模式的主色；{{accent-dark}} 深色模式的主色
+  {{date-en}}        最後更新日期，例如 October 12, 2026；{{date-zh}} 例如 2026 年 10 月 12 日
+  {{year}}           頁尾年份
+  app 內也有政策的，兩邊逐字一致。規則見 README「加入一個 app」。
+-->
+<!-- iOS app 的 icon 是滿版正方形，在 style 加上 --icon-radius: 22.37% -->
+<html lang="en" style="--accent-light: {{accent-light}}; --accent-dark: {{accent-dark}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{App}} Privacy Policy</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<main>
+  <header class="app-header">
+    <!-- 有深色版 icon 的話換成 <picture>，用 <source srcset="../icon-dark.png" media="(prefers-color-scheme: dark)"> -->
+    <img src="../icon.png" alt="">
+    <div>
+      <h1>{{App}}</h1>
+      <nav class="langs">
+        <a href="#en">English</a>
+        <a href="#zh-Hant" lang="zh-Hant">繁體中文</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="en" lang="en">
+    <h2>Privacy Policy</h2>
+    <p class="meta">Last updated: {{date-en}}</p>
+    <p class="lead">One sentence that sums up this policy.</p>
+
+    <h3>What {{App}} collects</h3>
+    <p>What data {{App}} collects, or that it collects none.</p>
+
+    <h3>Where your data stays</h3>
+    <p>Where the data is kept, and whether anything leaves the device.</p>
+
+    <!-- 這個 app 特有的章節放這裡，例如透過藍牙送出什麼、權限，每節一個 h3 -->
+
+    <h3>Third parties</h3>
+    <!-- 每個第三方一條，例如 Apple 內購、當機報告；完全沒有的話寫 None.／沒有。 -->
+    <ul>
+      <li><strong>Apple in-app purchase</strong>: purchases are processed by Apple. {{App}} never sees your payment details or your Apple Account.</li>
+    </ul>
+
+    <h3>Children</h3>
+    <p>{{App}} collects no data from anyone, including children.</p>
+
+    <h3>Changes to this policy</h3>
+    <p>If this policy changes, this page will be updated along with the date above.</p>
+
+    <h3>Contact</h3>
+    <p>To ask about privacy, open an issue on <a href="https://github.com/vulcanshen/vulcanshen.github.io/issues/new?title=%5B{{App}}%5D%20">GitHub</a> and start the title with [{{App}}]. No GitHub account? Email <a href="mailto:vulcan.shen.2304@gmail.com?subject=%5B{{App}}%5D%20">vulcan.shen.2304@gmail.com</a>.</p>
+
+    <!-- 推廣頁沒有另外做中文頁的話，中文段落的 app 名稱也連到 ../ -->
+    <nav class="section-links">
+      <a href="../">{{App}}</a>
+      <a href="../support/#en">Support</a>
+      <a href="#en">Privacy Policy</a>
+      <a href="../../">All apps</a>
+    </nav>
+  </section>
+
+  <section id="zh-Hant" lang="zh-Hant">
+    <h2>隱私權政策</h2>
+    <p class="meta">最後更新：{{date-zh}}</p>
+    <p class="lead">用一句話摘要這份政策。</p>
+
+    <h3>{{App}} 收集哪些資料</h3>
+    <p>{{App}} 收集哪些資料，或是完全不收集。</p>
+
+    <h3>資料存在哪裡</h3>
+    <p>資料存在哪裡，有沒有任何東西離開裝置。</p>
+
+    <h3>第三方</h3>
+    <ul>
+      <li><strong>Apple 內購</strong>：購買由 Apple 處理。{{App}} 看不到你的付款資料或 Apple 帳號。</li>
+    </ul>
+
+    <h3>兒童</h3>
+    <p>{{App}} 不收集任何人的資料，兒童也一樣。</p>
+
+    <h3>政策變更</h3>
+    <p>如果這份政策有變更，會更新這個頁面和上面的日期。</p>
+
+    <h3>聯絡</h3>
+    <p>隱私相關問題，請到 <a href="https://github.com/vulcanshen/vulcanshen.github.io/issues/new?title=%5B{{App}}%5D%20">GitHub</a> 開一個 issue，標題開頭加上 [{{App}}]。沒有 GitHub 帳號的話，請寄信到 <a href="mailto:vulcan.shen.2304@gmail.com?subject=%5B{{App}}%5D%20">vulcan.shen.2304@gmail.com</a>。</p>
+
+    <nav class="section-links">
+      <a href="../zh-Hant/">{{App}}</a>
+      <a href="../support/#zh-Hant">支援</a>
+      <a href="#zh-Hant">隱私權政策</a>
+      <a href="../../">所有 app</a>
+    </nav>
+  </section>
+
+  <footer>© {{year}} Vulcan Shen</footer>
+</main>
+</body>
+</html>
