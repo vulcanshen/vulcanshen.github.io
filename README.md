@@ -4,6 +4,7 @@ vulcan 的 app 支援頁與隱私權政策，用 GitHub Pages 發布：<https://
 
 | App | 支援頁 | 隱私權政策 |
 |---|---|---|
+| HelpKnock | <https://vulcanshen.github.io/helpknock/> | <https://vulcanshen.github.io/helpknock/privacy/> |
 
 App Store Connect 的「支援網址」與「隱私權政策網址」填該 app 的這兩個網址；繁體中文的在地化欄位在網址後面加 `#zh-Hant`，打開會直接跳到中文段落。
 
