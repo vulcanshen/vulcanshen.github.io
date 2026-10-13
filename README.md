@@ -4,6 +4,7 @@ vulcan 的 app 推廣頁、支援頁與隱私權政策，用 GitHub Pages 發布
 
 | App | 推廣頁 | 支援頁 | 隱私權政策 |
 |---|---|---|---|
+| Alphade | <https://vulcanshen.github.io/alphade/> | <https://vulcanshen.github.io/alphade/support/> | <https://vulcanshen.github.io/alphade/privacy/> |
 | HelpKnock | <https://vulcanshen.github.io/helpknock/> | <https://vulcanshen.github.io/helpknock/support/> | <https://vulcanshen.github.io/helpknock/privacy/> |
 
 App Store Connect 的「行銷網址」、「支援網址」與「隱私權政策網址」依序填該 app 的這三個網址。繁體中文的在地化欄位：支援網址在後面加 `#zh-Hant`，打開會直接跳到中文段落；行銷網址填該 app 中文推廣頁的網址。

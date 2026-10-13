@@ -1,0 +1,390 @@
+/* Alphade promo pages (alphade/ and alphade/zh-Hant/). Dark, like a video editor, in the
+   Catppuccin Mocha colours of the app icon. Not shared with other apps. */
+:root {
+  color-scheme: dark;
+  --crust: #11111b;
+  --mantle: #181825;
+  --base: #1e1e2e;
+  --surface0: #313244;
+  --surface1: #45475a;
+  --overlay: #7f849c;
+  --subtext: #a6adc8;
+  --text: #cdd6f4;
+  --blue: #89b4fa;
+  --lavender: #b4befe;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--crust);
+  color: var(--text);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  color: var(--blue);
+}
+
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Top bar: the app on the left, support and the other language on the right. */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.brand img {
+  width: 32px;
+  height: 32px;
+}
+
+.topbar nav a {
+  margin-left: 20px;
+  color: var(--subtext);
+  font-size: 0.95rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.topbar nav a:hover {
+  color: var(--text);
+}
+
+/* Hero: icon, headline, pitch, "coming soon", then the before/after loop. */
+.hero {
+  padding-bottom: 32px;
+  text-align: center;
+  background: radial-gradient(70% 55% at 50% 0%, rgba(137, 180, 250, 0.16), transparent 70%);
+}
+
+.hero .icon {
+  width: 112px;
+  height: 112px;
+  margin-top: 40px;
+}
+
+.hero h1 {
+  margin: 16px 0;
+  font-size: clamp(2.4rem, 6.4vw, 4.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.hero h1 span,
+.closing h2 span {
+  background: linear-gradient(90deg, var(--blue), var(--lavender));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.pitch {
+  max-width: 40rem;
+  margin: 0 auto 28px;
+  color: var(--subtext);
+  font-size: 1.2rem;
+}
+
+/* Not a link until the app is on the store: it must not look like a button that does nothing. */
+.soon {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 22px;
+  border: 1px dashed var(--surface1);
+  border-radius: 999px;
+  color: var(--subtext);
+  font-weight: 600;
+  cursor: default;
+}
+
+.fineprint {
+  margin: 14px 0 0;
+  color: var(--overlay);
+  font-size: 0.9rem;
+}
+
+.stage {
+  position: relative;
+  max-width: 1040px;
+  margin: 48px auto 0;
+}
+
+.stage video,
+.stage .still {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--surface0);
+  border-radius: 16px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 120px rgba(137, 180, 250, 0.12);
+}
+
+/* With reduced motion, a still frame instead of the loop. */
+.stage .still {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage video {
+    display: none;
+  }
+
+  .stage .still {
+    display: block;
+  }
+}
+
+.stage .label {
+  position: absolute;
+  top: 14px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(17, 17, 27, 0.7);
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.stage .left {
+  left: 14px;
+}
+
+.stage .right {
+  right: 14px;
+}
+
+/* Sections. */
+main section {
+  padding: 112px 0;
+}
+
+main section.alt {
+  background: var(--mantle);
+}
+
+.kicker {
+  margin: 0 0 10px;
+  color: var(--blue);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+main h2 {
+  margin: 0 0 16px;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.intro {
+  max-width: 44rem;
+  margin: 0 0 48px;
+  color: var(--subtext);
+  font-size: 1.15rem;
+}
+
+/* Restored, not blurred: three crops side by side. */
+.trio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.trio figure {
+  margin: 0;
+}
+
+.trio img,
+.shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--surface0);
+  border-radius: 12px;
+}
+
+.trio figcaption {
+  margin-top: 12px;
+  color: var(--subtext);
+  font-size: 0.95rem;
+}
+
+.trio .win figcaption {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+/* Three steps, each with a piece of the app. */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.steps li {
+  overflow: hidden;
+  border: 1px solid var(--surface0);
+  border-radius: 16px;
+  background: var(--base);
+}
+
+.steps img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 19 / 10;
+  object-fit: cover;
+  border-bottom: 1px solid var(--surface0);
+}
+
+.steps .text {
+  padding: 20px 22px 24px;
+}
+
+.steps h3 {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+}
+
+.steps h3::before {
+  counter-increment: step;
+  content: counter(step);
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--crust);
+  font-size: 0.85rem;
+  vertical-align: 2px;
+}
+
+.steps p {
+  margin: 0;
+  color: var(--subtext);
+}
+
+.shot {
+  border-radius: 14px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+}
+
+/* Privacy and price. */
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.card {
+  padding: 36px;
+  border: 1px solid var(--surface0);
+  border-radius: 18px;
+  background: var(--base);
+}
+
+.card svg {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 18px;
+  color: var(--blue);
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.card p {
+  margin: 0;
+  color: var(--subtext);
+}
+
+.closing {
+  text-align: center;
+}
+
+.closing img {
+  width: 96px;
+  height: 96px;
+}
+
+.closing h2 {
+  margin-top: 16px;
+}
+
+.closing .intro {
+  margin: 0 auto 28px;
+}
+
+footer {
+  padding: 32px 0 48px;
+  border-top: 1px solid var(--surface0);
+  color: var(--overlay);
+  font-size: 0.9rem;
+}
+
+footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 24px;
+}
+
+footer nav a {
+  display: inline-block;
+  margin-right: 20px;
+  color: var(--subtext);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+footer nav a:hover {
+  color: var(--text);
+}
+
+@media (max-width: 760px) {
+  main section {
+    padding: 72px 0;
+  }
+
+  .trio,
+  .steps,
+  .pair {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 28px;
+  }
+}
