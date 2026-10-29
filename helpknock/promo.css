@@ -126,17 +126,20 @@ p {
   max-width: 34rem;
 }
 
-/* Until the app is on the App Store this is plain text styled as a disabled pill: it is not a
-   link, so nobody (a reviewer included) taps a button that does nothing. */
-.soon {
-  display: inline-block;
+/* Apple's badge artwork as provided: the black one, with the gray border that is part of it.
+   48px tall is above Apple's 40px onscreen minimum, and the fine print's 12px margin is the
+   quarter-height clear space Apple asks for. */
+.store {
   margin-top: 28px;
-  padding: 10px 20px;
-  border: 1.5px solid rgba(255, 255, 255, 0.55);
-  border-radius: 999px;
-  color: rgba(255, 255, 255, 0.85);
-  font-weight: 600;
-  cursor: default;
+  line-height: 0;
+}
+
+.store a {
+  display: inline-block;
+}
+
+.store img {
+  display: block;
 }
 
 .fineprint {
