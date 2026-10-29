@@ -1,6 +1,6 @@
 # vulcanshen.github.io
 
-vulcan 的 app 推廣頁、支援頁與隱私權政策，用 GitHub Pages 發布：<https://vulcanshen.github.io/>
+vulcan 的作品入口，以及 app 的推廣頁、支援頁與隱私權政策，用 GitHub Pages 發布：<https://vulcanshen.github.io/>
 
 | App | 推廣頁 | 支援頁 | 隱私權政策 |
 |---|---|---|---|
@@ -12,9 +12,10 @@ App Store Connect 的「行銷網址」、「支援網址」與「隱私權政�
 ## 結構
 
 ```
-index.html            首頁：所有 app 的卡片
+index.html            首頁：分 Apple apps、瀏覽器擴充功能、Terminal apps 三區，每個作品一張卡片
 style.css             首頁、支援頁、隱私權政策共用的樣式
 template/             支援頁與隱私權政策的範本，新 app 從這裡複製
+icons/                首頁上其他作品的 icon（<名稱>.svg）
 <app>/index.html      推廣頁（各 app 自己設計，樣式也放在 <app>/ 裡）
 <app>/support/        支援頁（index.html）
 <app>/privacy/        隱私權政策（index.html）
@@ -28,7 +29,15 @@ template/             支援頁與隱私權政策的範本，新 app 從這裡�
 1. **支援頁與隱私權政策**：把 `template/support/`、`template/privacy/` 複製成 `<app>/support/`、`<app>/privacy/`，把 `{{…}}` 換掉、照註解填內容，最後刪掉註解。這兩頁每個 app 都長一樣，只換內容，不改版面與樣式。
 2. **推廣頁**：`<app>/index.html` 依該 app 的特性與受眾自己設計，版面、文案、樣式、中英文怎麼分都由各 app 決定，不跟其他 app 統一。樣式放在該 app 的資料夾裡（例如 `alphade/promo.css`），不要加進共用的 `style.css`。
 3. **icon**：放 `<app>/icon.png`，有深色版就再放 `icon-dark.png`。
-4. **首頁與上面的表格**：各加一行，在該 app 的分支加；表頭在 main。首頁卡片的 app 名稱連到推廣頁，中文簡介整句連到中文推廣頁（沒有另外做中文頁的話連到同一頁），下面的連結指向支援頁與隱私權政策。
+4. **首頁與上面的表格**：各加一行，在該 app 的分支加；表頭在 main。卡片放在首頁的 Apple apps 那一區，卡片的 app 名稱連到推廣頁，中文簡介整句連到中文推廣頁（沒有另外做中文頁的話連到同一頁），下面的連結指向支援頁與隱私權政策。
+
+## 首頁上的其他作品
+
+首頁是挑選過的作品入口，不是每個 repo 都放。
+
+- 瀏覽器擴充功能與 Terminal apps 不在這個網站做頁面：卡片的名稱連到作品自己的頁面（有的話）或 GitHub repo，中文簡介連到中文的頁面或 README。這類卡片直接在 main 加，不用開分支。
+- icon 從作品的 repo 複製一份到 `icons/<名稱>.svg`；作品沒有 icon 的話，卡片就不放圖。
+- 開了 GitHub Pages 的 repo 會佔用 `/<repo 名稱>/`（目前有 `yi-translate`），這個網站的資料夾不要跟它們同名；首頁連到這類頁面時寫完整網址，本機預覽才連得到。
 
 ## 支援頁與隱私權政策的規則
 

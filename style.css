@@ -144,8 +144,8 @@ footer {
   border-top: 1px solid var(--line);
 }
 
-/* Home page: one card per app. A card sets its app's accent like a page does, so --accent is
-   resolved again on the card. */
+/* Home page: a section per kind of app (h2), one card per app (h3). A card sets its app's
+   accent like a page does, so --accent is resolved again on the card. */
 .app-card {
   --accent: var(--accent-light);
 }
@@ -159,7 +159,26 @@ footer {
 .apps {
   display: grid;
   gap: 16px;
-  margin-top: 32px;
+  margin-top: 20px;
+}
+
+.intro {
+  margin: 16px 0 0;
+}
+
+.build {
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+kbd {
+  padding: 0 6px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--card);
+  font: 0.85em ui-monospace, SFMono-Regular, Menlo, monospace;
+  white-space: nowrap;
 }
 
 .app-card {
@@ -177,7 +196,7 @@ footer {
   border-radius: var(--icon-radius, 0);
 }
 
-.app-card h2 {
+.app-card h3 {
   margin: 0;
   padding: 0;
   border: 0;
