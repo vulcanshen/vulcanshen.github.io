@@ -1,5 +1,5 @@
-/* Shared by the home page and every app's support and privacy pages; a promo page brings its
-   own styles. Each page sets its own accent on <html>:
+/* Shared by every app's support and privacy pages; the home page has home.css and a promo page
+   brings its own styles. Each page sets its own accent on <html>:
    style="--accent-light: #1e66f5; --accent-dark: #89b4fa"
    How the icon looks is up to each app: a macOS icon file already has its shape and shadow, an
    iOS one is a full square, so an iOS app adds e.g. --icon-radius: 22.37% (and a border if it
@@ -9,7 +9,6 @@
   --fg: #1d1d1f;
   --muted: #6e6e73;
   --line: #d2d2d7;
-  --card: #f5f5f7;
   --accent-light: #0a5bd3;
   --accent-dark: #6aa8ff;
   --accent: var(--accent-light);
@@ -24,7 +23,6 @@
     --fg: #f2f2f4;
     --muted: #a1a1a8;
     --line: #333338;
-    --card: #1c1c1f;
     --accent: var(--accent-dark);
     --notice-bg: #3a1618;
     --notice-fg: #ffb4b4;
@@ -115,8 +113,7 @@ footer {
 
 /* Keep each link on one line, so a Chinese label never breaks mid-word on a narrow screen. */
 .langs a,
-.section-links a,
-.app-card .links a {
+.section-links a {
   display: inline-block;
   white-space: nowrap;
 }
@@ -142,72 +139,4 @@ footer {
   margin-top: 48px;
   padding-top: 16px;
   border-top: 1px solid var(--line);
-}
-
-/* Home page: a section per kind of app (h2), one card per app (h3). A card sets its app's
-   accent like a page does, so --accent is resolved again on the card. */
-.app-card {
-  --accent: var(--accent-light);
-}
-
-@media (prefers-color-scheme: dark) {
-  .app-card {
-    --accent: var(--accent-dark);
-  }
-}
-
-.apps {
-  display: grid;
-  gap: 16px;
-  margin-top: 20px;
-}
-
-.intro {
-  margin: 16px 0 0;
-}
-
-.build {
-  margin: 20px 0 0;
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-kbd {
-  padding: 0 6px;
-  border: 1px solid var(--line);
-  border-radius: 5px;
-  background: var(--card);
-  font: 0.85em ui-monospace, SFMono-Regular, Menlo, monospace;
-  white-space: nowrap;
-}
-
-.app-card {
-  display: flex;
-  gap: 16px;
-  padding: 16px;
-  border-radius: 14px;
-  background: var(--card);
-}
-
-.app-card img {
-  width: 64px;
-  height: 64px;
-  flex: none;
-  border-radius: var(--icon-radius, 0);
-}
-
-.app-card h3 {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 1.15rem;
-}
-
-.app-card p {
-  margin: 0 0 4px;
-}
-
-.app-card .links a {
-  margin-right: 16px;
-  font-size: 0.95rem;
 }

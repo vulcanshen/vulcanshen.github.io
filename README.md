@@ -13,7 +13,8 @@ App Store Connect 的「行銷網址」、「支援網址」與「隱私權政�
 
 ```
 index.html            首頁：分 Apple apps、瀏覽器擴充功能、Terminal apps 三區，每個作品一張卡片
-style.css             首頁、支援頁、隱私權政策共用的樣式
+home.css              首頁的樣式
+style.css             支援頁、隱私權政策共用的樣式
 template/             支援頁與隱私權政策的範本，新 app 從這裡複製
 icons/                首頁上其他作品的 icon（<名稱>.svg）
 <app>/index.html      推廣頁（各 app 自己設計，樣式也放在 <app>/ 裡）
@@ -29,7 +30,7 @@ icons/                首頁上其他作品的 icon（<名稱>.svg）
 1. **支援頁與隱私權政策**：把 `template/support/`、`template/privacy/` 複製成 `<app>/support/`、`<app>/privacy/`，把 `{{…}}` 換掉、照註解填內容，最後刪掉註解。這兩頁每個 app 都長一樣，只換內容，不改版面與樣式。
 2. **推廣頁**：`<app>/index.html` 依該 app 的特性與受眾自己設計，版面、文案、樣式、中英文怎麼分都由各 app 決定，不跟其他 app 統一。樣式放在該 app 的資料夾裡（例如 `alphade/promo.css`），不要加進共用的 `style.css`。
 3. **icon**：放 `<app>/icon.png`，有深色版就再放 `icon-dark.png`。
-4. **首頁與上面的表格**：各加一行，在該 app 的分支加；表頭在 main。卡片放在首頁的 Apple apps 那一區，卡片的 app 名稱連到推廣頁，中文簡介整句連到中文推廣頁（沒有另外做中文頁的話連到同一頁），下面的連結指向支援頁與隱私權政策。
+4. **首頁與上面的表格**：各加一行，在該 app 的分支加；表頭在 main。卡片放在首頁的 Apple apps 那一區，照現有的卡片複製一張：名稱上方的小字寫平台（例如 `Mac`、`iPhone · iPad`），app 名稱連到推廣頁，中文簡介整句連到中文推廣頁（沒有另外做中文頁的話連到同一頁），下面的按鈕指向支援頁與隱私權政策。
 
 ## 首頁上的其他作品
 
