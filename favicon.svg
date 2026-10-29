@@ -1,4 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#0b57d0"/>
-  <path d="M18 19 L32 46 L46 19" fill="none" stroke="#ffffff" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><clipPath id="c"><rect width="64" height="64" rx="14"/></clipPath><linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b2a6b"/><stop offset="1" stop-color="#d1495b"/></linearGradient></defs>
+  <g clip-path="url(#c)">
+    <rect width="64" height="64" fill="url(#s)"/>
+    <path d="M-2 66 L21 31 Q22.5 29 25 29 L39 29 Q41.5 29 43 31 L66 66 Z" fill="#1b1c1f"/>
+    <path d="M22.5 30.5 L41.5 30.5 L45 36.5 Q42 35.5 41.5 39.5 L43 47 Q39.5 45 38.5 41 Q36.5 37.5 34.5 42 L33 51 Q30.5 45.5 31 40 Q29 36.5 26.5 40 Q24 37.5 20 37 Z" fill="#f2b753"/>
+    <path d="M32 28 C25 27 20.5 23 22.5 17.5 C23.5 13.5 28 13.5 29.5 15.5 C29 10.5 35.5 9 36.5 13.5 C39 10 44.5 12.5 42.5 17.5 C45 22.5 39 27 32 28 Z" fill="#f2b753"/>
+    <path d="M32 26 C28 25.5 26 23 27 20 C28 18 30.5 18.5 31 19.5 C31 17 34.5 16.5 35 19 C36.5 17.5 39 19 38 21.5 C39 24 36 26 32 26 Z" fill="#e8710a"/>
+    <circle cx="17.5" cy="12" r="2.4" fill="#f2b753"/>
+    <circle cx="47.5" cy="8.5" r="2.2" fill="#f2b753"/>
+    <circle cx="27" cy="6" r="1.8" fill="#e8710a"/>
+  </g></svg>
