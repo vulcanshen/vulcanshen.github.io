@@ -286,6 +286,17 @@ a {
   background: color-mix(in srgb, var(--accent) 22%, transparent);
 }
 
+/* Filled button: where to get the app */
+.btn-filled,
+.btn-filled:hover {
+  background: var(--accent);
+  color: var(--surface);
+}
+
+.btn-filled:hover {
+  box-shadow: var(--shadow-1);
+}
+
 /* Terminal apps: what the family shares, and how to build one */
 .callout {
   margin-bottom: 20px;
