@@ -261,6 +261,12 @@ a {
   padding-top: 12px;
 }
 
+/* Buttons of one language stay on one row together. */
+.btn-group {
+  display: flex;
+  gap: 8px;
+}
+
 /* Tonal button */
 .btn {
   display: inline-flex;
