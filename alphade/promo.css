@@ -71,7 +71,7 @@ a {
   color: var(--text);
 }
 
-/* Hero: icon, headline, pitch, "coming soon", then the before/after loop. */
+/* Hero: icon, headline, pitch, the download, then the before/after loop. */
 .hero {
   padding-bottom: 32px;
   text-align: center;
@@ -106,16 +106,19 @@ a {
   font-size: 1.2rem;
 }
 
-/* Not a link until the app is on the store: it must not look like a button that does nothing. */
-.soon {
+/* The download: the latest release on GitHub. */
+.download {
   display: inline-block;
-  margin: 0;
-  padding: 10px 22px;
-  border: 1px dashed var(--surface1);
+  padding: 12px 28px;
   border-radius: 999px;
-  color: var(--subtext);
+  background: var(--blue);
+  color: var(--crust);
   font-weight: 600;
-  cursor: default;
+  text-decoration: none;
+}
+
+.download:hover {
+  background: var(--lavender);
 }
 
 .fineprint {

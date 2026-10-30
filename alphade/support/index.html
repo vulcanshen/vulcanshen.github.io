@@ -28,7 +28,7 @@
     <p>Alphade removes semi-transparent watermarks, logos and text overlays from your videos on your Mac, and brings back the picture underneath instead of blurring it away.</p>
 
     <h3>Contact</h3>
-    <p>To report a problem or ask a question, open an issue on <a href="https://github.com/vulcanshen/vulcanshen.github.io/issues/new?title=%5BAlphade%5D%20">GitHub</a> and start the title with [Alphade]. No GitHub account? Email <a href="mailto:vulcan.shen.2304@gmail.com?subject=%5BAlphade%5D%20">vulcan.shen.2304@gmail.com</a>. If something doesn't work, please include your macOS version, the video's format and size (for example MP4, 1920 × 1080), and a screenshot if you can.</p>
+    <p>To report a problem or ask a question, open an issue on <a href="https://github.com/vulcanshen/alphade/issues/new">GitHub</a>. No GitHub account? Email <a href="mailto:vulcan.shen.2304@gmail.com?subject=%5BAlphade%5D%20">vulcan.shen.2304@gmail.com</a>. If something doesn't work, please include your macOS version, the video's format and size (for example MP4, 1920 × 1080), and a screenshot if you can.</p>
 
     <h3>Getting started</h3>
     <ol>
@@ -41,7 +41,14 @@
     <p>If something real passes through the box, such as a person or text, open Advanced and mark the area where detail should be kept.</p>
 
     <h3>Is Alphade free?</h3>
-    <p>Opening, analyzing and previewing are free. Exporting needs a one-time purchase, with no subscription. Any Mac signed in with the same Apple Account can restore it.</p>
+    <p>Yes. Alphade is free to download and use, with no purchase, no trial limits and no subscription.</p>
+
+    <h3>How do I install Alphade?</h3>
+    <p>Download the zip from <a href="https://github.com/vulcanshen/alphade/releases/latest">GitHub</a>, open it and drag Alphade to your Applications folder. The first time you open Alphade, macOS asks whether to open an app downloaded from the internet; click Open. Alphade is signed with a Developer ID and notarized by Apple. To update, download the latest version the same way and replace the old one.</p>
+    <p>With Homebrew, run <code>brew install --cask vulcanshen/tap/alphade</code>, and update with <code>brew upgrade --cask alphade</code>.</p>
+
+    <h3>How do I uninstall Alphade?</h3>
+    <p>Drag Alphade to the Trash. Its settings and temporary files are in <code>~/Library/Containers/app.vulcanshen.alphade</code>, which you can delete too. If you installed with Homebrew, run <code>brew uninstall --cask alphade</code>; add <code>--zap</code> to delete the settings and temporary files as well.</p>
 
     <h3>Which watermarks can Alphade remove?</h3>
     <p>Semi-transparent watermarks, logos and text that stay in the same place for the whole video. Opaque logos can be filled in when the background behind them is simple, such as a solid color, a gradient or a slide. Watermarks that move, and opaque watermarks over detailed or live-action backgrounds, aren't supported.</p>
@@ -58,12 +65,6 @@
 
     <h3>How do I change the language?</h3>
     <p>Alphade is available in English and Traditional Chinese, and follows your Mac's language unless you choose otherwise. Click the gear at the bottom of the sidebar, or choose Alphade › Settings, pick a language and restart Alphade.</p>
-
-    <h3>How do I restore my purchase?</h3>
-    <p>Choose Alphade › Restore Purchases, or click Restore Purchases in the purchase window. Use the same Apple Account you bought with.</p>
-
-    <h3>How do I get a refund?</h3>
-    <p>Refunds are handled by Apple. Request one at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
 
     <h3>Privacy</h3>
     <p>Alphade works entirely on your Mac: your videos are never uploaded and no data is collected. See the <a href="../privacy/#en">Privacy Policy</a>.</p>
@@ -85,7 +86,7 @@
     <p>Alphade 在你的 Mac 上去除影片裡的半透明浮水印、logo 與文字疊圖，而且是把底下原本的畫面還原回來，不是把它糊掉。</p>
 
     <h3>聯絡</h3>
-    <p>回報問題或提問，請到 <a href="https://github.com/vulcanshen/vulcanshen.github.io/issues/new?title=%5BAlphade%5D%20">GitHub</a> 開一個 issue，標題開頭加上 [Alphade]。沒有 GitHub 帳號的話，請寄信到 <a href="mailto:vulcan.shen.2304@gmail.com?subject=%5BAlphade%5D%20">vulcan.shen.2304@gmail.com</a>。如果遇到問題，請附上 macOS 版本、影片的格式與尺寸（例如 MP4、1920 × 1080），方便的話再附一張截圖。</p>
+    <p>回報問題或提問，請到 <a href="https://github.com/vulcanshen/alphade/issues/new">GitHub</a> 開一個 issue。沒有 GitHub 帳號的話，請寄信到 <a href="mailto:vulcan.shen.2304@gmail.com?subject=%5BAlphade%5D%20">vulcan.shen.2304@gmail.com</a>。如果遇到問題，請附上 macOS 版本、影片的格式與尺寸（例如 MP4、1920 × 1080），方便的話再附一張截圖。</p>
 
     <h3>開始使用</h3>
     <ol>
@@ -98,7 +99,14 @@
     <p>如果框裡有真實的內容經過（例如人物或文字），可以打開「進階」，標出要保留細節的區域。</p>
 
     <h3>Alphade 要錢嗎？</h3>
-    <p>開啟、分析與預覽都免費。輸出需要一次買斷，不是訂閱。用同一個 Apple 帳號登入的 Mac 都能恢復購買。</p>
+    <p>不用。Alphade 可以免費下載和使用，沒有內購、沒有試用限制，也沒有訂閱。</p>
+
+    <h3>怎麼安裝？</h3>
+    <p>從 <a href="https://github.com/vulcanshen/alphade/releases/latest">GitHub</a> 下載 zip，打開後把 Alphade 拖進「應用程式」資料夾。第一次打開 Alphade 時，macOS 會問是否要打開從網路下載的 app，按「打開」。Alphade 已用 Developer ID 簽章，並經過 Apple 公證。要更新時，用同樣的方式下載最新版，取代舊的即可。</p>
+    <p>用 Homebrew 的話，執行 <code>brew install --cask vulcanshen/tap/alphade</code>，更新用 <code>brew upgrade --cask alphade</code>。</p>
+
+    <h3>怎麼移除？</h3>
+    <p>把 Alphade 拖到垃圾桶即可。它的設定與暫存檔在 <code>~/Library/Containers/app.vulcanshen.alphade</code>，也可以一併刪除。用 Homebrew 安裝的話，執行 <code>brew uninstall --cask alphade</code>；加上 <code>--zap</code> 會連設定與暫存檔一起刪除。</p>
 
     <h3>哪些浮水印可以去除？</h3>
     <p>整支影片都固定在同一個位置的半透明浮水印、logo 與文字。不透明的 logo 如果背景很單純（純色、漸層、簡報畫面），可以用周圍的背景填補。會移動的浮水印，以及疊在細節豐富或實拍畫面上的不透明浮水印，目前不支援。</p>
@@ -115,12 +123,6 @@
 
     <h3>怎麼切換語言？</h3>
     <p>Alphade 支援英文與繁體中文，預設跟著 Mac 的語言。要切換時，按側欄最下方的齒輪，或從選單選「Alphade › 設定」，選好語言後重新開啟 Alphade。</p>
-
-    <h3>怎麼恢復購買？</h3>
-    <p>從選單選「Alphade › 恢復購買」，或在購買視窗按「恢復購買」。請使用當初購買時的 Apple 帳號。</p>
-
-    <h3>怎麼申請退款？</h3>
-    <p>退款由 Apple 處理，請到 <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> 申請。</p>
 
     <h3>隱私</h3>
     <p>Alphade 全程在你的 Mac 上處理：影片不會上傳，也不收集任何資料。詳見<a href="../privacy/#zh-Hant">隱私權政策</a>。</p>

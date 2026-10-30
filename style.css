@@ -80,6 +80,11 @@ a {
   color: var(--accent);
 }
 
+/* A long path or command breaks anywhere rather than run off a narrow screen. */
+code {
+  overflow-wrap: anywhere;
+}
+
 /* Page header: app icon, name, language switch. */
 .app-header {
   display: flex;
