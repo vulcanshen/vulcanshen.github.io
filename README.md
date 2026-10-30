@@ -14,7 +14,7 @@ App Store Connect 的「行銷網址」、「支援網址」與「隱私權政�
 ```
 index.html            首頁：分 Apple apps、瀏覽器擴充功能、Terminal apps 三區，每個作品一張卡片
 home.css              首頁的樣式
-favicon.svg           網站的 icon；favicon.ico、apple-touch-icon.png 是從它轉出來的 PNG 版本
+favicon.svg           網站的 icon，首頁頂部列也用它；favicon.ico、apple-touch-icon.png 是從它轉出來的 PNG 版本
 og.png                首頁分享到社群時的預覽圖（1200×630）
 style.css             支援頁、隱私權政策共用的樣式
 template/             支援頁與隱私權政策的範本，新 app 從這裡複製
