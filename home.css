@@ -354,41 +354,20 @@ kbd {
   margin-top: 16px;
 }
 
-/* A smaller card, its icon drawn in the terminu family's black, blue and amber. */
+/* Not apps, so no icon: a smaller card set in type instead, the kind in the terminu
+   family's blue (amber in the dark) and the name in a terminal font. */
 .tile {
   padding: 16px;
   font-size: 0.95rem;
 }
 
-.tile .card-head {
-  gap: 12px;
-  margin-bottom: 10px;
-}
-
-.tile-icon {
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  flex: none;
-  border-radius: 10px;
-  background: #000;
-  box-shadow: inset 0 0 0 2px #205090;
-}
-
-.tile-icon svg {
-  width: 22px;
-  height: 22px;
-  fill: none;
-  stroke: #f2b753;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.tile .overline {
+  color: var(--accent);
 }
 
 .tile h4 {
-  margin: 0;
-  font-size: 1rem;
+  margin: 4px 0 10px;
+  font: 600 1.15rem/1.3 ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 .tile h4 a {
