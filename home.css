@@ -354,16 +354,12 @@ kbd {
   margin-top: 16px;
 }
 
-/* Not apps, so no icon: a smaller card set in type instead, the kind in the terminu
-   family's blue (amber in the dark) and the name in a terminal font, on a tonal
-   button of the terminu icon blue, like GitHub's but with square corners. */
+/* Not apps, so no icon: a smaller card set in type instead, the name in a terminal
+   font on a tonal button of the terminu icon blue, like GitHub's but with square
+   corners, its text in the family's blue (amber in the dark). */
 .tile {
   padding: 16px;
   font-size: 0.95rem;
-}
-
-.tile .overline {
-  color: var(--accent);
 }
 
 .tile h4 {
