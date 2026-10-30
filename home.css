@@ -355,8 +355,8 @@ kbd {
 }
 
 /* Not apps, so no icon: a smaller card set in type instead, the kind in the terminu
-   family's blue (amber in the dark) and the name in a terminal font, on a tonal
-   button like GitHub's but with square corners. */
+   family's blue (amber in the dark) and the name in a terminal font, on a button
+   in the blue of the terminu icons, like GitHub's but with square corners. */
 .tile {
   padding: 16px;
   font-size: 0.95rem;
@@ -375,13 +375,13 @@ kbd {
   display: inline-block;
   padding: 6px 12px;
   border-radius: 8px;
-  background: color-mix(in srgb, var(--accent) 12%, transparent);
-  color: var(--accent);
+  background: #205090;
+  color: #fff;
   text-decoration: none;
 }
 
 .tile h4 a:hover {
-  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  background: color-mix(in srgb, #205090 85%, #fff);
 }
 
 .tile .zh {
