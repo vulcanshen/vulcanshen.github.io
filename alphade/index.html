@@ -17,7 +17,18 @@
       <a class="brand" href="./"><img src="icon.png" alt="">Alphade</a>
       <nav>
         <a href="support/#en">Support</a>
-        <a href="zh-Hant/" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a>
+        <details class="langs">
+          <summary>Language</summary>
+          <ul>
+            <li><a href="./" aria-current="page">English</a></li>
+            <li><a href="https://github.com/vulcanshen/alphade/blob/main/README-de.md" lang="de" hreflang="de">Deutsch</a></li>
+            <li><a href="https://github.com/vulcanshen/alphade/blob/main/README-es.md" lang="es" hreflang="es">Español</a></li>
+            <li><a href="https://github.com/vulcanshen/alphade/blob/main/README-fr.md" lang="fr" hreflang="fr">Français</a></li>
+            <li><a href="https://github.com/vulcanshen/alphade/blob/main/README-ja.md" lang="ja" hreflang="ja">日本語</a></li>
+            <li><a href="https://github.com/vulcanshen/alphade/blob/main/README-ko.md" lang="ko" hreflang="ko">한국어</a></li>
+            <li><a href="zh-Hant/" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a></li>
+          </ul>
+        </details>
       </nav>
     </div>
     <img class="icon" src="icon.png" width="112" height="112" alt="">
@@ -140,5 +151,11 @@
     <span>© 2026 Vulcan Shen</span>
   </div>
 </footer>
+<script>
+  // Close the language menu on a click outside it, or on Esc.
+  const langs = document.querySelector(".langs");
+  document.addEventListener("click", e => { if (!langs.contains(e.target)) langs.open = false; });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") langs.open = false; });
+</script>
 </body>
 </html>
