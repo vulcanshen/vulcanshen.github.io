@@ -1,5 +1,5 @@
-/* Alphade promo pages (alphade/ and alphade/zh-Hant/). Dark, like a video editor, in the
-   Catppuccin Mocha colours of the app icon. Not shared with other apps. */
+/* Alphade promo pages (alphade/ in English, alphade/<de|es|fr|ja|ko|zh-Hant>/). Dark, like a video
+   editor, in the Catppuccin Mocha colours of the app icon. Not shared with other apps. */
 :root {
   color-scheme: dark;
   --crust: #11111b;
@@ -25,6 +25,17 @@ body {
   font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
+}
+
+/* PingFang TC comes first above, which would draw Japanese kanji in their Chinese forms. */
+body:lang(ja) {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+}
+
+/* Korean breaks lines between words, not inside them. */
+body:lang(ko) {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  word-break: keep-all;
 }
 
 a {
