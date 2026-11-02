@@ -197,7 +197,7 @@ details.langs a[aria-current] {
   border-radius: 10px;
 }
 
-/* Links at the end of each language section, so they stay in that language. */
+/* Links at the end of the page to the app's other pages, in the same language as the page. */
 .section-links {
   margin-top: 32px;
 }
