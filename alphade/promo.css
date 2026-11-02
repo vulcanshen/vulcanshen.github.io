@@ -1,5 +1,5 @@
-/* Alphade promo pages (alphade/ and alphade/zh-Hant/). Dark, like a video editor, in the
-   Catppuccin Mocha colours of the app icon. Not shared with other apps. */
+/* Alphade promo pages (alphade/ in English, alphade/<de|es|fr|ja|ko|zh-Hant>/). Dark, like a video
+   editor, in the Catppuccin Mocha colours of the app icon. Not shared with other apps. */
 :root {
   color-scheme: dark;
   --crust: #11111b;
@@ -25,6 +25,17 @@ body {
   font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
+}
+
+/* PingFang TC comes first above, which would draw Japanese kanji in their Chinese forms. */
+body:lang(ja) {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+}
+
+/* Korean breaks lines between words, not inside them. */
+body:lang(ko) {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  word-break: keep-all;
 }
 
 a {
@@ -71,7 +82,70 @@ a {
   color: var(--text);
 }
 
-/* Hero: icon, headline, pitch, "coming soon", then the before/after loop. */
+.topbar nav {
+  display: flex;
+  align-items: center;
+}
+
+/* The language menu: this site has English and Chinese; the other languages open the
+   README in that language on GitHub. */
+.langs {
+  position: relative;
+  margin-left: 20px;
+}
+
+.langs summary {
+  color: var(--subtext);
+  font-size: 0.95rem;
+  white-space: nowrap;
+  list-style: none;
+  cursor: pointer;
+}
+
+.langs summary::-webkit-details-marker {
+  display: none;
+}
+
+.langs summary::after {
+  content: " ▾";
+}
+
+.langs summary:hover,
+.langs[open] summary {
+  color: var(--text);
+}
+
+.langs ul {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  text-align: left;
+  background: var(--base);
+  border: 1px solid var(--surface0);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.topbar .langs a {
+  display: block;
+  margin: 0;
+  padding: 6px 14px;
+  border-radius: 6px;
+}
+
+.topbar .langs a:hover {
+  background: var(--surface0);
+}
+
+.topbar .langs a[aria-current] {
+  color: var(--text);
+}
+
+/* Hero: icon, headline, pitch, the download, then the before/after loop. */
 .hero {
   padding-bottom: 32px;
   text-align: center;
@@ -106,16 +180,19 @@ a {
   font-size: 1.2rem;
 }
 
-/* Not a link until the app is on the store: it must not look like a button that does nothing. */
-.soon {
+/* The download: the latest release on GitHub. */
+.download {
   display: inline-block;
-  margin: 0;
-  padding: 10px 22px;
-  border: 1px dashed var(--surface1);
+  padding: 12px 28px;
   border-radius: 999px;
-  color: var(--subtext);
+  background: var(--blue);
+  color: var(--crust);
   font-weight: 600;
-  cursor: default;
+  text-decoration: none;
+}
+
+.download:hover {
+  background: var(--lavender);
 }
 
 .fineprint {

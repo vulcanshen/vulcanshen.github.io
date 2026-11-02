@@ -6,6 +6,11 @@
   <title>Alphade · Remove video watermarks on your Mac</title>
   <meta name="description" content="Alphade removes semi-transparent watermarks from your videos and brings back the picture underneath, entirely on your Mac.">
   <link rel="alternate" hreflang="en" href="https://vulcanshen.github.io/alphade/">
+  <link rel="alternate" hreflang="de" href="https://vulcanshen.github.io/alphade/de/">
+  <link rel="alternate" hreflang="es" href="https://vulcanshen.github.io/alphade/es/">
+  <link rel="alternate" hreflang="fr" href="https://vulcanshen.github.io/alphade/fr/">
+  <link rel="alternate" hreflang="ja" href="https://vulcanshen.github.io/alphade/ja/">
+  <link rel="alternate" hreflang="ko" href="https://vulcanshen.github.io/alphade/ko/">
   <link rel="alternate" hreflang="zh-Hant" href="https://vulcanshen.github.io/alphade/zh-Hant/">
   <link rel="alternate" hreflang="x-default" href="https://vulcanshen.github.io/alphade/">
   <link rel="stylesheet" href="promo.css">
@@ -17,14 +22,25 @@
       <a class="brand" href="./"><img src="icon.png" alt="">Alphade</a>
       <nav>
         <a href="support/#en">Support</a>
-        <a href="zh-Hant/" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a>
+        <details class="langs">
+          <summary>Language</summary>
+          <ul>
+            <li><a href="./" aria-current="page">English</a></li>
+            <li><a href="de/" lang="de" hreflang="de">Deutsch</a></li>
+            <li><a href="es/" lang="es" hreflang="es">Español</a></li>
+            <li><a href="fr/" lang="fr" hreflang="fr">Français</a></li>
+            <li><a href="ja/" lang="ja" hreflang="ja">日本語</a></li>
+            <li><a href="ko/" lang="ko" hreflang="ko">한국어</a></li>
+            <li><a href="zh-Hant/" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a></li>
+          </ul>
+        </details>
       </nav>
     </div>
     <img class="icon" src="icon.png" width="112" height="112" alt="">
     <h1>Watermarks out.<br><span>Your picture back.</span></h1>
     <p class="pitch">Alphade removes semi-transparent watermarks from your videos and recovers the picture underneath, right on your Mac.</p>
-    <p class="soon" aria-disabled="true">Coming soon to the Mac App Store</p>
-    <p class="fineprint">Free to try · One-time purchase · macOS 26 or later</p>
+    <a class="download" href="https://github.com/vulcanshen/alphade/releases/latest/download/Alphade.zip">Download for Mac</a>
+    <p class="fineprint">Free · macOS 26 or later</p>
     <div class="stage">
       <video src="media/hero.mp4" poster="media/hero-poster.jpg" width="1280" height="720" autoplay muted loop playsinline
              aria-label="A divider sweeps across a video: on the left the semi-transparent watermark is still there, on the right Alphade has removed it."></video>
@@ -112,8 +128,8 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M3.5 12.5V5a1.5 1.5 0 0 1 1.5-1.5h7.5l8 8-9 9-8-8z"/><circle cx="8.5" cy="8.5" r="1.5"/>
         </svg>
-        <h3>Pay once.</h3>
-        <p>Analyze and preview for free. Unlock export with a single purchase, with no subscription.</p>
+        <h3>Free, start to finish.</h3>
+        <p>Analyze, preview and export at no cost: no purchase, no trial limits, no subscription. The download is signed with a Developer ID and notarized by Apple.</p>
       </div>
     </div>
   </section>
@@ -123,7 +139,8 @@
       <img src="icon.png" width="96" height="96" alt="">
       <h2>Alphade</h2>
       <p class="intro">Works best with semi-transparent watermarks that stay in one place. <a href="support/#en">See which videos work</a>.</p>
-      <p class="soon" aria-disabled="true">Coming soon to the Mac App Store</p>
+      <a class="download" href="https://github.com/vulcanshen/alphade/releases/latest/download/Alphade.zip">Download for Mac</a>
+      <p class="fineprint">Or with Homebrew: <code>brew install --cask vulcanshen/tap/alphade</code></p>
     </div>
   </section>
 </main>
@@ -139,5 +156,11 @@
     <span>© 2026 Vulcan Shen</span>
   </div>
 </footer>
+<script>
+  // Close the language menu on a click outside it, or on Esc.
+  const langs = document.querySelector(".langs");
+  document.addEventListener("click", e => { if (!langs.contains(e.target)) langs.open = false; });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") langs.open = false; });
+</script>
 </body>
 </html>

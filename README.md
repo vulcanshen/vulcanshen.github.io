@@ -1,23 +1,27 @@
 # vulcanshen.github.io
 
-vulcan 的 app 推廣頁、支援頁與隱私權政策，用 GitHub Pages 發布：<https://vulcanshen.github.io/>
+vulcan 的作品入口，以及 app 的推廣頁、支援頁與隱私權政策，用 GitHub Pages 發布：<https://vulcanshen.github.io/>
 
 | App | 推廣頁 | 支援頁 | 隱私權政策 |
 |---|---|---|---|
 | Alphade | <https://vulcanshen.github.io/alphade/> | <https://vulcanshen.github.io/alphade/support/> | <https://vulcanshen.github.io/alphade/privacy/> |
 | HelpKnock | <https://vulcanshen.github.io/helpknock/> | <https://vulcanshen.github.io/helpknock/support/> | <https://vulcanshen.github.io/helpknock/privacy/> |
 
-App Store Connect 的「行銷網址」、「支援網址」與「隱私權政策網址」依序填該 app 的這三個網址。繁體中文的在地化欄位：支援網址在後面加 `#zh-Hant`，打開會直接跳到中文段落；行銷網址填該 app 中文推廣頁的網址。
+App Store Connect 的「行銷網址」、「支援網址」與「隱私權政策網址」依序填該 app 的這三個網址（英文）。其他語言的在地化欄位填該語言的頁面，例如繁體中文填 `<app>/zh-Hant/`、`<app>/support/zh-Hant/`、`<app>/privacy/zh-Hant/`；還沒有該語言頁面的填英文的。以前填過 `support/#zh-Hant` 這種網址的不用急著改，英文頁會轉到中文頁，下一版再改填新網址。
 
 ## 結構
 
 ```
-index.html            首頁：所有 app 的卡片
-style.css             首頁、支援頁、隱私權政策共用的樣式
+index.html            首頁：分 Apple apps、瀏覽器擴充功能、Terminal apps 三區，每個作品一張卡片
+home.css              首頁的樣式
+favicon.svg           網站的 icon，首頁頂部列也用它；favicon.ico、apple-touch-icon.png 是從它轉出來的 PNG 版本
+og.png                首頁分享到社群時的預覽圖（1200×630）
+style.css             支援頁、隱私權政策共用的樣式
 template/             支援頁與隱私權政策的範本，新 app 從這裡複製
+icons/                首頁上其他作品的 icon（<名稱>.svg）
 <app>/index.html      推廣頁（各 app 自己設計，樣式也放在 <app>/ 裡）
-<app>/support/        支援頁（index.html）
-<app>/privacy/        隱私權政策（index.html）
+<app>/support/        支援頁：英文在 index.html，其他語言在 <語言碼>/index.html（例如 zh-Hant/、ja/）
+<app>/privacy/        隱私權政策：分法同支援頁
 <app>/icon.png        頁首用的 icon（可再加 icon-dark.png）
 ```
 
@@ -25,26 +29,35 @@ template/             支援頁與隱私權政策的範本，新 app 從這裡�
 
 ## 加入一個 app
 
-1. **支援頁與隱私權政策**：把 `template/support/`、`template/privacy/` 複製成 `<app>/support/`、`<app>/privacy/`，把 `{{…}}` 換掉、照註解填內容，最後刪掉註解。這兩頁每個 app 都長一樣，只換內容，不改版面與樣式。
+1. **支援頁與隱私權政策**：把 `template/support/`、`template/privacy/`（連同裡面的 `zh-Hant/`）複製成 `<app>/support/`、`<app>/privacy/`，把 `{{…}}` 換掉、照註解填內容，最後刪掉註解。這兩頁每個 app 都長一樣，只換內容，不改版面與樣式。
 2. **推廣頁**：`<app>/index.html` 依該 app 的特性與受眾自己設計，版面、文案、樣式、中英文怎麼分都由各 app 決定，不跟其他 app 統一。樣式放在該 app 的資料夾裡（例如 `alphade/promo.css`），不要加進共用的 `style.css`。
 3. **icon**：放 `<app>/icon.png`，有深色版就再放 `icon-dark.png`。
-4. **首頁與上面的表格**：各加一行，在該 app 的分支加；表頭在 main。首頁卡片的 app 名稱連到推廣頁，中文簡介整句連到中文推廣頁（沒有另外做中文頁的話連到同一頁），下面的連結指向支援頁與隱私權政策。
+4. **首頁與上面的表格**：各加一行，在該 app 的分支加；表頭在 main。卡片放在首頁的 Apple apps 那一區，照現有的卡片複製一張：名稱上方的小字寫平台（例如 `Mac`、`iPhone · iPad`），app 名稱連到推廣頁，中文簡介整句連到中文推廣頁（沒有另外做中文頁的話連到同一頁），下面的按鈕指向支援頁與隱私權政策（英文按鈕連英文頁，中文按鈕連 `zh-Hant/`）。
+
+## 首頁上的其他作品
+
+首頁是挑選過的作品入口，不是每個 repo 都放。
+
+- 瀏覽器擴充功能與 Terminal apps 不在這個網站做頁面：卡片的名稱連到作品自己的頁面（有的話）或 GitHub repo，中文簡介連到中文的頁面或 README。這類卡片直接在 main 加，不用開分支。
+- icon 從作品的 repo 複製一份到 `icons/<名稱>.svg`；作品沒有 icon 的話，卡片就不放圖。
+- 開了 GitHub Pages 的 repo 會佔用 `/<repo 名稱>/`（目前有 `yi-translate`），這個網站的資料夾不要跟它們同名；首頁連到這類頁面時寫完整網址，本機預覽才連得到。
 
 ## 支援頁與隱私權政策的規則
 
 `template/` 已經照下面的規則做好。要改規則時，`template/`、`style.css` 和這裡一起改，再通知各 app 跟著改。
 
 - **資料夾**：用小寫的 app 名稱，網址用資料夾，不出現 `.html`。
-- **語言**：中英文寫在同一頁，分成 `<section id="en" lang="en">` 與 `<section id="zh-Hant" lang="zh-Hant">` 兩段，每段都要有 `lang`，中文才會用對字型。頁首放切換兩種語言的連結。
-- **頁首**：icon、app 名稱、語言切換。
+- **語言**：每種語言一頁。英文是 `<app>/support/`、`<app>/privacy/`，其他語言放在底下的 `<語言碼>/`（`zh-Hant`、`ja`、`ko`…，跟推廣頁用同一組語言碼），支援頁與隱私權政策有一樣的語言。`<html lang>` 設成該語言，字型才會對；日文、韓文的字型 `style.css` 已經處理，要加其他字型不同的語言時在 `style.css` 補 `:lang()` 規則。英文、繁中以外的頁面照英文頁翻譯。
+- **頁首**：icon、app 名稱，右邊是語言選單（`<details class="langs">`）。選單列出這個 app 的所有語言，每種用自己的寫法（English、繁體中文、日本語…），目前這頁加 `aria-current="page"`，其他語言的連結加 `lang` 與 `hreflang`；頁尾那段 script 讓選單在點外面或按 Esc 時收起。以前中英文同一頁的 app（Alphade、HelpKnock）在英文頁的 `<head>` 加上範本註解裡的轉址 script，舊網址的 `#zh-Hant` 才會轉到中文頁。
 - **支援頁**：`h2` 是「Support／支援」，接著 `.lead` 放商店的副標題，需要時放 `.notice`。之後依序是這些 `h3`：聯絡、開始使用（步驟用 `<ol>`）、該 app 自己的問答（每題一個 `h3`）、隱私（一兩句，連到隱私權政策）、系統需求。
-- **隱私權政策**：`h2` 是「Privacy Policy／隱私權政策」，接著 `.meta` 放最後更新日期（`Last updated: October 12, 2026`／`最後更新：2026 年 10 月 12 日`），再來 `.lead` 用一句話摘要這份政策。
+- **隱私權政策**：`h2` 是「Privacy Policy／隱私權政策」，接著 `.meta` 放最後更新日期（`Last updated: October 12, 2026`／`最後更新：2026 年 10 月 12 日`，其他語言用該語言的日期寫法），再來 `.lead` 用一句話摘要這份政策。
+  - 英文、繁中以外的翻譯頁，在日期下面再加一行 `.meta`，用該語言寫「翻譯與英文版不一致時，以英文版為準」，「英文版」連到英文頁。英文與繁中是原文，不加。app 內同語言的政策也要有這一句。
   - 章節依序是：收集哪些資料、資料存在哪裡、第三方（例如 Apple 內購：購買、打賞）、政策變更，每一節都要有。該 app 特有的章節（例如藍牙送出什麼、權限）插在「第三方」之前。
   - 「第三方」只列 app 實際用到的服務，不列當機報告這類作業系統本身的功能。
   - 「兒童」與「聯絡」只在 app 有收集資料時才寫：「兒童」放在「第三方」之後，說明怎麼處理兒童的資料；「聯絡」放在最後，用支援頁同一組聯絡方式。不收集任何資料的 app 都不寫，免得把「不收集」再講一次；聯絡方式在支援頁。
   - app 內也有政策的，兩邊逐字一致：照這裡的章節寫，app 內的版本跟著改。政策改了，最後更新日期一起改。
-- **聯絡方式**：每個 app 都一樣，先放這個 repo 的 issues，再放 email（`vulcan.shen.2304@gmail.com`）給沒有 GitHub 帳號的人；issue 標題與 email 主旨都預先帶 `[App 名稱]`。文字照範本，支援頁可以再加一句請對方附上哪些資訊。隱私權政策有「聯絡」一節時也用同一組。
-- **頁尾**：每段結尾放一組 `.section-links`（app 名稱連到推廣頁、支援、隱私權政策、所有 app），連結指向同一種語言的段落；最下面是 `© 年份 Vulcan Shen`。
+- **聯絡方式**：先放 issues，再放 email（`vulcan.shen.2304@gmail.com`）給沒有 GitHub 帳號的人；email 主旨預先帶 `[App 名稱]`。issues 用這個 repo 的，標題也預先帶 `[App 名稱]`；app 有自己公開、開著 Issues 的 repo 時（例如 Alphade），改連那個 repo 的 issues，標題就不用帶。文字照範本，支援頁可以再加一句請對方附上哪些資訊。隱私權政策有「聯絡」一節時也用同一組。
+- **頁尾**：內容最後放一組 `.section-links`（app 名稱連到推廣頁、支援、隱私權政策、所有 app），連到同一種語言的頁面；推廣頁沒有這種語言的話，app 名稱連到英文推廣頁。最下面是 `© 年份 Vulcan Shen`。
 - **主色**：在 `<html>` 上設 `--accent-light`（淺色模式）與 `--accent-dark`（深色模式），首頁的卡片也一樣設在卡片上。
 - **icon**：macOS 的 icon 檔本身已經有形狀與陰影，直接放；iOS 的 icon 檔是滿版正方形，在 `<html>` 上設 `--icon-radius`（約 `22.37%`）。
 - **警示**：需要醒目提醒時用 `<p class="notice">`。
