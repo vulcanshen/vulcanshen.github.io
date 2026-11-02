@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es" style="--accent-light: #1e66f5; --accent-dark: #89b4fa">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Política de privacidad de Alphade</title>
+  <link rel="stylesheet" href="../../../style.css">
+</head>
+<body>
+<main>
+  <header class="app-header">
+    <picture>
+      <source srcset="../../icon-dark.png" media="(prefers-color-scheme: dark)">
+      <img src="../../icon.png" alt="">
+    </picture>
+    <h1>Alphade</h1>
+    <details class="langs">
+      <summary>Idioma</summary>
+      <ul>
+        <li><a href="../" lang="en" hreflang="en">English</a></li>
+        <li><a href="../de/" lang="de" hreflang="de">Deutsch</a></li>
+        <li><a href="./" aria-current="page">Español</a></li>
+        <li><a href="../fr/" lang="fr" hreflang="fr">Français</a></li>
+        <li><a href="../ja/" lang="ja" hreflang="ja">日本語</a></li>
+        <li><a href="../ko/" lang="ko" hreflang="ko">한국어</a></li>
+        <li><a href="../zh-Hant/" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a></li>
+      </ul>
+    </details>
+  </header>
+
+  <h2>Política de privacidad</h2>
+  <p class="meta">Última actualización: 30 de octubre de 2026</p>
+  <p class="meta">Si la traducción no coincide con la <a href="../" hreflang="en">versión en inglés</a>, prevalece la versión en inglés.</p>
+  <p class="lead">Alphade no recopila ningún dato. Tus vídeos se quedan en tu Mac.</p>
+
+  <h3>Qué recopila Alphade</h3>
+  <p>Nada. Alphade no tiene servidor ni cuentas, y no incluye analíticas, publicidad ni seguimiento.</p>
+
+  <h3>Dónde se quedan tus datos</h3>
+  <p>Alphade solo lee los vídeos que abres y solo escribe los vídeos que exportas, todo en tu Mac. Mientras analiza un vídeo, Alphade guarda una copia temporal de la zona del recuadro en su propia carpeta temporal y la elimina cuando ya no la necesita. No se sube nada.</p>
+
+  <h3>Terceros</h3>
+  <p>Ninguno.</p>
+
+  <h3>Cambios en esta política</h3>
+  <p>Si esta política cambia, se actualizará esta página junto con la fecha de arriba.</p>
+
+  <nav class="section-links">
+    <a href="../../es/">Alphade</a>
+    <a href="../../support/es/">Soporte</a>
+    <a href="./">Política de privacidad</a>
+    <a href="../../../">Todas las apps</a>
+  </nav>
+
+  <footer>© 2026 Vulcan Shen</footer>
+</main>
+<script>
+  // Close the language menu on a click outside it, or on Esc.
+  const langs = document.querySelector(".langs");
+  document.addEventListener("click", e => { if (!langs.contains(e.target)) langs.open = false; });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") langs.open = false; });
+</script>
+</body>
+</html>

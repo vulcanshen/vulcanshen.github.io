@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fr" style="--accent-light: #1e66f5; --accent-dark: #89b4fa">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Assistance Alphade</title>
+  <link rel="stylesheet" href="../../../style.css">
+</head>
+<body>
+<main>
+  <header class="app-header">
+    <picture>
+      <source srcset="../../icon-dark.png" media="(prefers-color-scheme: dark)">
+      <img src="../../icon.png" alt="">
+    </picture>
+    <h1>Alphade</h1>
+    <details class="langs">
+      <summary>Langue</summary>
+      <ul>
+        <li><a href="../" lang="en" hreflang="en">English</a></li>
+        <li><a href="../de/" lang="de" hreflang="de">Deutsch</a></li>
+        <li><a href="../es/" lang="es" hreflang="es">Español</a></li>
+        <li><a href="./" aria-current="page">Français</a></li>
+        <li><a href="../ja/" lang="ja" hreflang="ja">日本語</a></li>
+        <li><a href="../ko/" lang="ko" hreflang="ko">한국어</a></li>
+        <li><a href="../zh-Hant/" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a></li>
+      </ul>
+    </details>
+  </header>
+
+  <h2>Assistance</h2>
+  <p class="lead">Retrouvez ce qui se cache sous le logo.</p>
+  <p>Alphade supprime les filigranes, logos et textes incrustés semi-transparents de vos vidéos, directement sur votre Mac, et fait réapparaître l’image d’origine au lieu de la flouter.</p>
+
+  <h3>Contact</h3>
+  <p>Pour signaler un problème ou poser une question, ouvrez une issue sur <a href="https://github.com/vulcanshen/alphade/issues/new">GitHub</a>. Pas de compte GitHub&nbsp;? Écrivez à <a href="mailto:vulcan.shen.2304@gmail.com?subject=%5BAlphade%5D%20">vulcan.shen.2304@gmail.com</a>. Si quelque chose ne fonctionne pas, indiquez votre version de macOS, le format et la taille de la vidéo (par exemple MP4, 1920 × 1080) et, si possible, joignez une capture d’écran.</p>
+
+  <h3>Premiers pas</h3>
+  <ol>
+    <li>Ouvrez une vidéo&nbsp;: cliquez sur «&nbsp;Choisir une vidéo…&nbsp;» dans la barre latérale, ou faites glisser une vidéo dans la fenêtre.</li>
+    <li>Tracez un cadre autour du filigrane dans l’image. Faites glisser les poignées pour l’ajuster.</li>
+    <li>Cliquez sur «&nbsp;Analyser&nbsp;». Le résultat indique «&nbsp;Suppression nette&nbsp;», «&nbsp;Suppression par remplissage&nbsp;» ou «&nbsp;Flou après suppression&nbsp;».</li>
+    <li>Vérifiez le résultat&nbsp;: passez de «&nbsp;Original&nbsp;» à «&nbsp;Traité&nbsp;» ou «&nbsp;Comparer&nbsp;» (⌘1 à ⌘3), maintenez la touche O enfoncée pour voir l’original, avancez image par image avec les flèches, appuyez sur la barre d’espace pour lire à partir de l’image actuelle et, une fois le cadre tracé, zoomez à 2× ou 4×.</li>
+    <li>Choisissez le codec (H.264 ou HEVC) et la résolution, cliquez sur «&nbsp;Exporter…&nbsp;» et choisissez où enregistrer la vidéo.</li>
+  </ol>
+  <p>Si un élément réel traverse le cadre, comme une personne ou du texte, ouvrez «&nbsp;Avancé&nbsp;» et délimitez la zone où les détails doivent être conservés.</p>
+
+  <h3>Alphade est-il gratuit&nbsp;?</h3>
+  <p>Oui. Alphade est gratuit à télécharger et à utiliser, sans achat, sans limite d’essai et sans abonnement.</p>
+
+  <h3>Comment installer Alphade&nbsp;?</h3>
+  <p>Téléchargez le fichier zip sur <a href="https://github.com/vulcanshen/alphade/releases/latest">GitHub</a>, ouvrez-le et faites glisser Alphade dans votre dossier Applications. À la première ouverture, macOS vous demande si vous voulez ouvrir une app téléchargée sur Internet&nbsp;: cliquez sur «&nbsp;Ouvrir&nbsp;». Alphade est signé avec un Developer ID et notarié par Apple. Pour le mettre à jour, téléchargez la dernière version de la même façon et remplacez l’ancienne.</p>
+  <p>Avec Homebrew, installez-le avec <code>brew install --cask vulcanshen/tap/alphade</code> et mettez-le à jour avec <code>brew upgrade --cask alphade</code>.</p>
+
+  <h3>Comment désinstaller Alphade&nbsp;?</h3>
+  <p>Faites glisser Alphade dans la corbeille. Ses réglages et fichiers temporaires se trouvent dans <code>~/Library/Containers/app.vulcanshen.alphade</code>, que vous pouvez aussi supprimer. Si vous l’avez installé avec Homebrew, exécutez <code>brew uninstall --cask alphade</code>&nbsp;; ajoutez <code>--zap</code> pour supprimer aussi les réglages et les fichiers temporaires.</p>
+
+  <h3>Quels filigranes Alphade peut-il supprimer&nbsp;?</h3>
+  <p>Les filigranes, logos et textes semi-transparents qui restent au même endroit pendant toute la vidéo. Les logos opaques peuvent être comblés si l’arrière-plan derrière eux est simple, comme une couleur unie, un dégradé ou une diapositive. Les filigranes qui bougent, et les filigranes opaques sur un arrière-plan détaillé ou une prise de vue réelle, ne sont pas pris en charge.</p>
+
+  <h3>Que signifient «&nbsp;Suppression nette&nbsp;», «&nbsp;Suppression par remplissage&nbsp;» et «&nbsp;Flou après suppression&nbsp;»&nbsp;?</h3>
+  <ul>
+    <li><strong>Suppression nette</strong>&nbsp;: Alphade a déterminé comment le filigrane a été incrusté, donc ce qui se trouve dessous est également conservé.</li>
+    <li><strong>Suppression par remplissage</strong>&nbsp;: l’emplacement du filigrane est rempli à partir de l’arrière-plan environnant. Ce qui se trouve dessous est perdu&nbsp;; sur un fond uni, cela ne se voit pas.</li>
+    <li><strong>Flou après suppression</strong>&nbsp;: la zone doit être remplie sur un arrière-plan détaillé, la zone remplie se verra donc.</li>
+  </ul>
+
+  <h3>Pourquoi ma vidéo ne s’ouvre-t-elle pas&nbsp;?</h3>
+  <p>Alphade ouvre les vidéos MP4, MOV et M4V en 8 bits (SDR). Les vidéos 10 bits et HDR, comme de nombreuses vidéos d’iPhone filmées avec le HDR activé, ne sont pas encore prises en charge.</p>
+
+  <h3>Comment changer de langue&nbsp;?</h3>
+  <p>Alphade est disponible en anglais, allemand, espagnol, français, japonais, coréen et chinois traditionnel, et suit la langue de votre Mac, sauf si vous en choisissez une autre. Cliquez sur la roue dentée en bas de la barre latérale, ou choisissez «&nbsp;Alphade › Réglages&nbsp;», sélectionnez une langue dans «&nbsp;Général&nbsp;» et redémarrez Alphade.</p>
+
+  <h3>Confidentialité</h3>
+  <p>Alphade fonctionne entièrement sur votre Mac&nbsp;: vos vidéos ne sont jamais envoyées en ligne et aucune donnée n’est collectée. Consultez la <a href="../../privacy/fr/">politique de confidentialité</a>.</p>
+
+  <h3>Configuration requise</h3>
+  <p>macOS 26 ou version ultérieure.</p>
+
+  <nav class="section-links">
+    <a href="../../fr/">Alphade</a>
+    <a href="./">Assistance</a>
+    <a href="../../privacy/fr/">Politique de confidentialité</a>
+    <a href="../../../">Toutes les apps</a>
+  </nav>
+
+  <footer>© 2026 Vulcan Shen</footer>
+</main>
+<script>
+  // Close the language menu on a click outside it, or on Esc.
+  const langs = document.querySelector(".langs");
+  document.addEventListener("click", e => { if (!langs.contains(e.target)) langs.open = false; });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") langs.open = false; });
+</script>
+</body>
+</html>
