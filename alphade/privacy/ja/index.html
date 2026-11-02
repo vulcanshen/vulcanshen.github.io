@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ja" style="--accent-light: #1e66f5; --accent-dark: #89b4fa">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alphade プライバシーポリシー</title>
+  <link rel="stylesheet" href="../../../style.css">
+</head>
+<body>
+<main>
+  <header class="app-header">
+    <picture>
+      <source srcset="../../icon-dark.png" media="(prefers-color-scheme: dark)">
+      <img src="../../icon.png" alt="">
+    </picture>
+    <h1>Alphade</h1>
+    <details class="langs">
+      <summary>言語</summary>
+      <ul>
+        <li><a href="../" lang="en" hreflang="en">English</a></li>
+        <li><a href="../de/" lang="de" hreflang="de">Deutsch</a></li>
+        <li><a href="../es/" lang="es" hreflang="es">Español</a></li>
+        <li><a href="../fr/" lang="fr" hreflang="fr">Français</a></li>
+        <li><a href="./" aria-current="page">日本語</a></li>
+        <li><a href="../ko/" lang="ko" hreflang="ko">한국어</a></li>
+        <li><a href="../zh-Hant/" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a></li>
+      </ul>
+    </details>
+  </header>
+
+  <h2>プライバシーポリシー</h2>
+  <p class="meta">最終更新日：2026年10月30日</p>
+  <p class="meta">翻訳と<a href="../" hreflang="en">英語版</a>の内容が異なる場合は、英語版を優先します。</p>
+  <p class="lead">Alphade はデータを一切収集しません。動画はあなたの Mac から出ません。</p>
+
+  <h3>Alphade が収集する情報</h3>
+  <p>ありません。Alphade にはサーバーもアカウントもなく、分析、広告、トラッキングの機能も含まれていません。</p>
+
+  <h3>データの保存場所</h3>
+  <p>Alphade が読み込むのはあなたが開いた動画だけ、書き出すのはあなたが書き出した動画だけで、すべて Mac 上で行われます。動画の解析中は、枠で囲んだ部分の一時的なコピーを Alphade 専用の一時フォルダに保存し、不要になったら削除します。アップロードされるものはありません。</p>
+
+  <h3>第三者</h3>
+  <p>ありません。</p>
+
+  <h3>ポリシーの変更</h3>
+  <p>このポリシーを変更する場合は、このページと上記の日付を更新します。</p>
+
+  <nav class="section-links">
+    <a href="../../ja/">Alphade</a>
+    <a href="../../support/ja/">サポート</a>
+    <a href="./">プライバシーポリシー</a>
+    <a href="../../../">すべてのアプリ</a>
+  </nav>
+
+  <footer>© 2026 Vulcan Shen</footer>
+</main>
+<script>
+  // Close the language menu on a click outside it, or on Esc.
+  const langs = document.querySelector(".langs");
+  document.addEventListener("click", e => { if (!langs.contains(e.target)) langs.open = false; });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") langs.open = false; });
+</script>
+</body>
+</html>

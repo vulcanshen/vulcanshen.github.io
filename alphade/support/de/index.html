@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="de" style="--accent-light: #1e66f5; --accent-dark: #89b4fa">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alphade Support</title>
+  <link rel="stylesheet" href="../../../style.css">
+</head>
+<body>
+<main>
+  <header class="app-header">
+    <picture>
+      <source srcset="../../icon-dark.png" media="(prefers-color-scheme: dark)">
+      <img src="../../icon.png" alt="">
+    </picture>
+    <h1>Alphade</h1>
+    <details class="langs">
+      <summary>Sprache</summary>
+      <ul>
+        <li><a href="../" lang="en" hreflang="en">English</a></li>
+        <li><a href="./" aria-current="page">Deutsch</a></li>
+        <li><a href="../es/" lang="es" hreflang="es">Español</a></li>
+        <li><a href="../fr/" lang="fr" hreflang="fr">Français</a></li>
+        <li><a href="../ja/" lang="ja" hreflang="ja">日本語</a></li>
+        <li><a href="../ko/" lang="ko" hreflang="ko">한국어</a></li>
+        <li><a href="../zh-Hant/" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a></li>
+      </ul>
+    </details>
+  </header>
+
+  <h2>Support</h2>
+  <p class="lead">Hol zurück, was unter dem Logo liegt.</p>
+  <p>Alphade entfernt halbtransparente Wasserzeichen, Logos und Texteinblendungen aus deinen Videos, direkt auf deinem Mac, und holt das Bild darunter zurück, statt es zu verwischen.</p>
+
+  <h3>Kontakt</h3>
+  <p>Um ein Problem zu melden oder eine Frage zu stellen, eröffne ein Issue auf <a href="https://github.com/vulcanshen/alphade/issues/new">GitHub</a>. Kein GitHub-Konto? Schreib eine E-Mail an <a href="mailto:vulcan.shen.2304@gmail.com?subject=%5BAlphade%5D%20">vulcan.shen.2304@gmail.com</a>. Wenn etwas nicht funktioniert, gib bitte deine macOS-Version sowie Format und Größe des Videos an (zum Beispiel MP4, 1920 × 1080) und füge nach Möglichkeit einen Screenshot bei.</p>
+
+  <h3>Erste Schritte</h3>
+  <ol>
+    <li>Öffne ein Video: Klicke in der Seitenleiste auf „Video auswählen …“ oder zieh ein Video ins Fenster.</li>
+    <li>Zieh im Bild einen Rahmen um das Wasserzeichen. Mit den Anfassern kannst du ihn anpassen.</li>
+    <li>Klicke auf „Analysieren“. Das Ergebnis lautet „Sauber entfernbar“, „Entfernbar durch Auffüllen“ oder „Nach dem Entfernen unscharf“.</li>
+    <li>Prüfe das Ergebnis: Wechsle zwischen „Original“, „Bearbeitet“ und „Vergleichen“ (⌘1 bis ⌘3), halte O gedrückt, um das Original zu sehen, geh mit den Pfeiltasten Bild für Bild weiter, drück die Leertaste, um ab dem aktuellen Bild abzuspielen, und zoome auf 2× oder 4×, sobald der Rahmen gezogen ist.</li>
+    <li>Wähle den Codec (H.264 oder HEVC) und die Auflösung, klicke auf „Exportieren …“ und wähle den Speicherort.</li>
+  </ol>
+  <p>Wenn etwas Echtes durch den Rahmen läuft, etwa eine Person oder Text, öffne „Erweitert“ und markiere den Bereich, in dem Details erhalten bleiben sollen.</p>
+
+  <h3>Ist Alphade kostenlos?</h3>
+  <p>Ja. Du kannst Alphade kostenlos laden und nutzen, ohne Kauf, ohne Testlimits und ohne Abo.</p>
+
+  <h3>Wie installiere ich Alphade?</h3>
+  <p>Lade die ZIP-Datei von <a href="https://github.com/vulcanshen/alphade/releases/latest">GitHub</a> herunter, öffne sie und zieh Alphade in deinen Ordner „Programme“. Beim ersten Öffnen fragt macOS, ob du eine aus dem Internet geladene App öffnen möchtest; klicke auf „Öffnen“. Alphade ist mit einer Developer ID signiert und von Apple notarisiert. Zum Aktualisieren lädst du die neueste Version genauso herunter und ersetzt die alte.</p>
+  <p>Mit Homebrew installierst du Alphade mit <code>brew install --cask vulcanshen/tap/alphade</code> und aktualisierst es mit <code>brew upgrade --cask alphade</code>.</p>
+
+  <h3>Wie deinstalliere ich Alphade?</h3>
+  <p>Zieh Alphade in den Papierkorb. Einstellungen und temporäre Dateien liegen in <code>~/Library/Containers/app.vulcanshen.alphade</code>; diesen Ordner kannst du ebenfalls löschen. Wenn du Alphade mit Homebrew installiert hast, führe <code>brew uninstall --cask alphade</code> aus; mit <code>--zap</code> werden auch die Einstellungen und temporären Dateien gelöscht.</p>
+
+  <h3>Welche Wasserzeichen kann Alphade entfernen?</h3>
+  <p>Halbtransparente Wasserzeichen, Logos und Texte, die während des ganzen Videos an derselben Stelle bleiben. Deckende Logos lassen sich auffüllen, wenn der Hintergrund dahinter schlicht ist, etwa eine Volltonfarbe, ein Verlauf oder eine Folie. Wasserzeichen, die sich bewegen, und deckende Wasserzeichen über detailreichen Hintergründen oder Realaufnahmen werden nicht unterstützt.</p>
+
+  <h3>Was bedeuten „Sauber entfernbar“, „Entfernbar durch Auffüllen“ und „Nach dem Entfernen unscharf“?</h3>
+  <ul>
+    <li><strong>Sauber entfernbar</strong>: Alphade hat ermittelt, wie das Wasserzeichen eingeblendet wurde. Auch was darunter liegt, bleibt erhalten.</li>
+    <li><strong>Entfernbar durch Auffüllen</strong>: Die Stelle des Wasserzeichens wird mit dem umgebenden Hintergrund gefüllt. Was darunter liegt, geht verloren; auf einem schlichten Hintergrund fällt das nicht auf.</li>
+    <li><strong>Nach dem Entfernen unscharf</strong>: Der Bereich muss über einem detailreichen Hintergrund aufgefüllt werden, daher wird der aufgefüllte Bereich sichtbar.</li>
+  </ul>
+
+  <h3>Warum lässt sich mein Video nicht öffnen?</h3>
+  <p>Alphade öffnet MP4-, MOV- und M4V-Videos mit 8 Bit (SDR). 10-Bit- und HDR-Videos, etwa viele iPhone-Aufnahmen mit eingeschaltetem HDR, werden noch nicht unterstützt.</p>
+
+  <h3>Wie ändere ich die Sprache?</h3>
+  <p>Alphade gibt es auf Englisch, Deutsch, Spanisch, Französisch, Japanisch, Koreanisch und traditionellem Chinesisch. Die App folgt der Sprache deines Macs, solange du nichts anderes auswählst. Klicke auf das Zahnrad unten in der Seitenleiste oder wähle „Alphade › Einstellungen“, wähle unter „Allgemein“ eine Sprache und starte Alphade neu.</p>
+
+  <h3>Datenschutz</h3>
+  <p>Alphade arbeitet vollständig auf deinem Mac: Deine Videos werden nie hochgeladen, und es werden keine Daten gesammelt. Mehr dazu in der <a href="../../privacy/de/">Datenschutzrichtlinie</a>.</p>
+
+  <h3>Systemvoraussetzungen</h3>
+  <p>macOS 26 oder neuer.</p>
+
+  <nav class="section-links">
+    <a href="../../de/">Alphade</a>
+    <a href="./">Support</a>
+    <a href="../../privacy/de/">Datenschutzrichtlinie</a>
+    <a href="../../../">Alle Apps</a>
+  </nav>
+
+  <footer>© 2026 Vulcan Shen</footer>
+</main>
+<script>
+  // Close the language menu on a click outside it, or on Esc.
+  const langs = document.querySelector(".langs");
+  document.addEventListener("click", e => { if (!langs.contains(e.target)) langs.open = false; });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") langs.open = false; });
+</script>
+</body>
+</html>
