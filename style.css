@@ -124,17 +124,11 @@ footer {
   font-size: 0.9rem;
 }
 
-.langs {
-  margin: 4px 0 0;
-}
-
-.langs a,
 .section-links a {
   margin-right: 16px;
 }
 
 /* Keep each link on one line, so a Chinese label never breaks mid-word on a narrow screen. */
-.langs a,
 .section-links a {
   display: inline-block;
   white-space: nowrap;
@@ -176,8 +170,8 @@ details.langs {
 
 details.langs a {
   display: block;
-  margin: 0;
   padding: 6px 14px;
+  white-space: nowrap;
   border-radius: 6px;
   color: var(--fg);
   text-decoration: none;
