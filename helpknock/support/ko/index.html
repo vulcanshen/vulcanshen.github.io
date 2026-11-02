@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko" style="--accent-light: #1B3A6B; --accent-dark: #9DB8E6; --icon-radius: 22.37%">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HelpKnock 지원</title>
+  <link rel="stylesheet" href="../../../style.css">
+</head>
+<body>
+<main>
+  <header class="app-header">
+    <img src="../../icon.png" alt="">
+    <h1>HelpKnock</h1>
+    <details class="langs">
+      <summary>언어</summary>
+      <ul>
+        <li><a href="../" lang="en" hreflang="en">English</a></li>
+        <li><a href="../zh-Hant/" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a></li>
+        <li><a href="../ja/" lang="ja" hreflang="ja">日本語</a></li>
+        <li><a href="./" aria-current="page">한국어</a></li>
+      </ul>
+    </details>
+  </header>
+
+  <h2>지원</h2>
+  <p class="lead">통신이 끊겨도 구조자가 나를 찾을 수 있게.</p>
+  <p>재난으로 네트워크가 끊기면 HelpKnock은 휴대폰 한 대 한 대를 Bluetooth 비콘으로 바꿉니다. 갇힌 사람이 주변 구조자에게 자신을 알리고 메시지를 주고받을 수 있게 돕는 근거리 구조 앱입니다.</p>
+  <p class="notice">긴급 전화를 대신하지 않습니다. 신호가 잡히면 먼저 119(또는 현지 긴급 전화번호)로 전화하세요.</p>
+
+  <h3>문의</h3>
+  <p>문제를 알리거나 질문하려면 <a href="https://github.com/vulcanshen/vulcanshen.github.io/issues/new?title=%5BHelpKnock%5D%20">GitHub</a>에서 issue를 만들고 제목 앞에 [HelpKnock]을 붙여 주세요. GitHub 계정이 없다면 <a href="mailto:vulcan.shen.2304@gmail.com?subject=%5BHelpKnock%5D%20">vulcan.shen.2304@gmail.com</a>으로 이메일을 보내 주세요. 제대로 작동하지 않을 때는 iPhone 또는 iPad 모델과 iOS 버전을 함께 알려 주세요.</p>
+  <p>번역이 틀리거나 어색한 곳을 발견하면 같은 방법으로 알려 주세요.</p>
+
+  <h3>시작하기</h3>
+  <ol>
+    <li>평소에 미리 정보를 입력하고 공유할 내용을 고릅니다.</li>
+    <li>Bluetooth, 위치, “동작 및 피트니스”, “로컬 네트워크”를 허용합니다.</li>
+    <li>위급할 때는 앱을 열고 “도움이 필요합니다”를 누릅니다.</li>
+  </ol>
+
+  <h3>HelpKnock은 무료인가요?</h3>
+  <p>네. 모든 기능이 무료입니다. 설정의 “개발자 후원”은 선택 사항이며, 후원해도 잠금 해제되는 기능은 없습니다.</p>
+
+  <h3>상대방 휴대폰에도 HelpKnock이 필요한가요?</h3>
+  <p>네. 양쪽 휴대폰 모두 HelpKnock이 설치되어 있고 Bluetooth가 켜져 있어야 합니다.</p>
+
+  <h3>얼마나 멀리까지 닿나요?</h3>
+  <p>Bluetooth는 짧은 거리만 닿으며, 벽이나 잔해를 사이에 두면 더 짧아집니다.</p>
+
+  <h3>앱을 닫아도 되나요?</h3>
+  <p>앱 전환기에서 HelpKnock을 위로 쓸어 올려 닫지 마세요. iOS가 다시 열어 주지 않으므로 아무도 나를 찾을 수 없게 됩니다. 기기를 다시 시작한 후에는 앱을 다시 열어 주세요.</p>
+
+  <h3>개인정보</h3>
+  <p>HelpKnock에는 서버도 계정도 없습니다. 내가 입력한 내용은 내 휴대폰에 저장되며, 주변 휴대폰에는 Bluetooth로, 같은 Wi-Fi에 연결된 구조자에게는 Wi-Fi로 전달될 뿐입니다. 자세한 내용은 <a href="../../privacy/ko/">개인정보 처리방침</a>을 확인하세요.</p>
+
+  <h3>요구 사항</h3>
+  <p>iOS 18.6 이상의 iPhone 또는 iPad에서 Bluetooth를 켜고 사용하세요.</p>
+
+  <nav class="section-links">
+    <a href="../../ko/">HelpKnock</a>
+    <a href="./">지원</a>
+    <a href="../../privacy/ko/">개인정보 처리방침</a>
+    <a href="../../../">모든 앱</a>
+  </nav>
+
+  <footer>© 2026 Vulcan Shen</footer>
+</main>
+<script>
+  // Close the language menu on a click outside it, or on Esc.
+  const langs = document.querySelector(".langs");
+  document.addEventListener("click", e => { if (!langs.contains(e.target)) langs.open = false; });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") langs.open = false; });
+</script>
+</body>
+</html>

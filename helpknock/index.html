@@ -7,6 +7,8 @@
   <meta name="description" content="When a disaster takes the network down, HelpKnock turns phones into Bluetooth beacons so rescuers nearby can find you.">
   <link rel="alternate" hreflang="en" href="https://vulcanshen.github.io/helpknock/">
   <link rel="alternate" hreflang="zh-Hant" href="https://vulcanshen.github.io/helpknock/zh-Hant/">
+  <link rel="alternate" hreflang="ja" href="https://vulcanshen.github.io/helpknock/ja/">
+  <link rel="alternate" hreflang="ko" href="https://vulcanshen.github.io/helpknock/ko/">
   <link rel="alternate" hreflang="x-default" href="https://vulcanshen.github.io/helpknock/">
   <link rel="stylesheet" href="promo.css">
 </head>
@@ -15,10 +17,15 @@
   <div class="wrap">
     <div class="topbar">
       <div class="brand"><img src="icon.png" alt="">HelpKnock</div>
-      <nav class="langs">
-        <strong aria-current="page">English</strong>
-        <a href="zh-Hant/" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a>
-      </nav>
+      <details class="langs">
+        <summary>Language</summary>
+        <ul>
+          <li><a href="./" aria-current="page">English</a></li>
+          <li><a href="zh-Hant/" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a></li>
+          <li><a href="ja/" lang="ja" hreflang="ja">日本語</a></li>
+          <li><a href="ko/" lang="ko" hreflang="ko">한국어</a></li>
+        </ul>
+      </details>
     </div>
 
     <div class="hero-grid">
@@ -113,7 +120,7 @@
       <p class="kicker">Privacy</p>
       <h2>No server. No account.</h2>
       <p class="intro">Your personal and medical details stay in your phone's keychain, and you choose what to share when you ask for help. The developer never receives anything you enter.</p>
-      <p class="intro">Anyone nearby or on the same Wi-Fi in the rescuer role can read what you share, none of it is verified, and Bluetooth and Wi-Fi transfers are not encrypted in this version. <a href="privacy/#en">Read the privacy policy</a>.</p>
+      <p class="intro">Anyone nearby or on the same Wi-Fi in the rescuer role can read what you share, none of it is verified, and Bluetooth and Wi-Fi transfers are not encrypted in this version. <a href="privacy/">Read the privacy policy</a>.</p>
     </div>
   </section>
 
@@ -130,12 +137,18 @@
   <div class="wrap">
     <nav>
       <a href="./">HelpKnock</a>
-      <a href="support/#en">Support</a>
-      <a href="privacy/#en">Privacy Policy</a>
+      <a href="support/">Support</a>
+      <a href="privacy/">Privacy Policy</a>
       <a href="../">All apps</a>
     </nav>
     <p>© 2026 Vulcan Shen</p>
   </div>
 </footer>
+<script>
+  // Close the language menu on a click outside it, or on Esc.
+  const langs = document.querySelector(".langs");
+  document.addEventListener("click", e => { if (!langs.contains(e.target)) langs.open = false; });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") langs.open = false; });
+</script>
 </body>
 </html>

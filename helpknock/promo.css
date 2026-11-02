@@ -37,6 +37,25 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
+/* PingFang TC comes first above, which would draw Japanese kanji in their Chinese forms. */
+body:lang(ja) {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+}
+
+/* Japanese has no spaces, so headlines would break inside a word; browsers that know
+   phrases (Chrome) break between them, the others ignore this. */
+:lang(ja) h1,
+:lang(ja) h2,
+:lang(ja) h3 {
+  word-break: auto-phrase;
+}
+
+/* Korean breaks lines between words, not inside them. */
+body:lang(ko) {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  word-break: keep-all;
+}
+
 a {
   color: var(--link);
 }
@@ -92,19 +111,63 @@ p {
   border-radius: 22.37%;
 }
 
+/* Language menu in the hero's top bar: a dropdown listing every language in its own
+   writing, the current one marked. Dark like the hero in both modes. */
 .langs {
+  position: relative;
   font-size: 0.95rem;
 }
 
-.langs a,
-.langs strong {
-  margin-left: 14px;
+.langs summary {
   color: rgba(255, 255, 255, 0.85);
+  white-space: nowrap;
+  list-style: none;
+  cursor: pointer;
+}
+
+.langs summary::-webkit-details-marker {
+  display: none;
+}
+
+.langs summary::after {
+  content: " ▾";
+}
+
+.langs summary:hover,
+.langs[open] summary {
+  color: #fff;
+}
+
+.langs ul {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: var(--navy-deep);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.langs a {
+  display: block;
+  padding: 6px 14px;
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
   white-space: nowrap;
 }
 
-.langs strong {
+.langs a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.langs a[aria-current] {
   color: #fff;
+  font-weight: 600;
 }
 
 .hero-grid {
