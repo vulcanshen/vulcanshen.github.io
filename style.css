@@ -41,6 +41,23 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
+/* Japanese and Korean pages get their own fonts, so kanji don't take Chinese shapes from PingFang TC.
+   In the language menu each name uses its own language's font. */
+body:lang(ja),
+.langs a:lang(ja) {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+}
+
+body:lang(ko),
+.langs a:lang(ko) {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  word-break: keep-all;
+}
+
+.langs a:lang(zh) {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+}
+
 main {
   max-width: 40rem;
   margin: 0 auto;
@@ -121,6 +138,57 @@ footer {
 .section-links a {
   display: inline-block;
   white-space: nowrap;
+}
+
+/* Language menu at the right of the header; every language is its own page. */
+details.langs {
+  position: relative;
+  margin: 0 0 0 auto;
+}
+
+.langs summary {
+  cursor: pointer;
+  list-style: none;
+  white-space: nowrap;
+}
+
+.langs summary::-webkit-details-marker {
+  display: none;
+}
+
+.langs summary::after {
+  content: " ▾";
+}
+
+.langs ul {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
+}
+
+details.langs a {
+  display: block;
+  margin: 0;
+  padding: 6px 14px;
+  border-radius: 6px;
+  color: var(--fg);
+  text-decoration: none;
+}
+
+details.langs a:hover {
+  background: var(--line);
+}
+
+details.langs a[aria-current] {
+  color: var(--accent);
 }
 
 .lead {
