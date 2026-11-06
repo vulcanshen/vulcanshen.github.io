@@ -30,10 +30,10 @@
 
   <h2>Soporte</h2>
   <p class="lead">Recupera lo que hay bajo el logo.</p>
-  <p>Alphade quita las marcas de agua semitransparentes, los logotipos y los textos superpuestos de tus vídeos en tu Mac, y recupera la imagen que había debajo en lugar de difuminarla.</p>
+  <p>Alphade quita de tus vídeos marcas de agua, logotipos y textos superpuestos semitransparentes, directamente en tu Mac, y recupera la imagen que había debajo en lugar de difuminarla.</p>
 
   <h3>Contacto</h3>
-  <p>Para informar de un problema o hacer una pregunta, abre un issue en <a href="https://github.com/vulcanshen/alphade/issues/new">GitHub</a>. ¿No tienes cuenta de GitHub? Escribe a <a href="mailto:vulcan.shen.2304@gmail.com?subject=%5BAlphade%5D%20">vulcan.shen.2304@gmail.com</a>. Si algo no funciona, indica tu versión de macOS y el formato y el tamaño del vídeo (por ejemplo, MP4, 1920 × 1080) y, si puedes, adjunta una captura de pantalla.</p>
+  <p>Para informar de un problema o hacer una pregunta, abre una incidencia (issue) en <a href="https://github.com/vulcanshen/alphade/issues/new">GitHub</a>. ¿No tienes cuenta de GitHub? Escribe a <a href="mailto:vulcan.shen.2304@gmail.com?subject=%5BAlphade%5D%20">vulcan.shen.2304@gmail.com</a>. Si algo no funciona, indica tu versión de macOS y el formato y la resolución del vídeo (por ejemplo, MP4, 1920 × 1080) y, si puedes, adjunta una captura de pantalla.</p>
 
   <h3>Primeros pasos</h3>
   <ol>
@@ -43,10 +43,10 @@
     <li>Revisa el resultado: cambia entre «Original», «Procesado» y «Comparar» (⌘1 a ⌘3), mantén pulsada la tecla O para ver el original, avanza fotograma a fotograma con las flechas, pulsa la barra espaciadora para reproducir desde el fotograma actual y, con el recuadro dibujado, amplía a 2× o 4×.</li>
     <li>Elige el códec (H.264 o HEVC) y la resolución, haz clic en «Exportar…» y elige dónde guardar el vídeo.</li>
   </ol>
-  <p>Si algo real pasa por el recuadro, como una persona o un texto, abre «Avanzado» y marca la zona en la que hay que conservar el detalle.</p>
+  <p>Si por el recuadro pasa algo de la propia escena, como una persona o un texto, abre «Avanzado» y marca la zona en la que hay que conservar el detalle.</p>
 
   <h3>¿Alphade es gratis?</h3>
-  <p>Sí. Alphade se descarga y se usa gratis, sin compras, sin límites de prueba y sin suscripción.</p>
+  <p>Sí. Alphade se puede descargar y usar gratis, sin compras, sin las limitaciones de una versión de prueba y sin suscripción.</p>
 
   <h3>¿Cómo instalo Alphade?</h3>
   <p>Descarga el zip desde <a href="https://github.com/vulcanshen/alphade/releases/latest">GitHub</a>, ábrelo y arrastra Alphade a tu carpeta Aplicaciones. La primera vez que abras Alphade, macOS te preguntará si quieres abrir una app descargada de internet; haz clic en «Abrir». Alphade está firmada con un Developer ID y notarizada por Apple. Para actualizarla, descarga la última versión de la misma forma y sustituye la anterior.</p>
@@ -56,13 +56,13 @@
   <p>Arrastra Alphade a la Papelera. Sus ajustes y archivos temporales están en <code>~/Library/Containers/app.vulcanshen.alphade</code>, que también puedes eliminar. Si la instalaste con Homebrew, ejecuta <code>brew uninstall --cask alphade</code>; añade <code>--zap</code> para eliminar también los ajustes y los archivos temporales.</p>
 
   <h3>¿Qué marcas de agua puede quitar Alphade?</h3>
-  <p>Marcas de agua, logotipos y textos semitransparentes que se quedan en el mismo sitio durante todo el vídeo. Los logotipos opacos se pueden rellenar si el fondo que tienen detrás es sencillo, como un color liso, un degradado o una diapositiva. No se admiten las marcas de agua que se mueven ni las opacas sobre fondos con mucho detalle o imagen real.</p>
+  <p>Marcas de agua, logotipos y textos semitransparentes que se quedan en el mismo sitio durante todo el vídeo. Los logotipos opacos se pueden quitar rellenando su zona con el fondo, si el fondo que tienen detrás es sencillo, como un color liso, un degradado o una diapositiva. No se admiten las marcas de agua que se mueven ni las opacas sobre fondos con mucho detalle o sobre escenas reales.</p>
 
   <h3>¿Qué significan «Se elimina limpiamente», «Se elimina rellenando» y «Quedará borroso»?</h3>
   <ul>
     <li><strong>Se elimina limpiamente</strong>: Alphade ha averiguado cómo se superpuso la marca de agua, así que lo que haya debajo también se conserva.</li>
-    <li><strong>Se elimina rellenando</strong>: el lugar de la marca de agua se rellena con el fondo que la rodea. Lo que haya debajo se pierde; sobre un fondo liso no se nota.</li>
-    <li><strong>Quedará borroso</strong>: hay que rellenar la zona sobre un fondo con mucho detalle, así que la zona rellenada se notará.</li>
+    <li><strong>Se elimina rellenando</strong>: la zona de la marca de agua se rellena con el fondo que la rodea. Lo que haya debajo se pierde; sobre un fondo liso no se nota.</li>
+    <li><strong>Quedará borroso</strong>: hay que rellenar una zona cuyo fondo tiene mucho detalle, así que el relleno se verá borroso.</li>
   </ul>
 
   <h3>¿Por qué no se abre mi vídeo?</h3>
@@ -72,7 +72,7 @@
   <p>Alphade está disponible en inglés, alemán, español, francés, japonés, coreano y chino tradicional, y sigue el idioma de tu Mac salvo que elijas otro. Haz clic en el engranaje de la parte inferior de la barra lateral o elige «Alphade › Ajustes», selecciona un idioma en «General» y reinicia Alphade.</p>
 
   <h3>Privacidad</h3>
-  <p>Alphade funciona por completo en tu Mac: tus vídeos nunca se suben y no se recopila ningún dato. Consulta la <a href="../../privacy/es/">política de privacidad</a>.</p>
+  <p>Alphade funciona por completo en tu Mac: tus vídeos nunca se suben y Alphade no recopila ningún dato. Consulta la <a href="../../privacy/es/">política de privacidad</a>.</p>
 
   <h3>Requisitos</h3>
   <p>macOS 26 o posterior.</p>
