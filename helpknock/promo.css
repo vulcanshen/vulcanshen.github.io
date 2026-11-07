@@ -367,6 +367,23 @@ footer p {
   margin-top: 10px;
 }
 
+/* The demo video under the hero, kept at 16:9 at every width. */
+.video {
+  margin-top: 20px;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 16px 40px rgba(13, 31, 60, 0.18);
+}
+
+.video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 @media (min-width: 820px) {
   .hero-grid {
     grid-template-columns: 1.15fr 0.85fr;
