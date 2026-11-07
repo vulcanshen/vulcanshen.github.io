@@ -384,6 +384,11 @@ footer p {
   border: 0;
 }
 
+/* A second video at the end of a feature section, below its text and screenshot. */
+.video-after {
+  margin-top: 56px;
+}
+
 @media (min-width: 820px) {
   .hero-grid {
     grid-template-columns: 1.15fr 0.85fr;
