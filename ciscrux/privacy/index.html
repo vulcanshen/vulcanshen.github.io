@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" style="--accent-light: #8a6a1f; --accent-dark: #d9b86c">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ciscrux Privacy Policy</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<main>
+  <header class="app-header">
+    <img src="../icon.png" alt="">
+    <h1>Ciscrux</h1>
+    <details class="langs">
+      <summary>Language</summary>
+      <ul>
+        <li><a href="./" aria-current="page">English</a></li>
+        <li><a href="zh-Hant/" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a></li>
+      </ul>
+    </details>
+  </header>
+
+  <h2>Privacy Policy</h2>
+  <p class="meta">Last updated: November 13, 2026</p>
+  <p class="lead">Ciscrux collects no data and never connects to the internet.</p>
+
+  <h3>What Ciscrux collects</h3>
+  <p>Nothing. Ciscrux has no network code, no analytics and no crash reporting, and it doesn't collect any information about you or your Mac.</p>
+
+  <h3>Where your data stays</h3>
+  <p>The only thing Ciscrux keeps is its options: the line thickness, which figures to show, Show Hint, the layout, the animation and the three colors. macOS saves them on your Mac with the screen saver's settings, and they never leave it. The moon phase is worked out on your Mac from the date.</p>
+
+  <h3>Third parties</h3>
+  <p>None.</p>
+
+  <h3>Changes to this policy</h3>
+  <p>If this policy changes, this page will be updated along with the date above.</p>
+
+  <nav class="section-links">
+    <a href="../">Ciscrux</a>
+    <a href="../support/">Support</a>
+    <a href="./">Privacy Policy</a>
+    <a href="../../">All apps</a>
+  </nav>
+
+  <footer>© 2026 Vulcan Shen</footer>
+</main>
+<script>
+  // Close the language menu on a click outside it, or on Esc.
+  const langs = document.querySelector(".langs");
+  document.addEventListener("click", e => { if (!langs.contains(e.target)) langs.open = false; });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") langs.open = false; });
+</script>
+</body>
+</html>

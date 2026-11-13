@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-Hant" style="--accent-light: #8a6a1f; --accent-dark: #d9b86c">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ciscrux 隱私權政策</title>
+  <link rel="stylesheet" href="../../../style.css">
+</head>
+<body>
+<main>
+  <header class="app-header">
+    <img src="../../icon.png" alt="">
+    <h1>Ciscrux</h1>
+    <details class="langs">
+      <summary>語言</summary>
+      <ul>
+        <li><a href="../" lang="en" hreflang="en">English</a></li>
+        <li><a href="./" aria-current="page">繁體中文</a></li>
+      </ul>
+    </details>
+  </header>
+
+  <h2>隱私權政策</h2>
+  <p class="meta">最後更新：2026 年 11 月 13 日</p>
+  <p class="lead">Ciscrux 不收集任何資料，也從不連上網路。</p>
+
+  <h3>Ciscrux 收集哪些資料</h3>
+  <p>什麼都不收集。Ciscrux 沒有任何連網的程式碼，沒有使用分析，也沒有當機回報，不會收集任何關於你或你的 Mac 的資訊。</p>
+
+  <h3>資料存在哪裡</h3>
+  <p>Ciscrux 唯一會保留的是它的選項：線條粗細、要顯示哪些符號、Show Hint、排列方式、動畫和三種顏色。macOS 會把它們跟螢幕保護程式的設定一起存在你的 Mac 上，不會離開這台 Mac。月相也是你的 Mac 依日期算出來的。</p>
+
+  <h3>第三方</h3>
+  <p>沒有。</p>
+
+  <h3>政策變更</h3>
+  <p>這份政策如有變更，會更新這一頁和上面的日期。</p>
+
+  <nav class="section-links">
+    <a href="../../zh-Hant/">Ciscrux</a>
+    <a href="../../support/zh-Hant/">支援</a>
+    <a href="./">隱私權政策</a>
+    <a href="../../../">所有 app</a>
+  </nav>
+
+  <footer>© 2026 Vulcan Shen</footer>
+</main>
+<script>
+  // Close the language menu on a click outside it, or on Esc.
+  const langs = document.querySelector(".langs");
+  document.addEventListener("click", e => { if (!langs.contains(e.target)) langs.open = false; });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") langs.open = false; });
+</script>
+</body>
+</html>

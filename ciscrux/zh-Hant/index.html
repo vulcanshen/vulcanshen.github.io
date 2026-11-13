@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ciscrux · 用熙篤會數字看時間的 Mac 螢幕保護程式</title>
+  <meta name="description" content="Ciscrux 是免費的 macOS 螢幕保護程式，用中世紀熙篤會（Cistercian）的數字顯示時間：年、日期、時間和秒，各是一個符號。">
+  <link rel="alternate" hreflang="en" href="https://vulcanshen.github.io/ciscrux/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://vulcanshen.github.io/ciscrux/zh-Hant/">
+  <link rel="alternate" hreflang="x-default" href="https://vulcanshen.github.io/ciscrux/">
+  <link rel="stylesheet" href="../promo.css">
+</head>
+<body>
+<header class="hero">
+  <div class="wrap topbar">
+    <a class="brand" href="./"><img class="mark" src="../mark.svg" alt="">Ciscrux</a>
+    <nav>
+      <a href="../support/zh-Hant/">支援</a>
+      <details class="langs">
+        <summary>語言</summary>
+        <ul>
+          <li><a href="../" lang="en" hreflang="en">English</a></li>
+          <li><a href="./" aria-current="page">繁體中文</a></li>
+        </ul>
+      </details>
+    </nav>
+  </div>
+  <div class="screen">
+    <svg class="clock" data-screen='{"showHint":true}' role="img"
+         aria-label="Ciscrux 用熙篤會數字顯示現在的年、日期、時間和秒，每個符號下方有一般的數字對照。"></svg>
+    <span class="live">即時 · 你的當地時間</span>
+  </div>
+  <div class="wrap">
+    <h1>用中世紀的數字，<br><span>寫下現在的時間。</span></h1>
+    <p class="pitch">Ciscrux 是 Mac 上的免費螢幕保護程式。它用熙篤會（Cistercian）數字顯示年、日期、時間和秒，每一個都只是一個符號；數字一變，新的符號就一筆一筆畫出來。</p>
+    <a class="download" href="https://github.com/vulcanshen/ciscrux/releases/latest/download/Ciscrux.zip">下載 Mac 版</a>
+    <p class="fineprint">免費 · macOS 11 以上 · Apple 晶片與 Intel 都能用</p>
+  </div>
+</header>
+
+<main>
+  <section id="reader">
+    <div class="wrap">
+      <p class="kicker">怎麼讀</p>
+      <h2>四個角，一個數字。</h2>
+      <p class="intro">每個符號是一條直線，四周最多有四個記號：右上是個位、左上是十位、右下是百位、左下是千位。所以一個符號就能寫出 1 到 9999 的任何數字。</p>
+      <div class="reader" data-reader>
+        <div class="corners">
+          <p class="place left top tens"><b data-place="1"></b><span>十位</span></p>
+          <svg viewBox="0 0 120 180" aria-hidden="true"></svg>
+          <p class="place top ones"><b data-place="0"></b><span>個位</span></p>
+          <p class="place left bottom thousands"><b data-place="3"></b><span>千位</span></p>
+          <p class="place bottom hundreds"><b data-place="2"></b><span>百位</span></p>
+        </div>
+        <div>
+          <label for="number">輸入 1 到 9999 的數字</label>
+          <input id="number" inputmode="numeric" autocomplete="off" maxlength="4" value="1234">
+          <div class="tries">
+            <button type="button" data-try="year">今年<b></b></button>
+            <button type="button" data-try="date">今天<b></b></button>
+            <button type="button" data-try="time">現在<b></b></button>
+          </div>
+          <p class="note">Ciscrux 的日期寫成月和日（1113 是 11 月 13 日），時間寫成 24 小時制的時和分（1452 是 14 點 52 分）。</p>
+        </div>
+      </div>
+      <div class="nine">
+        <h3>九種記號</h3>
+        <p class="note">下面是它們在右上角（個位）的樣子。每個角落都用同一組記號，只是左右或上下翻轉；0 就留白。</p>
+        <ol>
+          <li><svg viewBox="0 0 30 45" data-figure="1" data-options='{"quads":["var(--ones)"]}' aria-hidden="true"></svg>1</li>
+          <li><svg viewBox="0 0 30 45" data-figure="2" data-options='{"quads":["var(--ones)"]}' aria-hidden="true"></svg>2</li>
+          <li><svg viewBox="0 0 30 45" data-figure="3" data-options='{"quads":["var(--ones)"]}' aria-hidden="true"></svg>3</li>
+          <li><svg viewBox="0 0 30 45" data-figure="4" data-options='{"quads":["var(--ones)"]}' aria-hidden="true"></svg>4</li>
+          <li><svg viewBox="0 0 30 45" data-figure="5" data-options='{"quads":["var(--ones)"]}' aria-hidden="true"></svg>5</li>
+          <li><svg viewBox="0 0 30 45" data-figure="6" data-options='{"quads":["var(--ones)"]}' aria-hidden="true"></svg>6</li>
+          <li><svg viewBox="0 0 30 45" data-figure="7" data-options='{"quads":["var(--ones)"]}' aria-hidden="true"></svg>7</li>
+          <li><svg viewBox="0 0 30 45" data-figure="8" data-options='{"quads":["var(--ones)"]}' aria-hidden="true"></svg>8</li>
+          <li><svg viewBox="0 0 30 45" data-figure="9" data-options='{"quads":["var(--ones)"]}' aria-hidden="true"></svg>9</li>
+        </ol>
+        <p class="note">更多介紹見 <a href="https://en.wikipedia.org/wiki/Cistercian_numerals" hreflang="en">Wikipedia</a>（英文）。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <p class="kicker">秒的符號</p>
+      <h2>星期和月相，記在空著的角落。</h2>
+      <p class="intro">秒只用得到上面兩個角，Ciscrux 就把下面兩個角也用上：右下記星期幾，左下記月相。打開 Show Hint 時，秒的左邊有一個小月亮表示月相，右邊則是當天的行星符號。</p>
+      <div class="seconds">
+        <div class="seconds-figure">
+          <svg viewBox="0 0 240 360" data-seconds role="img" aria-label="現在的秒的符號，下面兩個角記著月相和星期。"></svg>
+          <ul class="key">
+            <li class="s">秒</li>
+            <li class="w">星期</li>
+            <li class="m">月相</li>
+          </ul>
+        </div>
+        <div>
+          <div class="legend weekday">
+            <h3>星期<span>右下角</span></h3>
+            <ol>
+              <li data-weekday="1" title="月亮"><svg viewBox="0 0 26 26" data-planet="1" aria-hidden="true"></svg>一</li>
+              <li data-weekday="2" title="火星"><svg viewBox="0 0 26 26" data-planet="2" aria-hidden="true"></svg>二</li>
+              <li data-weekday="3" title="水星"><svg viewBox="0 0 26 26" data-planet="3" aria-hidden="true"></svg>三</li>
+              <li data-weekday="4" title="木星"><svg viewBox="0 0 26 26" data-planet="4" aria-hidden="true"></svg>四</li>
+              <li data-weekday="5" title="金星"><svg viewBox="0 0 26 26" data-planet="5" aria-hidden="true"></svg>五</li>
+              <li data-weekday="6" title="土星"><svg viewBox="0 0 26 26" data-planet="6" aria-hidden="true"></svg>六</li>
+              <li data-weekday="7" title="太陽"><svg viewBox="0 0 26 26" data-planet="7" aria-hidden="true"></svg>日</li>
+            </ol>
+            <p class="note">星期一是 1、星期日是 7。一週七天自古就各對應一顆星：月亮、火星、水星、木星、金星、土星、太陽。</p>
+          </div>
+          <div class="legend moon">
+            <h3>月相<span>左下角</span></h3>
+            <ol>
+              <li data-moon="1" title="新月"><svg viewBox="0 0 26 26" data-moon="1" aria-hidden="true"></svg>1</li>
+              <li data-moon="2" title="蛾眉月"><svg viewBox="0 0 26 26" data-moon="2" aria-hidden="true"></svg>2</li>
+              <li data-moon="3" title="上弦月"><svg viewBox="0 0 26 26" data-moon="3" aria-hidden="true"></svg>3</li>
+              <li data-moon="4" title="盈凸月"><svg viewBox="0 0 26 26" data-moon="4" aria-hidden="true"></svg>4</li>
+              <li data-moon="5" title="滿月"><svg viewBox="0 0 26 26" data-moon="5" aria-hidden="true"></svg>5</li>
+              <li data-moon="6" title="虧凸月"><svg viewBox="0 0 26 26" data-moon="6" aria-hidden="true"></svg>6</li>
+              <li data-moon="7" title="下弦月"><svg viewBox="0 0 26 26" data-moon="7" aria-hidden="true"></svg>7</li>
+              <li data-moon="8" title="殘月"><svg viewBox="0 0 26 26" data-moon="8" aria-hidden="true"></svg>8</li>
+            </ol>
+            <p class="note">1 是新月、3 是上弦月、5 是滿月、7 是下弦月。月相由你的 Mac 依日期算出來。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="kicker">照你的喜好調整</p>
+      <h2>選項，先在這裡試試。</h2>
+      <p class="intro">這些是 Ciscrux 選項視窗裡的設定，預覽會跟著即時改變。選項視窗目前只有英文，這裡照畫面上的名稱列出。在 Mac 上，到螢幕保護程式設定裡選 Ciscrux，再按「選項⋯」。</p>
+      <div class="playground">
+        <div class="preview">
+          <svg id="preview" data-screen='{"followReducedMotion":false}' role="img" aria-label="Ciscrux 的即時預覽，會跟著選項改變。"></svg>
+        </div>
+        <form class="options" data-options="preview" lang="en">
+          <p class="title">Ciscrux — Options</p>
+          <div class="row stack">
+            <label for="lineWidth">Line thickness</label> <output>5%</output>
+            <input id="lineWidth" name="lineWidth" type="range" min="1" max="15" step="1" value="5">
+          </div>
+          <label class="check"><input type="checkbox" name="showHint"> Show Hint</label>
+          <label class="check"><input type="checkbox" name="showYear" checked> Show Year (YYYY)</label>
+          <label class="check"><input type="checkbox" name="showMonthDay" checked> Show Month / Day (MMDD)</label>
+          <label class="check"><input type="checkbox" name="showSeconds" checked> Show Seconds | Moon phase | Weekday</label>
+          <div class="row">
+            <label for="layout">Layout</label>
+            <select id="layout" name="layout"><option value="horizontal" selected>Horizontal</option><option value="stacked">Stacked</option></select>
+          </div>
+          <div class="row">
+            <label for="animation">Animation</label>
+            <select id="animation" name="animation"><option value="none">None</option><option value="fade">Fade</option><option value="stroke" selected>Stroke</option></select>
+          </div>
+          <div class="row"><label for="background">Background color</label><input id="background" name="background" type="color" value="#000000"></div>
+          <div class="row"><label for="stroke">Stroke color</label><input id="stroke" name="stroke" type="color" value="#ffffff"></div>
+          <div class="row"><label for="hint">Hint color</label><input id="hint" name="hint" type="color" value="#616161"></div>
+          <button type="reset">Restore Defaults</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <p class="kicker">在 Mac 上</p>
+      <h2>整個螢幕，一座安靜的時鐘。</h2>
+      <p class="intro">排成一列，或分成兩列。以下是在 Mac 上實際執行 Ciscrux 錄下的畫面，開著 Show Hint。</p>
+      <div class="recordings">
+        <figure>
+          <video src="../media/horizontal.mp4" poster="../media/horizontal.jpg" width="1920" height="1080" autoplay muted loop playsinline
+                 aria-label="Ciscrux 在 Mac 上排成一列：年、日期、時間和秒，每秒畫出新的秒的符號。"></video>
+          <figcaption><b>Horizontal</b>：所有符號排成一列。</figcaption>
+        </figure>
+        <figure>
+          <video src="../media/stacked.mp4" poster="../media/stacked.jpg" width="1920" height="1080" autoplay muted loop playsinline
+                 aria-label="Ciscrux 在 Mac 上分成兩列：上面是年和日期，下面是時間和秒。"></video>
+          <figcaption><b>Stacked</b>：分成上下兩列；四個符號時排成 2×2。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="kicker">安裝</p>
+      <h2>三個步驟，最後到「背景圖片」裡選。</h2>
+      <p class="intro">Ciscrux 已用 Developer ID 簽章，並經過 Apple 公證。</p>
+      <ol class="steps">
+        <li>
+          <h3>下載</h3>
+          <p><a href="https://github.com/vulcanshen/ciscrux/releases/latest/download/Ciscrux.zip">下載 Ciscrux.zip</a>，打開它。</p>
+        </li>
+        <li>
+          <h3>安裝</h3>
+          <p>雙擊 <strong>Ciscrux.saver</strong>。macOS 會問是否要安裝這個螢幕保護程式，按「安裝」。</p>
+        </li>
+        <li>
+          <h3>選擇 Ciscrux</h3>
+          <p>打開螢幕保護程式的設定，選 Ciscrux：</p>
+          <p class="path"><span>系統設定</span> › <span>背景圖片</span> › <span>螢幕保護程式⋯</span></p>
+        </li>
+      </ol>
+      <div class="where">
+        <img src="../media/screen-saver-settings.jpg" width="996" height="523" loading="lazy"
+             alt="英文介面的 macOS 螢幕保護程式設定，已選 Ciscrux：上方是 Ciscrux 的預覽，下面一列是 Ciscrux 和「Options…」（選項）按鈕。">
+        <div>
+          <p><strong>找不到螢幕保護程式的設定？</strong>新版 macOS 的側邊欄裡沒有它：要打開「背景圖片」，再按下方的「螢幕保護程式⋯」。</p>
+          <p>舊版 macOS 則在「系統設定」（或「系統偏好設定」）裡找「螢幕保護程式」。</p>
+          <p>按 Ciscrux 旁邊的「選項⋯」，可以調整要顯示的內容。</p>
+        </div>
+      </div>
+      <p class="brew">或用 Homebrew：<br><code>brew install --cask vulcanshen/tap/ciscrux</code></p>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap pair">
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="4" y="10.5" width="16" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/>
+        </svg>
+        <h3>資料不會離開你的 Mac。</h3>
+        <p>Ciscrux 完全沒有連網的程式碼：不收集任何資料，只把選項存在你的 Mac 上。詳見<a href="../privacy/zh-Hant/">隱私權政策</a>。</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3.5 12.5V5a1.5 1.5 0 0 1 1.5-1.5h7.5l8 8-9 9-8-8z"/><circle cx="8.5" cy="8.5" r="1.5"/>
+        </svg>
+        <h3>免費。</h3>
+        <p>可免費下載與使用：不用購買、不用訂閱，也不用註冊帳號。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap name">
+      <div>
+        <p class="kicker">為什麼叫「Ciscrux」？</p>
+        <h2>熙篤會，加上十字。</h2>
+        <p><em>cis-</em> 取自 Cistercian（熙篤會），加上拉丁文的 <em>crux</em>，意思是「十字」；英文 <em>the crux of the matter</em>（問題的關鍵）用的也是這個字。Crux 同時也是南十字座的名字。</p>
+      </div>
+      <svg class="crux" viewBox="0 0 194 272" role="img" aria-label="南十字座的五顆亮星，排成一個十字。">
+        <line x1="98.2" y1="16.5" x2="121" y2="256"/>
+        <line x1="15.4" y1="119.6" x2="178.3" y2="82"/>
+        <circle class="glow" cx="121" cy="256" r="14"/><circle cx="121" cy="256" r="5.9"/>
+        <circle class="glow" cx="15.4" cy="119.6" r="12"/><circle cx="15.4" cy="119.6" r="5.1"/>
+        <circle class="glow" cx="98.2" cy="16.5" r="11"/><circle cx="98.2" cy="16.5" r="4.5"/>
+        <circle class="glow" cx="178.3" cy="82" r="8"/><circle cx="178.3" cy="82" r="2.9"/>
+        <circle cx="147.2" cy="148" r="1.9"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="closing alt">
+    <div class="wrap">
+      <img class="mark" src="../mark.svg" alt="">
+      <h2>Ciscrux</h2>
+      <p class="intro">免費的螢幕保護程式，支援 macOS 11 以上，Apple 晶片與 Intel 都能用。</p>
+      <a class="download" href="https://github.com/vulcanshen/ciscrux/releases/latest/download/Ciscrux.zip">下載 Mac 版</a>
+      <p class="fineprint">或用 Homebrew：<code>brew install --cask vulcanshen/tap/ciscrux</code></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav>
+      <a href="../support/zh-Hant/">支援</a>
+      <a href="../privacy/zh-Hant/">隱私權政策</a>
+      <a href="https://github.com/vulcanshen/ciscrux/blob/main/README-zh_TW.md">GitHub</a>
+      <a href="../" lang="en" hreflang="en">English</a>
+      <a href="../../">所有 app</a>
+    </nav>
+    <span>© 2026 Vulcan Shen</span>
+  </div>
+</footer>
+<script src="../ciscrux.js"></script>
+</body>
+</html>

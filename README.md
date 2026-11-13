@@ -6,6 +6,7 @@ vulcan 的作品入口，以及 app 的推廣頁、支援頁與隱私權政策�
 |---|---|---|---|
 | Alphade | <https://vulcanshen.github.io/alphade/> | <https://vulcanshen.github.io/alphade/support/> | <https://vulcanshen.github.io/alphade/privacy/> |
 | HelpKnock | <https://vulcanshen.github.io/helpknock/> | <https://vulcanshen.github.io/helpknock/support/> | <https://vulcanshen.github.io/helpknock/privacy/> |
+| Ciscrux | <https://vulcanshen.github.io/ciscrux/> | <https://vulcanshen.github.io/ciscrux/support/> | <https://vulcanshen.github.io/ciscrux/privacy/> |
 
 App Store Connect 的「行銷網址」、「支援網址」與「隱私權政策網址」依序填該 app 的這三個網址（英文）。其他語言的在地化欄位填該語言的頁面，例如繁體中文填 `<app>/zh-Hant/`、`<app>/support/zh-Hant/`、`<app>/privacy/zh-Hant/`；還沒有該語言頁面的填英文的。以前填過 `support/#zh-Hant` 這種網址的不用急著改，英文頁會轉到中文頁，下一版再改填新網址。
 

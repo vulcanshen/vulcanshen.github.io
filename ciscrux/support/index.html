@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en" style="--accent-light: #8a6a1f; --accent-dark: #d9b86c">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ciscrux Support</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<main>
+  <header class="app-header">
+    <img src="../icon.png" alt="">
+    <h1>Ciscrux</h1>
+    <details class="langs">
+      <summary>Language</summary>
+      <ul>
+        <li><a href="./" aria-current="page">English</a></li>
+        <li><a href="zh-Hant/" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a></li>
+      </ul>
+    </details>
+  </header>
+
+  <h2>Support</h2>
+  <p class="lead">The time in medieval Cistercian numerals.</p>
+  <p>Ciscrux is a free macOS screen saver that shows the year, the date, the time and the seconds in Cistercian numerals, each as a single figure.</p>
+
+  <h3>Contact</h3>
+  <p>To report a problem or ask a question, open an issue on <a href="https://github.com/vulcanshen/ciscrux/issues/new">GitHub</a>. No GitHub account? Email <a href="mailto:vulcan.shen.2304@gmail.com?subject=%5BCiscrux%5D%20">vulcan.shen.2304@gmail.com</a>. If something doesn't work, please include your macOS version and whether your Mac has Apple silicon or an Intel processor.</p>
+
+  <h3>Getting started</h3>
+  <ol>
+    <li>Download <a href="https://github.com/vulcanshen/ciscrux/releases/latest">Ciscrux.zip</a> from GitHub and open it.</li>
+    <li>Double-click Ciscrux.saver. macOS asks whether to install the screen saver; click Install.</li>
+    <li>Open System Settings › Wallpaper › Screen Saver… and choose Ciscrux.</li>
+    <li>Click Options… next to Ciscrux to change what it shows.</li>
+  </ol>
+
+  <h3>I can't find the screen saver settings.</h3>
+  <p>On recent macOS, screen savers don't have their own place in the System Settings sidebar. Open Wallpaper and click Screen Saver… near the bottom. On older versions, look for Screen Saver in System Settings or System Preferences.</p>
+
+  <h3>Is Ciscrux free?</h3>
+  <p>Yes. Ciscrux is free to download and use, with no purchase and no subscription.</p>
+
+  <h3>How do I read the figures?</h3>
+  <p>Each figure is a vertical line with up to four marks around it: the upper right is the ones, the upper left the tens, the lower right the hundreds and the lower left the thousands. The same nine marks stand for 1 to 9 in every corner, just mirrored, and 0 is left blank. Ciscrux shows the year, the date as month and day, the time as hour and minute on a 24-hour clock, and the seconds. Turn on Show Hint to see the regular digits under each figure while you learn. <a href="../#reader">Try it on the Ciscrux page</a>.</p>
+
+  <h3>What's in the lower half of the seconds figure?</h3>
+  <p>The day of the week in the lower right, 1 for Monday up to 7 for Sunday, and the moon phase in the lower left, 1 for a new moon up to 8 for a waning crescent. With Show Hint on, a small moon on the left of the seconds shows the moon phase, and the symbol on its right is the planet of the day. Each day of the week has long been paired with a planet: the Moon ☽ for Monday, Mars ♂&#xFE0E; for Tuesday, Mercury ☿ for Wednesday, Jupiter ♃ for Thursday, Venus ♀&#xFE0E; for Friday, Saturn ♄ for Saturday and the Sun ☉ for Sunday.</p>
+
+  <h3>What do the options do?</h3>
+  <ul>
+    <li><strong>Line thickness</strong>: the line width as a share of the figure's height, 1–15%. The default is 5%.</li>
+    <li><strong>Show Hint</strong>: shows the regular digits under each figure. Off by default.</li>
+    <li><strong>Show Year (YYYY)</strong>, <strong>Show Month / Day (MMDD)</strong> and <strong>Show Seconds | Moon phase | Weekday</strong>: turn each figure on or off. The time is always shown.</li>
+    <li><strong>Layout</strong>: Horizontal puts every figure in one row. Stacked uses two rows: four figures make a 2×2 grid, and with two or three the time sits on top.</li>
+    <li><strong>Animation</strong>: Stroke draws each new figure one stroke at a time, Fade cross-fades and None changes instantly.</li>
+    <li><strong>Background color</strong>, <strong>Stroke color</strong> and <strong>Hint color</strong>: the colors of the background, the figures and the digits under them.</li>
+    <li><strong>Restore Defaults</strong>: puts every option back to its default. Click OK to apply.</li>
+  </ul>
+
+  <h3>How do I update or uninstall Ciscrux?</h3>
+  <p>To update, download the latest Ciscrux.zip and install it the same way. With Homebrew, install with <code>brew install --cask vulcanshen/tap/ciscrux</code> and update with <code>brew upgrade --cask ciscrux</code>. If you still see the old version after updating, restart your Mac or log out and back in: a screen saver that has already run can stay loaded.</p>
+  <p>To uninstall, delete Ciscrux.saver from <code>~/Library/Screen Savers</code>, or from <code>/Library/Screen Savers</code> if you installed it for all users. In Finder, choose Go › Go to Folder… and paste the folder path. With Homebrew, run <code>brew uninstall --cask ciscrux</code>.</p>
+
+  <h3>Privacy</h3>
+  <p>Ciscrux has no network code and collects no data; it only keeps its options on your Mac. See the <a href="../privacy/">Privacy Policy</a>.</p>
+
+  <h3>Requirements</h3>
+  <p>macOS 11 or later, on a Mac with Apple silicon or an Intel processor.</p>
+
+  <nav class="section-links">
+    <a href="../">Ciscrux</a>
+    <a href="./">Support</a>
+    <a href="../privacy/">Privacy Policy</a>
+    <a href="../../">All apps</a>
+  </nav>
+
+  <footer>© 2026 Vulcan Shen</footer>
+</main>
+<script>
+  // Close the language menu on a click outside it, or on Esc.
+  const langs = document.querySelector(".langs");
+  document.addEventListener("click", e => { if (!langs.contains(e.target)) langs.open = false; });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") langs.open = false; });
+</script>
+</body>
+</html>

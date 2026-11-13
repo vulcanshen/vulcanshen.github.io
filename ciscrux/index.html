@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ciscrux · The time in Cistercian numerals, for your Mac</title>
+  <meta name="description" content="Ciscrux is a free macOS screen saver that tells the time in medieval Cistercian numerals: the year, the date, the time and the seconds, each as a single figure.">
+  <link rel="alternate" hreflang="en" href="https://vulcanshen.github.io/ciscrux/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://vulcanshen.github.io/ciscrux/zh-Hant/">
+  <link rel="alternate" hreflang="x-default" href="https://vulcanshen.github.io/ciscrux/">
+  <link rel="stylesheet" href="promo.css">
+</head>
+<body>
+<header class="hero">
+  <div class="wrap topbar">
+    <a class="brand" href="./"><img class="mark" src="mark.svg" alt="">Ciscrux</a>
+    <nav>
+      <a href="support/">Support</a>
+      <details class="langs">
+        <summary>Language</summary>
+        <ul>
+          <li><a href="./" aria-current="page">English</a></li>
+          <li><a href="zh-Hant/" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a></li>
+        </ul>
+      </details>
+    </nav>
+  </div>
+  <div class="screen">
+    <svg class="clock" data-screen='{"showHint":true}' role="img"
+         aria-label="Ciscrux showing the current year, date, time and seconds in Cistercian numerals, with the regular digits under each figure."></svg>
+    <span class="live">Live · your local time</span>
+  </div>
+  <div class="wrap">
+    <h1>The time, written<br><span>the medieval way.</span></h1>
+    <p class="pitch">Ciscrux is a free screen saver for your Mac. It shows the year, the date, the time and the seconds in Cistercian numerals, each as a single figure, and draws every new figure stroke by stroke.</p>
+    <a class="download" href="https://github.com/vulcanshen/ciscrux/releases/latest/download/Ciscrux.zip">Download for Mac</a>
+    <p class="fineprint">Free · macOS 11 or later · Apple silicon and Intel</p>
+  </div>
+</header>
+
+<main>
+  <section id="reader">
+    <div class="wrap">
+      <p class="kicker">How to read it</p>
+      <h2>Four corners, one number.</h2>
+      <p class="intro">Each figure is a vertical line with up to four marks around it. The mark in the upper right is the ones, the upper left the tens, the lower right the hundreds and the lower left the thousands. So a single figure writes any number from 1 to 9999.</p>
+      <div class="reader" data-reader>
+        <div class="corners">
+          <p class="place left top tens"><b data-place="1"></b><span>tens</span></p>
+          <svg viewBox="0 0 120 180" aria-hidden="true"></svg>
+          <p class="place top ones"><b data-place="0"></b><span>ones</span></p>
+          <p class="place left bottom thousands"><b data-place="3"></b><span>thousands</span></p>
+          <p class="place bottom hundreds"><b data-place="2"></b><span>hundreds</span></p>
+        </div>
+        <div>
+          <label for="number">Type a number from 1 to 9999</label>
+          <input id="number" inputmode="numeric" autocomplete="off" maxlength="4" value="1234">
+          <div class="tries">
+            <button type="button" data-try="year">This year<b></b></button>
+            <button type="button" data-try="date">Today<b></b></button>
+            <button type="button" data-try="time">Now<b></b></button>
+          </div>
+          <p class="note">Ciscrux writes the date as month and day (1113 is November 13) and the time as hour and minute on a 24-hour clock (1452 is 14:52).</p>
+        </div>
+      </div>
+      <div class="nine">
+        <h3>The nine marks</h3>
+        <p class="note">Here they are in the ones corner. Every corner uses the same nine, mirrored, and 0 is left blank.</p>
+        <ol>
+          <li><svg viewBox="0 0 30 45" data-figure="1" data-options='{"quads":["var(--ones)"]}' aria-hidden="true"></svg>1</li>
+          <li><svg viewBox="0 0 30 45" data-figure="2" data-options='{"quads":["var(--ones)"]}' aria-hidden="true"></svg>2</li>
+          <li><svg viewBox="0 0 30 45" data-figure="3" data-options='{"quads":["var(--ones)"]}' aria-hidden="true"></svg>3</li>
+          <li><svg viewBox="0 0 30 45" data-figure="4" data-options='{"quads":["var(--ones)"]}' aria-hidden="true"></svg>4</li>
+          <li><svg viewBox="0 0 30 45" data-figure="5" data-options='{"quads":["var(--ones)"]}' aria-hidden="true"></svg>5</li>
+          <li><svg viewBox="0 0 30 45" data-figure="6" data-options='{"quads":["var(--ones)"]}' aria-hidden="true"></svg>6</li>
+          <li><svg viewBox="0 0 30 45" data-figure="7" data-options='{"quads":["var(--ones)"]}' aria-hidden="true"></svg>7</li>
+          <li><svg viewBox="0 0 30 45" data-figure="8" data-options='{"quads":["var(--ones)"]}' aria-hidden="true"></svg>8</li>
+          <li><svg viewBox="0 0 30 45" data-figure="9" data-options='{"quads":["var(--ones)"]}' aria-hidden="true"></svg>9</li>
+        </ol>
+        <p class="note">More on <a href="https://en.wikipedia.org/wiki/Cistercian_numerals">Wikipedia</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <p class="kicker">The seconds figure</p>
+      <h2>The weekday and the moon, in the spare corners.</h2>
+      <p class="intro">Seconds only need the top two corners, so Ciscrux uses the bottom two as well: the lower right holds the day of the week and the lower left the moon phase. With Show Hint on, a small moon on the left shows the phase, and the symbol on the right is the planet of the day.</p>
+      <div class="seconds">
+        <div class="seconds-figure">
+          <svg viewBox="0 0 240 360" data-seconds role="img" aria-label="The seconds figure right now, with the moon phase and the weekday in its lower corners."></svg>
+          <ul class="key">
+            <li class="s">seconds</li>
+            <li class="w">weekday</li>
+            <li class="m">moon phase</li>
+          </ul>
+        </div>
+        <div>
+          <div class="legend weekday">
+            <h3>Weekday<span>lower right</span></h3>
+            <ol>
+              <li data-weekday="1" title="Moon"><svg viewBox="0 0 26 26" data-planet="1" aria-hidden="true"></svg>Mon</li>
+              <li data-weekday="2" title="Mars"><svg viewBox="0 0 26 26" data-planet="2" aria-hidden="true"></svg>Tue</li>
+              <li data-weekday="3" title="Mercury"><svg viewBox="0 0 26 26" data-planet="3" aria-hidden="true"></svg>Wed</li>
+              <li data-weekday="4" title="Jupiter"><svg viewBox="0 0 26 26" data-planet="4" aria-hidden="true"></svg>Thu</li>
+              <li data-weekday="5" title="Venus"><svg viewBox="0 0 26 26" data-planet="5" aria-hidden="true"></svg>Fri</li>
+              <li data-weekday="6" title="Saturn"><svg viewBox="0 0 26 26" data-planet="6" aria-hidden="true"></svg>Sat</li>
+              <li data-weekday="7" title="Sun"><svg viewBox="0 0 26 26" data-planet="7" aria-hidden="true"></svg>Sun</li>
+            </ol>
+            <p class="note">1 for Monday up to 7 for Sunday. Each day has long been paired with a planet: the Moon, Mars, Mercury, Jupiter, Venus, Saturn and the Sun.</p>
+          </div>
+          <div class="legend moon">
+            <h3>Moon phase<span>lower left</span></h3>
+            <ol>
+              <li data-moon="1" title="New moon"><svg viewBox="0 0 26 26" data-moon="1" aria-hidden="true"></svg>1</li>
+              <li data-moon="2" title="Waxing crescent"><svg viewBox="0 0 26 26" data-moon="2" aria-hidden="true"></svg>2</li>
+              <li data-moon="3" title="First quarter"><svg viewBox="0 0 26 26" data-moon="3" aria-hidden="true"></svg>3</li>
+              <li data-moon="4" title="Waxing gibbous"><svg viewBox="0 0 26 26" data-moon="4" aria-hidden="true"></svg>4</li>
+              <li data-moon="5" title="Full moon"><svg viewBox="0 0 26 26" data-moon="5" aria-hidden="true"></svg>5</li>
+              <li data-moon="6" title="Waning gibbous"><svg viewBox="0 0 26 26" data-moon="6" aria-hidden="true"></svg>6</li>
+              <li data-moon="7" title="Last quarter"><svg viewBox="0 0 26 26" data-moon="7" aria-hidden="true"></svg>7</li>
+              <li data-moon="8" title="Waning crescent"><svg viewBox="0 0 26 26" data-moon="8" aria-hidden="true"></svg>8</li>
+            </ol>
+            <p class="note">1 new moon, 3 first quarter, 5 full moon, 7 last quarter. Worked out on your Mac from the date.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="kicker">Make it yours</p>
+      <h2>Try the options right here.</h2>
+      <p class="intro">These are the settings in Ciscrux's Options window, on a live preview. On your Mac, you'll find them under Options… next to Ciscrux in the screen saver settings.</p>
+      <div class="playground">
+        <div class="preview">
+          <svg id="preview" data-screen='{"followReducedMotion":false}' role="img" aria-label="A live preview of Ciscrux that follows the options."></svg>
+        </div>
+        <form class="options" data-options="preview">
+          <p class="title">Ciscrux — Options</p>
+          <div class="row stack">
+            <label for="lineWidth">Line thickness</label> <output>5%</output>
+            <input id="lineWidth" name="lineWidth" type="range" min="1" max="15" step="1" value="5">
+          </div>
+          <label class="check"><input type="checkbox" name="showHint"> Show Hint</label>
+          <label class="check"><input type="checkbox" name="showYear" checked> Show Year (YYYY)</label>
+          <label class="check"><input type="checkbox" name="showMonthDay" checked> Show Month / Day (MMDD)</label>
+          <label class="check"><input type="checkbox" name="showSeconds" checked> Show Seconds | Moon phase | Weekday</label>
+          <div class="row">
+            <label for="layout">Layout</label>
+            <select id="layout" name="layout"><option value="horizontal" selected>Horizontal</option><option value="stacked">Stacked</option></select>
+          </div>
+          <div class="row">
+            <label for="animation">Animation</label>
+            <select id="animation" name="animation"><option value="none">None</option><option value="fade">Fade</option><option value="stroke" selected>Stroke</option></select>
+          </div>
+          <div class="row"><label for="background">Background color</label><input id="background" name="background" type="color" value="#000000"></div>
+          <div class="row"><label for="stroke">Stroke color</label><input id="stroke" name="stroke" type="color" value="#ffffff"></div>
+          <div class="row"><label for="hint">Hint color</label><input id="hint" name="hint" type="color" value="#616161"></div>
+          <button type="reset">Restore Defaults</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <p class="kicker">On your Mac</p>
+      <h2>A quiet clock for the whole screen.</h2>
+      <p class="intro">One row, or two. Recorded on a Mac running Ciscrux, with Show Hint on.</p>
+      <div class="recordings">
+        <figure>
+          <video src="media/horizontal.mp4" poster="media/horizontal.jpg" width="1920" height="1080" autoplay muted loop playsinline
+                 aria-label="Ciscrux in one row on a Mac: the year, the date, the time and the seconds, with a new seconds figure drawn every second."></video>
+          <figcaption><b>Horizontal</b>: every figure in one row.</figcaption>
+        </figure>
+        <figure>
+          <video src="media/stacked.mp4" poster="media/stacked.jpg" width="1920" height="1080" autoplay muted loop playsinline
+                 aria-label="Ciscrux in two rows on a Mac: the year and the date on top, the time and the seconds below."></video>
+          <figcaption><b>Stacked</b>: two rows; with all four figures, a 2×2 grid.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="kicker">Install</p>
+      <h2>Three steps, then pick it in Wallpaper.</h2>
+      <p class="intro">Ciscrux is signed with a Developer ID and notarized by Apple.</p>
+      <ol class="steps">
+        <li>
+          <h3>Download</h3>
+          <p><a href="https://github.com/vulcanshen/ciscrux/releases/latest/download/Ciscrux.zip">Download Ciscrux.zip</a> and open it.</p>
+        </li>
+        <li>
+          <h3>Install</h3>
+          <p>Double-click <strong>Ciscrux.saver</strong>. macOS asks whether to install the screen saver; click Install.</p>
+        </li>
+        <li>
+          <h3>Choose Ciscrux</h3>
+          <p>Open the screen saver settings and pick Ciscrux:</p>
+          <p class="path"><span>System Settings</span> › <span>Wallpaper</span> › <span>Screen Saver…</span></p>
+        </li>
+      </ol>
+      <div class="where">
+        <img src="media/screen-saver-settings.jpg" width="996" height="523" loading="lazy"
+             alt="The screen saver settings on macOS with Ciscrux selected: a preview of Ciscrux at the top, and Ciscrux with an Options… button below it.">
+        <div>
+          <p><strong>Can't find the screen saver settings?</strong> On recent macOS they aren't in the sidebar on their own: open Wallpaper and click Screen Saver… near the bottom.</p>
+          <p>On older versions, look for Screen Saver in System Settings or System Preferences.</p>
+          <p>Click Options… next to Ciscrux to change what it shows.</p>
+        </div>
+      </div>
+      <p class="brew">Or with Homebrew:<br><code>brew install --cask vulcanshen/tap/ciscrux</code></p>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap pair">
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="4" y="10.5" width="16" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/>
+        </svg>
+        <h3>Nothing leaves your Mac.</h3>
+        <p>Ciscrux has no network code at all. It collects no data and only keeps its options on your Mac. Read the <a href="privacy/">Privacy Policy</a>.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3.5 12.5V5a1.5 1.5 0 0 1 1.5-1.5h7.5l8 8-9 9-8-8z"/><circle cx="8.5" cy="8.5" r="1.5"/>
+        </svg>
+        <h3>Free.</h3>
+        <p>Free to download and use: no purchase, no subscription, no account.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap name">
+      <div>
+        <p class="kicker">Why “Ciscrux”?</p>
+        <h2>Cistercian, plus a cross.</h2>
+        <p><em>cis-</em> from Cistercian, plus <em>crux</em>, Latin for “cross”, as in <em>the crux of the matter</em>. Crux is also the constellation of the Southern Cross.</p>
+      </div>
+      <svg class="crux" viewBox="0 0 194 272" role="img" aria-label="The Southern Cross: Gacrux at the top, Acrux at the bottom, Mimosa to the left, Imai to the right and Ginan between Acrux and Imai.">
+        <line x1="98.2" y1="16.5" x2="121" y2="256"/>
+        <line x1="15.4" y1="119.6" x2="178.3" y2="82"/>
+        <circle class="glow" cx="121" cy="256" r="14"/><circle cx="121" cy="256" r="5.9"/>
+        <circle class="glow" cx="15.4" cy="119.6" r="12"/><circle cx="15.4" cy="119.6" r="5.1"/>
+        <circle class="glow" cx="98.2" cy="16.5" r="11"/><circle cx="98.2" cy="16.5" r="4.5"/>
+        <circle class="glow" cx="178.3" cy="82" r="8"/><circle cx="178.3" cy="82" r="2.9"/>
+        <circle cx="147.2" cy="148" r="1.9"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="closing alt">
+    <div class="wrap">
+      <img class="mark" src="mark.svg" alt="">
+      <h2>Ciscrux</h2>
+      <p class="intro">A free screen saver for macOS 11 or later, on Apple silicon and Intel.</p>
+      <a class="download" href="https://github.com/vulcanshen/ciscrux/releases/latest/download/Ciscrux.zip">Download for Mac</a>
+      <p class="fineprint">Or with Homebrew: <code>brew install --cask vulcanshen/tap/ciscrux</code></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav>
+      <a href="support/">Support</a>
+      <a href="privacy/">Privacy Policy</a>
+      <a href="https://github.com/vulcanshen/ciscrux">GitHub</a>
+      <a href="zh-Hant/" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a>
+      <a href="../">All apps</a>
+    </nav>
+    <span>© 2026 Vulcan Shen</span>
+  </div>
+</footer>
+<script src="ciscrux.js"></script>
+</body>
+</html>
