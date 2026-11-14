@@ -589,6 +589,20 @@
     apply();
   });
 
+  // The film: a still until the visitor presses play, so the page itself never contacts
+  // YouTube. Cmd- or Ctrl-click still opens the video on YouTube in a new tab.
+  document.querySelectorAll("a[data-embed]").forEach(a => a.addEventListener("click", e => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return;
+    e.preventDefault();
+    const player = Object.assign(document.createElement("iframe"), {
+      src: a.dataset.embed, title: a.dataset.title, allowFullscreen: true,
+      referrerPolicy: "strict-origin-when-cross-origin",
+    });
+    player.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    a.replaceWith(player);
+    player.focus();
+  }));
+
   // Close the language menu on a click outside it, or on Esc.
   const langs = document.querySelector(".langs");
   if (langs) {

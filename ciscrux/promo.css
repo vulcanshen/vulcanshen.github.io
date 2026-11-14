@@ -681,6 +681,74 @@ main h3 {
   color: var(--text);
 }
 
+/* The film: a still with a play button; YouTube's player replaces it once pressed. */
+.film .video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--black);
+}
+
+.film .video:has(a:focus-visible) {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.film .video a,
+.film .video img,
+.film .video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: none;
+}
+
+.film .play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 84px;
+  height: 84px;
+  margin: -42px 0 0 -42px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.film .play::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 26px;
+  height: 30px;
+  margin: -15px 0 0 -9px;
+  background: var(--text);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  transition: background-color 0.2s;
+}
+
+.film .video a:hover .play,
+.film .video a:focus-visible .play {
+  border-color: var(--gold);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.film .video a:hover .play::before,
+.film .video a:focus-visible .play::before {
+  background: var(--gold-soft);
+}
+
+.film .caption {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 /* Install */
 .steps {
   display: grid;
@@ -926,6 +994,18 @@ footer nav a:hover {
 
   .card {
     padding: 28px;
+  }
+
+  .film .play {
+    width: 56px;
+    height: 56px;
+    margin: -28px 0 0 -28px;
+  }
+
+  .film .play::before {
+    width: 18px;
+    height: 20px;
+    margin: -10px 0 0 -6px;
   }
 
   .hero .fineprint {
