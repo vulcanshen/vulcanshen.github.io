@@ -1,7 +1,7 @@
 /* HelpKnock promotion page only. The support and privacy pages use the shared ../style.css.
    Navy is the app icon's; orange is the "needs help" color in the app. Dark only: a night with no
-   network, a beacon in the middle sending out rings and a radar beam turning round it, a faint
-   dot grid like a map behind everything, no boxes. */
+   network. Behind the whole page, fixed while the content scrolls, a beacon sends out rings and a
+   radar beam turns round it over a faint dot grid like a map. No boxes. */
 :root {
   --navy: #1B3A6B;
   --navy-deep: #0D1F3C;
@@ -30,17 +30,73 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-/* Behind everything: navy light and a faint dot grid, like a map at night. */
-body::before {
+/* Behind everything, fixed while the page scrolls: the night, a dot grid like a map, rings
+   round the beacon, a ring of signal going out from it and a radar beam turning round it. The
+   beacon sits behind the hero's phone; on a narrow screen, where the phone is below the words,
+   lower and in the middle. */
+@property --ring {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+@property --fade {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --beam {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+:root {
+  --cx: 72%;
+  --cy: 52%;
+}
+
+body::before,
+body::after {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
+}
+
+body::before {
   background:
-    radial-gradient(rgba(157, 184, 230, 0.13) 1px, transparent 1.5px) 0 0 / 26px 26px,
-    radial-gradient(900px 600px at 15% 110%, rgba(27, 58, 107, 0.55), transparent 70%),
-    radial-gradient(800px 500px at 100% 40%, rgba(27, 58, 107, 0.35), transparent 70%);
+    radial-gradient(circle at var(--cx) var(--cy), rgba(242, 138, 30, 0.2), transparent 36%),
+    repeating-radial-gradient(circle at var(--cx) var(--cy), rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 64px),
+    radial-gradient(rgba(157, 184, 230, 0.12) 1px, transparent 1.5px) 0 0 / 26px 26px,
+    linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 45%, var(--bg) 100%);
+}
+
+body::after {
+  background:
+    radial-gradient(circle at var(--cx) var(--cy), transparent calc(var(--ring) - 2px), rgba(242, 138, 30, calc(var(--fade) * 0.55)) var(--ring), transparent calc(var(--ring) + 3px)),
+    conic-gradient(from var(--beam) at var(--cx) var(--cy), transparent 0 82%, rgba(242, 138, 30, 0.14) 97%, rgba(255, 200, 140, 0.26) 99.6%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at var(--cx) var(--cy), #000 0, #000 30%, transparent 68%);
+  mask-image: radial-gradient(circle at var(--cx) var(--cy), #000 0, #000 30%, transparent 68%);
+  animation: sweep 7s linear infinite, signal 3.2s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
+}
+
+@keyframes sweep {
+  to { --beam: 360deg; }
+}
+
+@keyframes signal {
+  from { --ring: 20px; --fade: 1; }
+  to { --ring: 70vmax; --fade: 0; }
+}
+
+@media (max-width: 819px) {
+  :root {
+    --cx: 50%;
+    --cy: 64%;
+  }
 }
 
 /* PingFang TC comes first above, which would draw Japanese kanji in their Chinese forms. */
@@ -85,59 +141,9 @@ p {
   padding: 0 20px;
 }
 
-/* Hero: dark navy with beacon rings radiating from behind the phone; a ring of signal keeps
-   going out from it and a radar beam turns round it. */
-@property --ring {
-  syntax: "<length>";
-  inherits: false;
-  initial-value: 0px;
-}
-
-@property --beam {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 0deg;
-}
-
+/* Hero: no backdrop of its own; the page's radar shows through from behind the phone. */
 .hero {
-  position: relative;
-  isolation: isolate;
   color: #fff;
-  background:
-    repeating-radial-gradient(circle at 72% 58%, rgba(255, 255, 255, 0.07) 0 1px, transparent 1px 64px),
-    radial-gradient(circle at 72% 58%, rgba(242, 138, 30, 0.22), transparent 42%),
-    linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 70%);
-  overflow: hidden;
-}
-
-.hero::before,
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-}
-
-.hero::before {
-  background: radial-gradient(circle at 72% 58%, transparent calc(var(--ring) - 2px), rgba(242, 138, 30, 0.55) var(--ring), transparent calc(var(--ring) + 3px));
-  animation: signal 3.2s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
-}
-
-@keyframes signal {
-  from { --ring: 20px; opacity: 1; }
-  to { --ring: 640px; opacity: 0; }
-}
-
-.hero::after {
-  background: conic-gradient(from var(--beam) at 72% 58%, transparent 0 82%, rgba(242, 138, 30, 0.16) 97%, rgba(255, 200, 140, 0.28) 99.6%, transparent 100%);
-  animation: sweep 7s linear infinite;
-  -webkit-mask-image: radial-gradient(circle at 72% 58%, #000 0, #000 28%, transparent 60%);
-  mask-image: radial-gradient(circle at 72% 58%, #000 0, #000 28%, transparent 60%);
-}
-
-@keyframes sweep {
-  to { --beam: 360deg; }
 }
 
 .topbar {
@@ -427,10 +433,9 @@ section h2 {
   margin-top: 12px;
 }
 
-/* The end: the badge with a beacon going behind it. */
+/* The end: a warm light behind the badge. */
 .cta {
   isolation: isolate;
-  overflow: hidden;
   text-align: center;
   color: #fff;
 }
@@ -441,9 +446,7 @@ section h2 {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background: radial-gradient(circle at 50% 62%, transparent calc(var(--ring) - 2px), rgba(242, 138, 30, 0.5) var(--ring), transparent calc(var(--ring) + 3px)),
-    radial-gradient(circle at 50% 62%, rgba(242, 138, 30, 0.18), transparent 40%);
-  animation: signal 3.2s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
+  background: radial-gradient(circle at 50% 62%, rgba(242, 138, 30, 0.16), transparent 40%);
 }
 
 footer {
@@ -549,19 +552,10 @@ footer p {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero::before,
-  .hero::after,
-  .cta::after,
+  /* The beam holds still and the ring of signal stays out. */
+  body::after,
   .kicker::before {
     animation: none;
-  }
-
-  .hero::before {
-    display: none;
-  }
-
-  .cta::after {
-    background: radial-gradient(circle at 50% 62%, rgba(242, 138, 30, 0.18), transparent 40%);
   }
 
   .reveal {
