@@ -821,13 +821,31 @@ kbd {
   50% { opacity: 0; }
 }
 
+/* The demo runs on the left, what the app is sits on the right. */
 .out {
-  display: flex;
-  align-items: flex-start;
-  gap: 32px;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 36px;
 }
 
-/* With the script, the README prints once the command is typed. */
+/* Demos differ in shape, so they sit in one frame and keep the window from jumping. */
+.demo {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #0e1118;
+  box-shadow: 0 0 0 1px #262a31, 0 30px 70px -30px rgba(32, 80, 144, 0.9);
+}
+
+.demo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* With the script, the app comes up once its name is typed. */
 .term.live .out {
   opacity: 0;
   transform: translateY(6px);
@@ -839,33 +857,33 @@ kbd {
   transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
-.out img {
-  flex: none;
-  width: 112px;
-  height: 112px;
-  border-radius: 18px;
+.about img {
+  display: block;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 20px;
+  border-radius: 14px;
   box-shadow: 0 0 0 1px #262a31, 0 20px 50px -15px rgba(32, 80, 144, 0.9);
 }
 
-.out h3 {
+.about h3 {
   margin: 0 0 12px;
   color: var(--terminu-gold);
-  font: 700 1.9rem/1.1 var(--mono);
+  font: 700 1.7rem/1.1 var(--mono);
   letter-spacing: -0.01em;
   text-shadow: 0 0 24px rgba(242, 183, 83, 0.35);
 }
 
-.out p {
-  max-width: 40rem;
+.about p {
   margin: 0;
   color: #c9cdd4;
-  font: 1.1rem/1.6 var(--sans);
+  font: 1rem/1.6 var(--sans);
 }
 
-.out .zh {
+.about .zh {
   margin-top: 10px;
   color: #8e959f;
-  font-size: 1rem;
+  font-size: 0.93rem;
 }
 
 .refs {
@@ -1098,6 +1116,11 @@ kbd {
     width: auto;
   }
 
+  .out {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+  }
+
   .flow {
     grid-template-columns: minmax(0, 1fr);
     gap: 36px;
@@ -1214,22 +1237,13 @@ kbd {
     padding: 24px 20px 30px;
   }
 
-  .out {
-    flex-direction: column;
-    gap: 20px;
+  .about img {
+    width: 56px;
+    height: 56px;
   }
 
-  .out img {
-    width: 80px;
-    height: 80px;
-  }
-
-  .out h3 {
-    font-size: 1.5rem;
-  }
-
-  .out p {
-    font-size: 1rem;
+  .about h3 {
+    font-size: 1.4rem;
   }
 }
 
@@ -1262,6 +1276,15 @@ kbd {
 
   .term.live .printed .out {
     transition: none;
+  }
+
+  /* A GIF can't be paused, so with Reduce Motion on the demos stay out. */
+  .demo {
+    display: none;
+  }
+
+  .out {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .js .reveal {

@@ -184,18 +184,23 @@
         <p lang="zh-Hant">terminu family：不看文件就能用的終端機介面。每個 app 都用同一組按鍵，不確定的時候，就按 <kbd>Space</kbd>。</p>
       </div>
 
-      <!-- A terminal with a tab per app: click a tab and its README is printed. The tabs are
-           built by the script; without it every app is printed one after another. -->
+      <!-- A terminal with a tab per app: click a tab, the app's name is typed and its demo runs
+           (the GIF in the app's own repo, so it stays current; a lazy image, so only the open tab's
+           demo loads). The tabs are built by the script; without it every app is shown in turn. -->
       <div class="term reveal" data-term>
         <div class="term-top">
           <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
         </div>
         <div class="term-screen">
           <section class="term-app" id="app-tetru">
-            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">cat tetru/README.md</span></p>
+            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">tetru</span></p>
             <div class="out">
-              <img src="icons/tetru.svg" alt="">
-              <div>
+              <div class="demo">
+                <img src="https://raw.githubusercontent.com/vulcanshen/tetru/HEAD/docs/demo.gif" width="1000" height="760" loading="lazy"
+                     alt="tetru running in a terminal">
+              </div>
+              <div class="about">
+                <img src="icons/tetru.svg" alt="">
                 <h3>tetru</h3>
                 <p>A falling-block game for the terminal: move and turn the pieces as they fall, fill a row to clear it, and set the keys to suit your hands.</p>
                 <p class="zh" lang="zh-Hant">在終端機裡玩的落塊消行遊戲：趁方塊落下時移動、旋轉，排滿一整行就消掉，按鍵也能照自己的習慣改。</p>
@@ -204,10 +209,14 @@
             </div>
           </section>
           <section class="term-app" id="app-catu">
-            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">cat catu/README.md</span></p>
+            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">catu</span></p>
             <div class="out">
-              <img src="icons/catu.svg" alt="">
-              <div>
+              <div class="demo">
+                <img src="https://raw.githubusercontent.com/vulcanshen/catu/HEAD/docs/demo.gif" width="1200" height="760" loading="lazy"
+                     alt="catu running in a terminal">
+              </div>
+              <div class="about">
+                <img src="icons/catu.svg" alt="">
                 <h3>catu</h3>
                 <p>A file viewer for the terminal: Markdown drawn as a document, mermaid as diagrams, any other file in colour.</p>
                 <p class="zh" lang="zh-Hant">終端機裡看檔案的工具：Markdown 畫成文件、mermaid 畫成圖，其他檔案照它的顏色。</p>
@@ -216,10 +225,14 @@
             </div>
           </section>
           <section class="term-app" id="app-ccdrawu">
-            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">cat ccdrawu/README.md</span></p>
+            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">ccdrawu</span></p>
             <div class="out">
-              <img src="icons/ccdrawu.svg" alt="">
-              <div>
+              <div class="demo">
+                <img src="https://raw.githubusercontent.com/vulcanshen/ccdrawu/HEAD/docs/demo.gif" width="1500" height="860" loading="lazy"
+                     alt="ccdrawu running in a terminal">
+              </div>
+              <div class="about">
+                <img src="icons/ccdrawu.svg" alt="">
                 <h3>ccdrawu</h3>
                 <p>A sidebar and status line for Claude Code: usage limits, context, cost, git and session stats beside the transcript or under the prompt.</p>
                 <p class="zh" lang="zh-Hant">Claude Code 的側邊欄與狀態列：用量上限、context、花費、git 與 session 統計，放在對話旁邊或輸入框下方。</p>
@@ -228,10 +241,14 @@
             </div>
           </section>
           <section class="term-app" id="app-locku">
-            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">cat locku/README.md</span></p>
+            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">locku</span></p>
             <div class="out">
-              <img src="icons/locku.svg" alt="">
-              <div>
+              <div class="demo">
+                <img src="https://raw.githubusercontent.com/vulcanshen/locku/HEAD/docs/demo.gif" width="1200" height="720" loading="lazy"
+                     alt="locku running in a terminal">
+              </div>
+              <div class="about">
+                <img src="icons/locku.svg" alt="">
                 <h3>locku</h3>
                 <p>A screensaver with a PIN lock, for the terminal, wired into tmux and screen.</p>
                 <p class="zh" lang="zh-Hant">終端機的螢幕保護程式加 PIN 鎖，接得上 tmux 與 screen。</p>
@@ -240,10 +257,14 @@
             </div>
           </section>
           <section class="term-app" id="app-webu">
-            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">cat webu/README.md</span></p>
+            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">webu</span></p>
             <div class="out">
-              <img src="icons/webu.svg" alt="">
-              <div>
+              <div class="demo">
+                <img src="https://raw.githubusercontent.com/vulcanshen/webu/HEAD/docs/demo.gif" width="1200" height="720" loading="lazy"
+                     alt="webu running in a terminal">
+              </div>
+              <div class="about">
+                <img src="icons/webu.svg" alt="">
                 <h3>webu</h3>
                 <p>A terminal browser that reads a web page as a document.</p>
                 <p class="zh" lang="zh-Hant">把網頁當一份文件來讀的終端機瀏覽器。</p>
@@ -252,10 +273,14 @@
             </div>
           </section>
           <section class="term-app" id="app-sshu">
-            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">cat sshu/README.md</span></p>
+            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">sshu</span></p>
             <div class="out">
-              <img src="icons/sshu.svg" alt="">
-              <div>
+              <div class="demo">
+                <img src="https://raw.githubusercontent.com/vulcanshen/sshu/HEAD/docs/demo-grid.gif" width="1200" height="720" loading="lazy"
+                     alt="sshu running in a terminal">
+              </div>
+              <div class="about">
+                <img src="icons/sshu.svg" alt="">
                 <h3>sshu</h3>
                 <p>A terminal front end for ssh and sftp: hosts, many live sessions on one screen, and two-sided file transfer.</p>
                 <p class="zh" lang="zh-Hant">ssh 與 sftp 的終端機前端：host 收在一處、多個 shell 並排、兩台機器之間直接搬檔案。</p>
@@ -264,10 +289,14 @@
             </div>
           </section>
           <section class="term-app" id="app-filu">
-            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">cat filu/README.md</span></p>
+            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">filu</span></p>
             <div class="out">
-              <img src="icons/filu.svg" alt="">
-              <div>
+              <div class="demo">
+                <img src="https://raw.githubusercontent.com/vulcanshen/filu/HEAD/docs/demo-basics.gif" width="1200" height="720" loading="lazy"
+                     alt="filu running in a terminal">
+              </div>
+              <div class="about">
+                <img src="icons/filu.svg" alt="">
                 <h3>filu</h3>
                 <p>A terminal file manager you don't have to learn: mark, copy and move across tabs, find by name or content, preview as you go.</p>
                 <p class="zh" lang="zh-Hant">不用學的終端機檔案管理器：收集檔案再放到別處、依檔名或內容找東西、邊走邊預覽。</p>
@@ -276,10 +305,14 @@
             </div>
           </section>
           <section class="term-app" id="app-kbu">
-            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">cat kbu/README.md</span></p>
+            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">kbu</span></p>
             <div class="out">
-              <img src="icons/kbu.svg" alt="">
-              <div>
+              <div class="demo">
+                <img src="https://raw.githubusercontent.com/vulcanshen/kbu/HEAD/docs/demo-basics.gif" width="1200" height="720" loading="lazy"
+                     alt="kbu running in a terminal">
+              </div>
+              <div class="about">
+                <img src="icons/kbu.svg" alt="">
                 <h3>kbu</h3>
                 <p>A single-pane Kubernetes workspace: relatives navigation, YAML compare, and a persistent shell built in.</p>
                 <p class="zh" lang="zh-Hant">終端機裡的一頁式 Kubernetes 工作區：跟著關聯走、比對 YAML，還內建一個不會斷的 shell。</p>
@@ -288,10 +321,14 @@
             </div>
           </section>
           <section class="term-app" id="app-hostu">
-            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">cat hostu/README.md</span></p>
+            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">hostu</span></p>
             <div class="out">
-              <img src="icons/hostu.svg" alt="">
-              <div>
+              <div class="demo">
+                <img src="https://raw.githubusercontent.com/vulcanshen/hostu/HEAD/docs/demo.gif" width="1200" height="640" loading="lazy"
+                     alt="hostu running in a terminal">
+              </div>
+              <div class="about">
+                <img src="icons/hostu.svg" alt="">
                 <h3>hostu</h3>
                 <p>Switch the hosts file between profiles, in the terminal: the office, home, a client's site, one key each.</p>
                 <p class="zh" lang="zh-Hant">在終端機裡用 profile 切換 hosts 檔：公司、家裡、客戶現場，按一個鍵就換過去。</p>
@@ -355,7 +392,7 @@
   }), { threshold: 0.08 });
   document.querySelectorAll(".reveal").forEach(el => reveal.observe(el));
 
-  // The terminal apps: a tab per app; picking one types the command and prints the README.
+  // The terminal apps: a tab per app; picking one types the app's name and runs its demo.
   document.querySelectorAll("[data-term]").forEach(term => {
     const panels = [...term.querySelectorAll(".term-app")];
     const bar = document.createElement("div");
@@ -399,7 +436,7 @@
       timer = setInterval(() => {
         cmd.textContent = text.slice(0, ++n);
         if (n >= text.length) { clearInterval(timer); panel.classList.add("printed"); }
-      }, 22);
+      }, 60);
     };
     // Arrow keys move between tabs, as in any tab list; Tab moves on to the README's links.
     bar.addEventListener("keydown", e => {
