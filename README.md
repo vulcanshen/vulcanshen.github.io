@@ -19,6 +19,7 @@ favicon.svg           網站的 icon，首頁頂部列也用它；favicon.ico、
 og.png                首頁分享到社群時的預覽圖（1200×630）
 robots.txt            讓搜尋引擎跳過 template/，並指向 sitemap.xml
 sitemap.xml           給搜尋引擎的頁面清單（template/ 以外的每一頁）
+google21eac3e99c4491e5.html  Google Search Console 的網站驗證檔，內容不能改、也不能刪，刪了就會失去驗證
 style.css             支援頁、隱私權政策共用的樣式
 template/             支援頁與隱私權政策的範本，新 app 從這裡複製
 icons/                首頁上其他作品的 icon（<名稱>.svg）
