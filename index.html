@@ -344,32 +344,33 @@
           <h3>Build your own terminu app</h3>
           <p lang="zh-Hant">自己做一個 terminu app</p>
         </div>
-        <!-- A loop, not a line: build with the design, the library and the plugin, hit a problem,
-             open an issue, and the fix comes back round through all three. On a wide screen the
-             three projects run along the top and the way back along the bottom. -->
+        <!-- A ring of arrow bands, like a DevOps loop without the figure 8: the design, the
+             library and the plugin along the top, then building with Claude Code, hitting a
+             problem and opening an issue back along the bottom, and round again. -->
         <ol class="loop">
-          <li class="node">
+          <li class="stop project" style="--c: #1d4f91">
             <p class="overline">Design language</p>
-            <h4><a href="https://github.com/vulcanshen/terminu">terminu design</a></h4>
             <p>The keys and screens every terminu app shares.</p>
             <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/terminu/blob/main/README-zh_TW.md">每個 terminu app 共用的按鍵與畫面設計原則。</a></p>
+            <h4 class="band"><a href="https://github.com/vulcanshen/terminu">terminu design</a></h4>
           </li>
-          <li class="node">
+          <li class="stop project" style="--c: #2a66b3">
             <p class="overline">Go library</p>
-            <h4><a href="https://github.com/vulcanshen/terminu-go">terminu-go</a></h4>
             <p>Draws and drives a terminal UI the way terminu design says.</p>
             <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/terminu-go/blob/main/README-zh_TW.md">照 terminu design 畫出並驅動終端機介面的 Go 函式庫。</a></p>
+            <h4 class="band"><a href="https://github.com/vulcanshen/terminu-go">terminu-go</a></h4>
           </li>
-          <li class="node">
+          <li class="stop project" style="--c: #3d80d4">
             <p class="overline">Claude Code plugin</p>
-            <h4><a href="https://github.com/vulcanshen/terminu-harness">terminu-harness</a></h4>
             <p>Builds a TUI app with terminu design and terminu-go, from what you want to a finished app.</p>
             <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/terminu-harness/blob/main/README-zh_TW.md">照 terminu design、用 terminu-go 做 TUI app 的 Claude Code plugin，從想法一路做到完成。</a></p>
+            <h4 class="band"><a href="https://github.com/vulcanshen/terminu-harness">terminu-harness</a></h4>
           </li>
-          <li class="step build-it"><span>Build with Claude Code</span><span lang="zh-Hant">用 Claude Code 開發</span></li>
-          <li class="step problem"><span>Hit a problem</span><span lang="zh-Hant">發現問題</span></li>
-          <li class="step issue"><span>Open an issue</span><span lang="zh-Hant">發 issue</span></li>
-          <li class="loop-mark" aria-hidden="true">↻</li>
+          <li class="stop step build-it" style="--c: #f2b753"><p class="band"><span>Build with Claude Code</span></p><p class="zh" lang="zh-Hant">用 Claude Code 開發</p></li>
+          <li class="stop step problem" style="--c: #e8933f"><p class="band"><span>Hit a problem</span></p><p class="zh" lang="zh-Hant">發現問題</p></li>
+          <li class="stop step issue" style="--c: #d9703a"><p class="band"><a href="https://github.com/vulcanshen/terminu/issues">Open an issue</a></p><p class="zh" lang="zh-Hant">發 issue</p></li>
+          <li class="turn right" aria-hidden="true"><span>+ Claude Code</span></li>
+          <li class="turn left" aria-hidden="true"><span>↻</span></li>
         </ol>
       </div>
     </div>

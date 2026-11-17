@@ -910,15 +910,10 @@ kbd {
   text-decoration: underline;
 }
 
-/* Build your own: not apps, so no icon. A loop, run clockwise by a light: the three projects
-   along the top, then building with Claude Code, hitting a problem and opening an issue along
-   the bottom, and back to the start. Each name in a terminal font on the terminu blue. */
-@property --spin {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 0deg;
-}
-
+/* Build your own: not apps, so no icon. A ring of arrow bands, like a DevOps loop without the
+   figure 8. The three projects along the top, their names on the bands; building with Claude
+   Code, hitting a problem and opening an issue back along the bottom; a turn at each end. A
+   light runs the bands in order, so the way round shows. */
 .build {
   margin-top: 104px;
 }
@@ -936,165 +931,204 @@ kbd {
 }
 
 .loop {
-  --step: 76px;
+  --t: 46px;         /* band thickness */
+  --g: 64px;         /* space between the two lanes */
+  --tip: 18px;       /* depth of an arrow's point and notch */
+  --step: 78px;      /* a stop on the way back: its band and the line under it */
+  --r: calc(var(--t) + var(--g) / 2);
   position: relative;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 64px 40px;
-  margin: 48px 0 0;
-  padding: 0 44px;
+  gap: var(--g) 6px;
+  margin: 44px 0 0;
+  padding: 0 calc(var(--r) + 8px);
   list-style: none;
 }
 
-/* The track, through the middle of every node, and the light running round it. */
-.loop::before,
-.loop::after {
-  content: "";
-  position: absolute;
-  top: 7px;
-  left: 0;
-  right: 0;
-  bottom: calc(var(--step) - 9px);
-  border: 2px solid rgba(242, 183, 83, 0.28);
-  border-radius: 44px;
-  pointer-events: none;
-}
-
-.loop::after {
-  border-color: transparent;
-  background: conic-gradient(from var(--spin), transparent 0 78%, rgba(255, 226, 160, 0.95) 93%, transparent 97%) border-box;
-  -webkit-mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) padding-box exclude, linear-gradient(#000 0 0);
-  animation: spin 7s linear infinite;
-}
-
-@keyframes spin {
-  to { --spin: 360deg; }
-}
-
-.node {
+.stop {
   position: relative;
-  padding-top: 38px;
+  display: flex;
+  flex-direction: column;
   font-size: 0.95rem;
 }
 
-/* The node on the line. */
-.node::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 16px;
-  height: 16px;
-  border: 2px solid var(--terminu-gold);
-  border-radius: 50%;
-  background: var(--bg);
-  box-shadow: 0 0 0 5px rgba(242, 183, 83, 0.1), 0 0 16px rgba(242, 183, 83, 0.6);
-}
-
-.node .overline {
-  margin: 0;
+.stop .overline {
+  margin: 0 0 8px;
   color: var(--faint);
 }
 
-.node h4 {
-  margin: 10px 0 14px;
-  font: 600 1.05rem/1.3 var(--mono);
-}
-
-.node h4 a {
-  display: inline-block;
-  padding: 6px 12px;
-  border-radius: 8px;
-  background: color-mix(in srgb, var(--terminu-blue) 45%, transparent);
-  color: var(--terminu-gold);
-  text-decoration: none;
-}
-
-.node h4 a:hover {
-  background: color-mix(in srgb, var(--terminu-blue) 65%, transparent);
-}
-
-.node p {
+.stop p {
   margin: 0;
 }
 
-.node .zh {
+.project p:not(.overline) {
+  padding-right: 28px;
+}
+
+.stop .zh {
   margin-top: 6px;
   color: var(--muted);
   font-size: 0.9rem;
 }
 
-.node .zh a {
+.stop .zh a {
   color: inherit;
   text-decoration: none;
 }
 
-.node .zh a:hover {
+.stop .zh a:hover {
   text-decoration: underline;
 }
 
-/* The way back: building, the problem, the issue, right to left along the bottom. */
-.step {
+/* A band: an arrow with a notch at its tail and a point at its head. */
+.band {
   position: relative;
-  grid-row: 2;
-  height: var(--step);
-  padding-top: 26px;
-  font-size: 0.92rem;
-  line-height: 1.45;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  height: var(--t);
+  margin: 0;
+  padding: 0 calc(var(--tip) + 12px);
+  color: #fff;
+  font: 700 0.98rem/1 var(--mono);
+  white-space: nowrap;
 }
 
-.step.build-it {
-  grid-column: 3;
-}
-
-.step.problem {
-  grid-column: 2;
-}
-
-.step.issue {
-  grid-column: 1;
-}
-
-.step::before {
+.band::before,
+.band::after {
   content: "";
   position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 12px;
-  height: 12px;
-  border: 2px solid #5b84c4;
-  border-radius: 50%;
-  background: var(--bg);
+  inset: 0;
+  z-index: -1;
+  clip-path: polygon(0 0, calc(100% - var(--tip)) 0, 100% 50%, calc(100% - var(--tip)) 100%, 0 100%, var(--tip) 50%);
 }
 
-.step span {
-  display: block;
-  color: #d9dce1;
-  font-family: var(--mono);
+.band::before {
+  background: var(--c);
 }
 
-.step span + span {
-  color: var(--muted);
-  font-family: var(--sans);
-  font-size: 0.88rem;
+/* The light that runs round the ring, one band after another. */
+.band::after {
+  background: linear-gradient(90deg, transparent 30%, rgba(255, 255, 255, 0.55) 50%, transparent 70%) no-repeat;
+  background-size: 60% 100%;
+  background-position: -100% 0;
+  animation: flow 4.8s linear infinite;
+  animation-delay: var(--at, 0s);
 }
 
-/* Round it goes. */
-.loop-mark {
+@keyframes flow {
+  0% { background-position: -100% 0; }
+  12% { background-position: 250% 0; }
+  100% { background-position: 250% 0; }
+}
+
+.band a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.band a:hover {
+  text-decoration: underline;
+}
+
+.project .band {
+  margin-top: auto;
+  font-size: 1.02rem;
+}
+
+.project:nth-child(1) { --at: 0s; }
+.project:nth-child(2) { --at: 0.6s; }
+.project:nth-child(3) { --at: 1.2s; }
+
+/* The way back runs right to left: the arrows turn round, the words stay the right way up. */
+.step {
+  grid-row: 2;
+  height: var(--step);
+}
+
+.step .band {
+  color: #1d1306;
+  justify-content: flex-end;
+}
+
+.step .band::before,
+.step .band::after {
+  clip-path: polygon(var(--tip) 0, 100% 0, calc(100% - var(--tip)) 50%, 100% 100%, var(--tip) 100%, 0 50%);
+}
+
+.step .band::after {
+  background-image: linear-gradient(270deg, transparent 30%, rgba(255, 255, 255, 0.6) 50%, transparent 70%);
+  animation-name: flow-back;
+}
+
+@keyframes flow-back {
+  0% { background-position: 200% 0; }
+  12% { background-position: -150% 0; }
+  100% { background-position: -150% 0; }
+}
+
+.step .zh {
+  margin-top: 8px;
+  padding-right: calc(var(--tip) + 12px);
+  text-align: right;
+}
+
+.step.build-it { grid-column: 3; --at: 2.4s; }
+.step.problem { grid-column: 2; --at: 3s; }
+.step.issue { grid-column: 1; --at: 3.6s; }
+
+/* The turns at each end: half a ring as thick as the bands. */
+.turn {
   position: absolute;
-  left: -13px;
-  top: calc(50% - var(--step) / 2 - 6px);
+  bottom: calc(var(--step) - var(--t));
+  width: var(--r);
+  height: calc(var(--t) * 2 + var(--g));
+  border: var(--t) solid var(--c);
+  animation: glow 4.8s linear infinite;
+  animation-delay: var(--at);
+}
+
+.turn.right {
+  --c: #d97757;
+  --at: 1.8s;
+  right: 2px;
+  border-left: 0;
+  border-radius: 0 999px 999px 0;
+}
+
+.turn.left {
+  --c: #4d6390;
+  --at: 4.2s;
+  left: 2px;
+  border-right: 0;
+  border-radius: 999px 0 0 999px;
+}
+
+@keyframes glow {
+  0%, 12%, 100% { filter: none; }
+  6% { filter: brightness(1.45); }
+}
+
+.turn span {
+  position: absolute;
+  top: 50%;
   display: grid;
   place-items: center;
-  width: 28px;
-  height: 28px;
-  border: 1px solid rgba(242, 183, 83, 0.5);
-  border-radius: 50%;
-  background: var(--bg);
-  color: var(--terminu-gold);
-  font: 700 0.95rem/1 var(--mono);
+  color: #fff;
+  font: 700 0.85rem/1 var(--mono);
+  white-space: nowrap;
+}
+
+.turn.right span {
+  right: calc(var(--t) / -2);
+  transform: translate(50%, -50%);
+  writing-mode: vertical-rl;
+}
+
+.turn.left span {
+  left: calc(var(--t) / -2);
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
 }
 
 /* Things rise into place once (only with scripts on, so nothing stays hidden without). */
@@ -1164,42 +1198,87 @@ kbd {
   }
 
   .loop {
+    --t: 34px;
     grid-template-columns: minmax(0, 1fr);
-    gap: 40px;
-    padding: 0 40px 0 40px;
+    gap: 18px;
+    padding: 30px 46px 30px 58px;
   }
 
-  /* Start above the first stop and end below the last, so every stop sits on a straight. */
-  .loop::before,
-  .loop::after {
-    top: -20px;
-    left: 7px;
-    right: 6px;
-    bottom: calc(var(--step) - 39px);
-    border-radius: 26px;
-  }
-
-  .node::before {
-    left: -40px;
-  }
-
-  .step::before {
-    left: -38px;
-  }
-
-  .step,
-  .step.build-it,
-  .step.problem,
-  .step.issue {
+  .loop .stop {
     grid-row: auto;
     grid-column: auto;
-    padding-top: 0;
+    height: auto;
+    padding: 4px 0 8px;
   }
 
-  .loop-mark {
-    top: calc(50% - 42px);
+  /* The band down the left of each stop. */
+  .stop::before {
+    content: "";
+    position: absolute;
+    top: -9px;
+    bottom: -9px;
+    left: -52px;
+    width: var(--t);
+    background: var(--c);
+    clip-path: polygon(0 0, 50% 12px, 100% 0, 100% calc(100% - 12px), 50% 100%, 0 calc(100% - 12px));
+  }
+
+  .project .band,
+  .step .band {
+    order: -1;
+    height: auto;
+    margin: 0 0 8px;
+    padding: 0;
+    color: var(--terminu-gold);
+    justify-content: flex-start;
+  }
+
+  .band::before,
+  .band::after,
+  .step .band::before,
+  .step .band::after {
+    display: none;
+  }
+
+  .project p:not(.overline),
+  .step .zh {
+    padding-right: 0;
+    text-align: left;
+  }
+
+  .step .zh {
+    margin-top: 0;
+  }
+
+  .project .overline {
+    order: -2;
+  }
+
+  /* The way back: out of the last stop, up the right, and into the first again. */
+  .turn.right {
+    display: none;
+  }
+
+  .turn.left {
+    top: 0;
+    bottom: 0;
+    left: 23px;
+    right: 6px;
+    width: auto;
+    height: auto;
+    border-width: 12px;
+    border-right-style: solid;
+    border-right-color: var(--c);
+    border-left: 0;
+    border-radius: 0 40px 40px 0;
+    animation: none;
+  }
+
+  .turn.left span {
     left: auto;
-    right: -7px;
+    right: -6px;
+    transform: translate(50%, -50%);
+    font-size: 1rem;
   }
 }
 
@@ -1298,7 +1377,8 @@ kbd {
 
   .backdrop::after,
   .eyebrow::before,
-  .loop::after,
+  .band::after,
+  .turn,
   .term.live .prompt::after {
     animation: none !important;
   }
