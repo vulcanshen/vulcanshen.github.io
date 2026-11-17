@@ -16,7 +16,7 @@ App Store Connect 的「行銷網址」、「支援網址」與「隱私權政�
 index.html            首頁：只有深色。Apple apps、瀏覽器擴充功能各作品一段跨版的展示；Terminal apps 是一個有分頁的終端機視窗
 home.css              首頁的樣式
 favicon.svg           網站的 icon，首頁頂部列也用它；favicon.ico、apple-touch-icon.png 是從它轉出來的 PNG 版本
-og.png                首頁分享到社群時的預覽圖（1200×630）
+og.jpg                首頁分享到社群時的預覽圖（1200×630），刻意不放任何 app，新增 app 不用改它
 robots.txt            讓搜尋引擎跳過 template/，並指向 sitemap.xml
 sitemap.xml           給搜尋引擎的頁面清單（template/ 以外的每一頁）
 google21eac3e99c4491e5.html  Google Search Console 的網站驗證檔，內容不能改、也不能刪，刪了就會失去驗證
