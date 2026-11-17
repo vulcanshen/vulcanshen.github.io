@@ -17,6 +17,8 @@ index.html            首頁：分 Apple apps、瀏覽器擴充功能、Terminal
 home.css              首頁的樣式
 favicon.svg           網站的 icon，首頁頂部列也用它；favicon.ico、apple-touch-icon.png 是從它轉出來的 PNG 版本
 og.png                首頁分享到社群時的預覽圖（1200×630）
+robots.txt            讓搜尋引擎跳過 template/，並指向 sitemap.xml
+sitemap.xml           給搜尋引擎的頁面清單（template/ 以外的每一頁）
 style.css             支援頁、隱私權政策共用的樣式
 template/             支援頁與隱私權政策的範本，新 app 從這裡複製
 icons/                首頁上其他作品的 icon（<名稱>.svg）
@@ -34,6 +36,7 @@ icons/                首頁上其他作品的 icon（<名稱>.svg）
 2. **推廣頁**：`<app>/index.html` 依該 app 的特性與受眾自己設計，版面、文案、樣式、中英文怎麼分都由各 app 決定，不跟其他 app 統一。樣式放在該 app 的資料夾裡（例如 `alphade/promo.css`），不要加進共用的 `style.css`。
 3. **icon**：放 `<app>/icon.png`，有深色版就再放 `icon-dark.png`。
 4. **首頁與上面的表格**：各加一行，在該 app 的分支加；表頭在 main。卡片放在首頁的 Apple apps 那一區，照現有的卡片複製一張：名稱上方的小字寫平台（例如 `Mac`、`iPhone · iPad`），app 名稱連到推廣頁，中文簡介整句連到中文推廣頁（沒有另外做中文頁的話連到同一頁），下面的按鈕指向支援頁與隱私權政策（英文按鈕連英文頁，中文按鈕連 `zh-Hant/`）。
+5. **搜尋引擎**：每一頁的 `<title>` 下一行放 `<link rel="canonical" href="https://vulcanshen.github.io/<這一頁的路徑>/">`（範本裡已經有，換掉 `{{app}}` 就好），並把每一頁的網址加進 `sitemap.xml`，`lastmod` 寫最後修改的日期。推廣頁另外要有 `<meta name="description">` 和 Open Graph 分享圖。
 
 ## 首頁上的其他作品
 

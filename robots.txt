@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /template/
+
+Sitemap: https://vulcanshen.github.io/sitemap.xml
