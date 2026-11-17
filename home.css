@@ -709,6 +709,24 @@ kbd {
   color: #8e959f;
 }
 
+.detail .repo {
+  margin-top: 12px;
+  font: 0.85rem var(--mono);
+}
+
+.detail .repo a {
+  color: #5b84c4;
+  text-decoration: none;
+}
+
+.detail .repo a::after {
+  content: " ↗";
+}
+
+.detail .repo a:hover {
+  color: var(--terminu-gold);
+}
+
 .detail::after {
   content: "";
   display: block;
