@@ -24,6 +24,12 @@
   </script>
 </head>
 <body>
+<script>
+  document.documentElement.classList.add("js");
+  // Preview only: ?style=mystic shows the other look; the one picked gets fixed here.
+  document.body.dataset.style = new URLSearchParams(location.search).get("style") === "mystic" ? "mystic" : "tech";
+</script>
+<div class="backdrop" aria-hidden="true"><canvas></canvas></div>
 <header class="topbar">
   <div class="container">
     <a class="brand" href="./"><img src="favicon.svg" width="28" height="28" alt="">Vulcan Shen</a>
@@ -39,6 +45,7 @@
 <main>
   <section class="hero">
     <div class="container">
+      <p class="eyebrow">vulcanshen.github.io</p>
       <h1>Building tools<br>I'd actually use.</h1>
       <p class="tagline" lang="zh-Hant">做自己想用的工具。</p>
       <p class="lead">Apps, a browser extension and terminal tools by Vulcan Shen.<br>
@@ -54,12 +61,13 @@
 
   <section class="section" id="apple">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
+        <span class="num">01</span>
         <h2>Apple apps</h2>
         <p lang="zh-Hant">iPhone、iPad 與 Mac 的 app</p>
       </div>
 
-      <article class="feature alphade">
+      <article class="feature alphade reveal" data-spot>
         <div class="feature-text">
           <div class="app-id">
             <img src="alphade/icon-dark.png" alt="">
@@ -81,7 +89,7 @@
         </a>
       </article>
 
-      <article class="feature helpknock">
+      <article class="feature helpknock reveal" data-spot>
         <div class="feature-text">
           <div class="app-id">
             <img class="ios" src="helpknock/icon.png" alt="">
@@ -104,7 +112,7 @@
         </a>
       </article>
 
-      <article class="feature ciscrux">
+      <article class="feature ciscrux reveal" data-spot>
         <div class="feature-text">
           <div class="app-id">
             <img src="ciscrux/icon.png" alt="">
@@ -130,11 +138,12 @@
 
   <section class="section" id="browser">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
+        <span class="num">02</span>
         <h2>Browser extensions</h2>
         <p lang="zh-Hant">瀏覽器擴充功能</p>
       </div>
-      <article class="feature yi">
+      <article class="feature yi reveal" data-spot>
         <div class="feature-text">
           <div class="app-id">
             <img src="icons/yi-translate.svg" alt="">
@@ -166,16 +175,17 @@
 
   <section class="section" id="terminal">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
+        <span class="num">03</span>
         <h2>Terminal apps</h2>
         <p lang="zh-Hant">終端機 app</p>
       </div>
-      <div class="terminal">
+      <div class="terminal reveal" data-spot>
         <div class="term-bar" aria-hidden="true"><i></i><i></i><i></i><span>terminu</span></div>
         <div class="term-body">
           <div class="callout">
             <p>The terminu family: terminal UIs you can use without reading the docs. Every app runs on the same keys, <kbd>Tab</kbd> <kbd>Enter</kbd> <kbd>Esc</kbd> <kbd>Space</kbd> <kbd>?</kbd> <kbd>q</kbd>, and when in doubt, press <kbd>Space</kbd>.</p>
-            <p lang="zh-Hant">terminu family：不看文件就能用的終端機介面。每個 app 都用同一組按鍵，不確定的時候，就按 <kbd>Space</kbd>。</p>
+            <p lang="zh-Hant">terminu family：不看文件就能用的終端機介面。每個 app 都用同一組按鍵，不確定的時候，就按 <kbd>Space</kbd>。<span class="cursor" aria-hidden="true"></span></p>
           </div>
           <div class="term-grid">
             <article class="term-app">
@@ -254,23 +264,23 @@
         </div>
       </div>
 
-      <div class="build">
+      <div class="build reveal">
         <h3>Build your own terminu app</h3>
         <p lang="zh-Hant">自己做一個 terminu app</p>
         <div class="tiles">
-          <article class="tile">
+          <article class="tile" data-spot>
             <p class="overline">Design language</p>
             <h4><a href="https://github.com/vulcanshen/terminu">terminu design</a></h4>
             <p>The keys and screens every terminu app shares.</p>
             <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/terminu/blob/main/README-zh_TW.md">每個 terminu app 共用的按鍵與畫面設計原則。</a></p>
           </article>
-          <article class="tile">
+          <article class="tile" data-spot>
             <p class="overline">Go library</p>
             <h4><a href="https://github.com/vulcanshen/terminu-go">terminu-go</a></h4>
             <p>Draws and drives a terminal UI the way terminu design says.</p>
             <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/terminu-go/blob/main/README-zh_TW.md">照 terminu design 畫出並驅動終端機介面的 Go 函式庫。</a></p>
           </article>
-          <article class="tile">
+          <article class="tile" data-spot>
             <p class="overline">Claude Code plugin</p>
             <h4><a href="https://github.com/vulcanshen/terminu-harness">terminu-harness</a></h4>
             <p>Builds a TUI app with terminu design and terminu-go, from what you want to a finished app.</p>
@@ -289,13 +299,71 @@
   </div>
 </footer>
 <script>
-  // The app videos play only while on screen, and not at all with Reduce Motion on.
   const still = matchMedia("(prefers-reduced-motion: reduce)");
+
+  // The app videos play only while on screen, and not at all with Reduce Motion on.
   const seen = new IntersectionObserver(entries => entries.forEach(({ target, isIntersecting }) => {
     if (isIntersecting && !still.matches) target.play().catch(() => {});
     else target.pause();
   }), { threshold: 0.25 });
   document.querySelectorAll("video[data-play]").forEach(v => seen.observe(v));
+
+  // Sections rise into place the first time they come on screen.
+  const reveal = new IntersectionObserver(entries => entries.forEach(({ target, isIntersecting }) => {
+    if (isIntersecting) { target.classList.add("in"); reveal.unobserve(target); }
+  }), { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach(el => reveal.observe(el));
+
+  // A soft light follows the pointer across a panel and along its edge.
+  document.querySelectorAll("[data-spot]").forEach(el => el.addEventListener("pointermove", e => {
+    const r = el.getBoundingClientRect();
+    el.style.setProperty("--mx", `${e.clientX - r.left}px`);
+    el.style.setProperty("--my", `${e.clientY - r.top}px`);
+  }));
+
+  // Mystic: a starfield that twinkles, with now and then a falling star.
+  const sky = document.querySelector(".backdrop canvas");
+  if (document.body.dataset.style === "mystic" && sky.getContext) {
+    const ctx = sky.getContext("2d");
+    let w = 0, h = 0, stars = [], streak = null, next = 4000;
+    const size = () => {
+      const dpr = Math.min(devicePixelRatio || 1, 2);
+      w = innerWidth; h = innerHeight;
+      sky.width = w * dpr; sky.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      stars = Array.from({ length: Math.round(w * h / 4200) }, () => ({
+        x: Math.random() * w, y: Math.random() * h, r: Math.random() * 1.1 + 0.25,
+        phase: Math.random() * 6.28, speed: 0.3 + Math.random() * 1.1,
+        gold: Math.random() < 0.08,
+      }));
+    };
+    const draw = t => {
+      ctx.clearRect(0, 0, w, h);
+      for (const s of stars) {
+        ctx.globalAlpha = still.matches ? 0.6 : 0.25 + 0.45 * (0.5 + 0.5 * Math.sin(s.phase + t / 1000 * s.speed));
+        ctx.fillStyle = s.gold ? "#f6d58e" : "#dfe6ff";
+        ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 6.283); ctx.fill();
+      }
+      if (!still.matches) {
+        if (!streak && t > next) streak = { x: Math.random() * w * 0.8 + w * 0.2, y: Math.random() * h * 0.4, t0: t };
+        if (streak) {
+          const k = (t - streak.t0) / 900;
+          if (k >= 1) { streak = null; next = t + 5000 + Math.random() * 7000; }
+          else {
+            const x = streak.x - k * 260, y = streak.y + k * 120;
+            const g = ctx.createLinearGradient(x, y, x + 90, y - 42);
+            g.addColorStop(0, "rgba(255,255,255,0.9)"); g.addColorStop(1, "rgba(255,255,255,0)");
+            ctx.globalAlpha = 1 - k; ctx.strokeStyle = g; ctx.lineWidth = 1.2;
+            ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + 90, y - 42); ctx.stroke();
+          }
+        }
+        requestAnimationFrame(draw);
+      }
+    };
+    size();
+    addEventListener("resize", () => { size(); if (still.matches) draw(0); });
+    requestAnimationFrame(draw);
+  }
 </script>
 </body>
 </html>
