@@ -910,8 +910,15 @@ kbd {
   text-decoration: underline;
 }
 
-/* Build your own: not apps, so no icon. A pipeline from the design to your app, a light
-   running along it; each name in a terminal font on the terminu blue. */
+/* Build your own: not apps, so no icon. A loop, run clockwise by a light: the three projects
+   along the top, then building with Claude Code, hitting a problem and opening an issue along
+   the bottom, and back to the start. Each name in a terminal font on the terminu blue. */
+@property --spin {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
 .build {
   margin-top: 104px;
 }
@@ -928,46 +935,42 @@ kbd {
   font-size: 1.05rem;
 }
 
-.flow {
+.loop {
+  --step: 76px;
   position: relative;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
-  gap: 32px;
-  margin: 44px 0 0;
-  padding: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 64px 40px;
+  margin: 48px 0 0;
+  padding: 0 44px;
   list-style: none;
 }
 
-/* The line through every node, and the light running along it. */
-.flow::before,
-.flow::after {
+/* The track, through the middle of every node, and the light running round it. */
+.loop::before,
+.loop::after {
   content: "";
   position: absolute;
   top: 7px;
-  left: 7px;
-  right: 60px;
-  height: 2px;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--step) - 9px);
+  border: 2px solid rgba(242, 183, 83, 0.28);
+  border-radius: 44px;
+  pointer-events: none;
 }
 
-.flow::before {
-  background: linear-gradient(90deg, rgba(32, 80, 144, 0.9), rgba(242, 183, 83, 0.6));
+.loop::after {
+  border-color: transparent;
+  background: conic-gradient(from var(--spin), transparent 0 78%, rgba(255, 226, 160, 0.95) 93%, transparent 97%) border-box;
+  -webkit-mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) padding-box exclude, linear-gradient(#000 0 0);
+  animation: spin 7s linear infinite;
 }
 
-.flow::after {
-  background: linear-gradient(90deg, transparent, rgba(255, 230, 170, 0.95), transparent);
-  background-size: 22% 100%;
-  background-repeat: no-repeat;
-  animation: run 3.6s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-}
-
-@keyframes run-down {
-  from { background-position: 0 -30%; }
-  to { background-position: 0 130%; }
-}
-
-@keyframes run {
-  from { background-position: -30% 0; }
-  to { background-position: 130% 0; }
+@keyframes spin {
+  to { --spin: 360deg; }
 }
 
 .node {
@@ -1032,27 +1035,66 @@ kbd {
   text-decoration: underline;
 }
 
-/* Where the line ends: your app, still to be made. */
-.node.end {
-  padding-top: 0;
+/* The way back: building, the problem, the issue, right to left along the bottom. */
+.step {
+  position: relative;
+  grid-row: 2;
+  height: var(--step);
+  padding-top: 26px;
+  font-size: 0.92rem;
+  line-height: 1.45;
 }
 
-.node.end::before {
-  display: none;
+.step.build-it {
+  grid-column: 3;
 }
 
-.node.end span {
+.step.problem {
+  grid-column: 2;
+}
+
+.step.issue {
+  grid-column: 1;
+}
+
+.step::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #5b84c4;
+  border-radius: 50%;
+  background: var(--bg);
+}
+
+.step span {
+  display: block;
+  color: #d9dce1;
+  font-family: var(--mono);
+}
+
+.step span + span {
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.88rem;
+}
+
+/* Round it goes. */
+.loop-mark {
+  position: absolute;
+  left: -13px;
+  top: calc(50% - var(--step) / 2 - 6px);
   display: grid;
   place-items: center;
-  width: 92px;
-  height: 92px;
-  margin-top: -38px;
-  border: 1px dashed rgba(242, 183, 83, 0.7);
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(242, 183, 83, 0.5);
   border-radius: 50%;
+  background: var(--bg);
   color: var(--terminu-gold);
-  font: 600 0.8rem var(--mono);
-  text-align: center;
-  box-shadow: inset 0 0 30px rgba(242, 183, 83, 0.12);
+  font: 700 0.95rem/1 var(--mono);
 }
 
 /* Things rise into place once (only with scripts on, so nothing stays hidden without). */
@@ -1121,52 +1163,43 @@ kbd {
     gap: 26px;
   }
 
-  .flow {
+  .loop {
     grid-template-columns: minmax(0, 1fr);
-    gap: 36px;
-    padding-left: 40px;
+    gap: 40px;
+    padding: 0 40px 0 40px;
   }
 
-  .flow::before,
-  .flow::after {
-    top: 7px;
-    bottom: 22px;
+  /* Start above the first stop and end below the last, so every stop sits on a straight. */
+  .loop::before,
+  .loop::after {
+    top: -20px;
     left: 7px;
-    right: auto;
-    width: 2px;
-    height: auto;
-  }
-
-  .flow::before {
-    background: linear-gradient(180deg, rgba(32, 80, 144, 0.9), rgba(242, 183, 83, 0.6));
-  }
-
-  .flow::after {
-    background: linear-gradient(180deg, transparent, rgba(255, 230, 170, 0.95), transparent);
-    background-size: 100% 22%;
-    animation-name: run-down;
-  }
-
-  .node {
-    padding-top: 0;
+    right: 6px;
+    bottom: calc(var(--step) - 39px);
+    border-radius: 26px;
   }
 
   .node::before {
     left: -40px;
   }
 
-  .node.end::before {
-    display: block;
-    border-style: dashed;
+  .step::before {
+    left: -38px;
   }
 
-  .node.end span {
-    display: inline-block;
-    width: auto;
-    height: auto;
-    margin: -6px 0 0;
-    padding: 4px 14px;
-    border-radius: 999px;
+  .step,
+  .step.build-it,
+  .step.problem,
+  .step.issue {
+    grid-row: auto;
+    grid-column: auto;
+    padding-top: 0;
+  }
+
+  .loop-mark {
+    top: calc(50% - 42px);
+    left: auto;
+    right: -7px;
   }
 }
 
@@ -1265,7 +1298,7 @@ kbd {
 
   .backdrop::after,
   .eyebrow::before,
-  .flow::after,
+  .loop::after,
   .term.live .prompt::after {
     animation: none !important;
   }
