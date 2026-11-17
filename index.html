@@ -20,269 +20,435 @@
   <meta property="og:image:alt" content="Vulcan Shen: Building tools I'd actually use.">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="home.css">
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "Vulcan Shen", "url": "https://vulcanshen.github.io/"}
+  </script>
 </head>
 <body>
+<script>document.documentElement.classList.add("js");</script>
+<div class="backdrop" aria-hidden="true"></div>
 <header class="topbar">
   <div class="container">
     <a class="brand" href="./"><img src="favicon.svg" width="28" height="28" alt="">Vulcan Shen</a>
-    <a class="topbar-link" href="https://github.com/vulcanshen">GitHub</a>
+    <nav class="topnav">
+      <a class="section-link" href="#apple">Apple apps</a>
+      <a class="section-link" href="#browser">Browser extensions</a>
+      <a class="section-link" href="#terminal">Terminal apps</a>
+      <a href="https://github.com/vulcanshen">GitHub</a>
+    </nav>
   </div>
 </header>
 
 <main>
   <section class="hero">
     <div class="container">
-      <h1>Building tools I'd actually use.</h1>
+      <p class="eyebrow">vulcanshen.github.io</p>
+      <h1>Building tools<br>I'd actually use.</h1>
       <p class="tagline" lang="zh-Hant">做自己想用的工具。</p>
       <p class="lead">Apps, a browser extension and terminal tools by Vulcan Shen.<br>
         <span lang="zh-Hant">Vulcan Shen 的 app、瀏覽器擴充功能與終端機工具。</span></p>
-      <nav class="chips">
-        <a class="chip" href="#apple">Apple apps</a>
-        <a class="chip" href="#browser">Browser extensions</a>
-        <a class="chip" href="#terminal">Terminal apps</a>
-      </nav>
+    </div>
+    <!-- The apps on a wall of screens; each one has its own spread further down. -->
+    <div class="fan" aria-hidden="true">
+      <a class="fan-card left" href="alphade/" tabindex="-1"><img src="alphade/media/hero-poster.jpg" width="1280" height="720" alt=""></a>
+      <a class="fan-card right" href="ciscrux/" tabindex="-1"><img src="ciscrux/media/horizontal.jpg" width="1280" height="720" alt=""></a>
+      <a class="fan-phone" href="helpknock/" tabindex="-1"><img src="helpknock/screenshots/en-01-victim.jpg" width="720" height="1564" alt=""></a>
     </div>
   </section>
 
   <section class="section" id="apple">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
+        <span class="num">01</span>
         <h2>Apple apps</h2>
         <p lang="zh-Hant">iPhone、iPad 與 Mac 的 app</p>
       </div>
-      <div class="grid">
-        <article class="card" style="--accent-light: #1e66f5; --accent-dark: #89b4fa">
-          <div class="card-head">
-            <picture>
-              <source srcset="alphade/icon-dark.png" media="(prefers-color-scheme: dark)">
-              <img src="alphade/icon.png" alt="">
-            </picture>
-            <div>
-              <p class="overline">Mac</p>
-              <h3><a href="alphade/">Alphade</a></h3>
-            </div>
-          </div>
-          <p>Remove semi-transparent watermarks from your videos on Mac.</p>
-          <p class="zh" lang="zh-Hant"><a href="alphade/zh-Hant/">在 Mac 上去除影片裡的半透明浮水印。</a></p>
-          <div class="actions">
-            <a class="btn btn-filled" href="https://github.com/vulcanshen/alphade/releases/latest">Download</a>
-            <span class="btn-group">
-              <a class="btn" href="alphade/support/">Support</a>
-              <a class="btn" href="alphade/privacy/">Privacy Policy</a>
-            </span>
-            <span class="btn-group" lang="zh-Hant">
-              <a class="btn" href="alphade/support/zh-Hant/">支援</a>
-              <a class="btn" href="alphade/privacy/zh-Hant/">隱私權政策</a>
-            </span>
-          </div>
-        </article>
-        <article class="card" style="--accent-light: #1B3A6B; --accent-dark: #9DB8E6; --icon-radius: 22.37%">
-          <div class="card-head">
-            <img src="helpknock/icon.png" alt="">
-            <div>
-              <p class="overline">iPhone · iPad</p>
-              <h3><a href="helpknock/">HelpKnock</a></h3>
-            </div>
-          </div>
-          <p>Be found without a network.</p>
-          <p class="zh" lang="zh-Hant"><a href="helpknock/zh-Hant/">沒有網路，也能被找到。</a></p>
-          <div class="actions">
-            <a class="btn btn-filled" href="https://apps.apple.com/app/helpknock/id6822153098">App Store</a>
-            <span class="btn-group">
-              <a class="btn" href="helpknock/support/">Support</a>
-              <a class="btn" href="helpknock/privacy/">Privacy Policy</a>
-            </span>
-            <span class="btn-group" lang="zh-Hant">
-              <a class="btn" href="helpknock/support/zh-Hant/">支援</a>
-              <a class="btn" href="helpknock/privacy/zh-Hant/">隱私權政策</a>
-            </span>
-          </div>
-        </article>
-        <article class="card" style="--accent-light: #8a6a1f; --accent-dark: #d9b86c">
-          <div class="card-head">
-            <img src="ciscrux/icon.png" alt="">
-            <div>
-              <p class="overline">Mac</p>
-              <h3><a href="ciscrux/">Ciscrux</a></h3>
-            </div>
-          </div>
-          <p>A screen saver that tells the time in medieval Cistercian numerals.</p>
-          <p class="zh" lang="zh-Hant"><a href="ciscrux/zh-Hant/">用中世紀熙篤會數字顯示時間的螢幕保護程式。</a></p>
-          <div class="actions">
-            <a class="btn btn-filled" href="https://github.com/vulcanshen/ciscrux/releases/latest">Download</a>
-            <span class="btn-group">
-              <a class="btn" href="ciscrux/support/">Support</a>
-              <a class="btn" href="ciscrux/privacy/">Privacy Policy</a>
-            </span>
-            <span class="btn-group" lang="zh-Hant">
-              <a class="btn" href="ciscrux/support/zh-Hant/">支援</a>
-              <a class="btn" href="ciscrux/privacy/zh-Hant/">隱私權政策</a>
-            </span>
-          </div>
-        </article>
-      </div>
     </div>
+
+    <!-- A spread per app, no box: the name huge and hollow behind, the app itself tipped
+         towards the reader and running off the edge, the app's colour as light on the grid. -->
+    <article class="spread reveal" style="--brand: 137, 180, 250">
+      <div class="container spread-grid">
+        <p class="ghost" aria-hidden="true">Alphade</p>
+        <div class="spread-text">
+          <p class="overline">Mac</p>
+          <h3><a href="alphade/"><img src="alphade/icon-dark.png" alt="">Alphade</a></h3>
+          <p class="pitch">Remove semi-transparent watermarks from your videos on Mac.</p>
+          <p class="zh" lang="zh-Hant"><a href="alphade/zh-Hant/">在 Mac 上去除影片裡的半透明浮水印。</a></p>
+          <div class="cta">
+            <a class="btn" href="https://github.com/vulcanshen/alphade/releases/latest">Download</a>
+            <a class="more" href="alphade/">Learn more<span class="more-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+          </div>
+          <p class="links">
+            <a href="alphade/support/">Support</a><a href="alphade/privacy/">Privacy Policy</a>
+            <a href="alphade/support/zh-Hant/" lang="zh-Hant">支援</a><a href="alphade/privacy/zh-Hant/" lang="zh-Hant">隱私權政策</a>
+          </p>
+        </div>
+        <a class="spread-visual screen" href="alphade/" tabindex="-1" aria-hidden="true">
+          <video data-play src="alphade/media/hero.mp4" poster="alphade/media/hero-poster.jpg" width="1280" height="720" muted loop playsinline preload="none"></video>
+        </a>
+      </div>
+    </article>
+
+    <article class="spread flip reveal" style="--brand: 157, 184, 230">
+      <div class="container spread-grid">
+        <p class="ghost" aria-hidden="true">HelpKnock</p>
+        <div class="spread-text">
+          <p class="overline">iPhone · iPad</p>
+          <h3><a href="helpknock/"><img class="ios" src="helpknock/icon.png" alt="">HelpKnock</a></h3>
+          <p class="pitch">Be found without a network.</p>
+          <p class="zh" lang="zh-Hant"><a href="helpknock/zh-Hant/">沒有網路，也能被找到。</a></p>
+          <div class="cta">
+            <a class="btn" href="https://apps.apple.com/app/helpknock/id6822153098">App Store</a>
+            <a class="more" href="helpknock/">Learn more<span class="more-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+          </div>
+          <p class="links">
+            <a href="helpknock/support/">Support</a><a href="helpknock/privacy/">Privacy Policy</a>
+            <a href="helpknock/support/zh-Hant/" lang="zh-Hant">支援</a><a href="helpknock/privacy/zh-Hant/" lang="zh-Hant">隱私權政策</a>
+          </p>
+        </div>
+        <a class="spread-visual phones" href="helpknock/" tabindex="-1" aria-hidden="true">
+          <img src="helpknock/screenshots/en-01-victim.jpg" width="720" height="1564" alt="" loading="lazy">
+          <img src="helpknock/screenshots/en-02-rescuer.jpg" width="720" height="1564" alt="" loading="lazy">
+        </a>
+      </div>
+    </article>
+
+    <article class="spread reveal" style="--brand: 217, 184, 108">
+      <div class="container spread-grid">
+        <p class="ghost" aria-hidden="true">Ciscrux</p>
+        <div class="spread-text">
+          <p class="overline">Mac</p>
+          <h3><a href="ciscrux/"><img src="ciscrux/icon.png" alt="">Ciscrux</a></h3>
+          <p class="pitch">A screen saver that tells the time in medieval Cistercian numerals.</p>
+          <p class="zh" lang="zh-Hant"><a href="ciscrux/zh-Hant/">用中世紀熙篤會數字顯示時間的螢幕保護程式。</a></p>
+          <div class="cta">
+            <a class="btn" href="https://github.com/vulcanshen/ciscrux/releases/latest">Download</a>
+            <a class="more" href="ciscrux/">Learn more<span class="more-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+          </div>
+          <p class="links">
+            <a href="ciscrux/support/">Support</a><a href="ciscrux/privacy/">Privacy Policy</a>
+            <a href="ciscrux/support/zh-Hant/" lang="zh-Hant">支援</a><a href="ciscrux/privacy/zh-Hant/" lang="zh-Hant">隱私權政策</a>
+          </p>
+        </div>
+        <a class="spread-visual screen" href="ciscrux/" tabindex="-1" aria-hidden="true">
+          <video data-play src="ciscrux/media/horizontal.mp4" poster="ciscrux/media/horizontal.jpg" width="1920" height="1080" muted loop playsinline preload="none"></video>
+        </a>
+      </div>
+    </article>
   </section>
 
   <section class="section" id="browser">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
+        <span class="num">02</span>
         <h2>Browser extensions</h2>
         <p lang="zh-Hant">瀏覽器擴充功能</p>
       </div>
-      <div class="grid">
-        <article class="card">
-          <div class="card-head">
-            <img src="icons/yi-translate.svg" alt="">
-            <div>
-              <p class="overline">Chrome · Edge · Firefox</p>
-              <h3><a href="https://vulcanshen.github.io/yi-translate/"><span lang="zh-Hant">譯</span> Yi</a></h3>
-            </div>
-          </div>
-          <p>Open-source, side-by-side bilingual translation for web pages and PDFs. No AI, no API key, no account, no ads.</p>
-          <p class="zh" lang="zh-Hant"><a href="https://vulcanshen.github.io/yi-translate/">開源的網頁與 PDF 雙語對照翻譯：不需要 AI、不需要 API Key、不需要註冊帳號，也沒有廣告。</a></p>
-          <div class="actions">
-            <a class="btn" href="https://chromewebstore.google.com/detail/%E8%AD%AF/jbnkpfhaobilpghmalbgfaomopgcifbi">Chrome Web Store</a>
-            <a class="btn" href="https://addons.mozilla.org/firefox/addon/%E8%AD%AF-yi/">Firefox Add-ons</a>
-          </div>
-        </article>
-      </div>
     </div>
+    <article class="spread flip reveal" style="--brand: 196, 163, 90">
+      <div class="container spread-grid">
+        <p class="ghost" aria-hidden="true">譯 Yi</p>
+        <div class="spread-text">
+          <p class="overline">Chrome · Edge · Firefox</p>
+          <h3><a href="https://vulcanshen.github.io/yi-translate/"><img src="icons/yi-translate.svg" alt=""><span lang="zh-Hant">譯</span>&nbsp;Yi</a></h3>
+          <p class="pitch">Open-source, side-by-side bilingual translation for web pages and PDFs. No AI, no API key, no account, no ads.</p>
+          <p class="zh" lang="zh-Hant"><a href="https://vulcanshen.github.io/yi-translate/">開源的網頁與 PDF 雙語對照翻譯：不需要 AI、不需要 API Key、不需要註冊帳號，也沒有廣告。</a></p>
+          <div class="cta">
+            <a class="btn" href="https://chromewebstore.google.com/detail/%E8%AD%AF/jbnkpfhaobilpghmalbgfaomopgcifbi">Chrome Web Store</a>
+            <a class="more" href="https://addons.mozilla.org/firefox/addon/%E8%AD%AF-yi/">Firefox Add-ons<span class="more-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+          </div>
+        </div>
+        <!-- What Yi does, drawn: each line of a page with its translation right under it. -->
+        <a class="spread-visual page" href="https://vulcanshen.github.io/yi-translate/" tabindex="-1" aria-hidden="true">
+          <span class="page-bar"><i></i><i></i><i></i></span>
+          <span class="page-body">
+            <span class="src">Open-source, side-by-side bilingual translation for web pages and PDFs.</span>
+            <span class="tr" lang="zh-Hant">開源的網頁與 PDF 雙語對照翻譯。</span>
+            <span class="src">No AI, no API key, no account, no ads.</span>
+            <span class="tr" lang="zh-Hant">不需要 AI、不需要 API Key、不需要註冊帳號，也沒有廣告。</span>
+          </span>
+        </a>
+      </div>
+    </article>
   </section>
 
-  <section class="section" id="terminal" style="--icon-radius: 12px">
+  <section class="section" id="terminal">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
+        <span class="num">03</span>
         <h2>Terminal apps</h2>
         <p lang="zh-Hant">終端機 app</p>
       </div>
-      <div class="callout">
+      <div class="callout reveal">
         <p>The terminu family: terminal UIs you can use without reading the docs. Every app runs on the same keys, <kbd>Tab</kbd> <kbd>Enter</kbd> <kbd>Esc</kbd> <kbd>Space</kbd> <kbd>?</kbd> <kbd>q</kbd>, and when in doubt, press <kbd>Space</kbd>.</p>
         <p lang="zh-Hant">terminu family：不看文件就能用的終端機介面。每個 app 都用同一組按鍵，不確定的時候，就按 <kbd>Space</kbd>。</p>
       </div>
-      <div class="grid">
-        <article class="card">
-          <div class="card-head">
-            <img src="icons/tetru.svg" alt="">
-            <h3><a href="https://github.com/vulcanshen/tetru">tetru</a></h3>
-          </div>
-          <p>A falling-block game for the terminal: move and turn the pieces as they fall, fill a row to clear it, and set the keys to suit your hands.</p>
-          <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/tetru/blob/main/README-zh_TW.md">在終端機裡玩的落塊消行遊戲：趁方塊落下時移動、旋轉，排滿一整行就消掉，按鍵也能照自己的習慣改。</a></p>
-          <div class="actions">
-            <a class="btn" href="https://github.com/vulcanshen/tetru">GitHub</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card-head">
-            <img src="icons/catu.svg" alt="">
-            <h3><a href="https://github.com/vulcanshen/catu">catu</a></h3>
-          </div>
-          <p>A file viewer for the terminal: Markdown drawn as a document, mermaid as diagrams, any other file in colour.</p>
-          <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/catu/blob/main/README-zh_TW.md">終端機裡看檔案的工具：Markdown 畫成文件、mermaid 畫成圖，其他檔案照它的顏色。</a></p>
-          <div class="actions">
-            <a class="btn" href="https://github.com/vulcanshen/catu">GitHub</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card-head">
-            <img src="icons/ccdrawu.svg" alt="">
-            <h3><a href="https://github.com/vulcanshen/ccdrawu">ccdrawu</a></h3>
-          </div>
-          <p>A sidebar and status line for Claude Code: usage limits, context, cost, git and session stats beside the transcript or under the prompt.</p>
-          <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/ccdrawu/blob/main/README-zh_TW.md">Claude Code 的側邊欄與狀態列：用量上限、context、花費、git 與 session 統計，放在對話旁邊或輸入框下方。</a></p>
-          <div class="actions">
-            <a class="btn" href="https://github.com/vulcanshen/ccdrawu">GitHub</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card-head">
-            <img src="icons/locku.svg" alt="">
-            <h3><a href="https://github.com/vulcanshen/locku">locku</a></h3>
-          </div>
-          <p>A screensaver with a PIN lock, for the terminal, wired into tmux and screen.</p>
-          <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/locku/blob/main/README-zh_TW.md">終端機的螢幕保護程式加 PIN 鎖，接得上 tmux 與 screen。</a></p>
-          <div class="actions">
-            <a class="btn" href="https://github.com/vulcanshen/locku">GitHub</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card-head">
-            <img src="icons/webu.svg" alt="">
-            <h3><a href="https://github.com/vulcanshen/webu">webu</a></h3>
-          </div>
-          <p>A terminal browser that reads a web page as a document.</p>
-          <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/webu/blob/main/README-zh_TW.md">把網頁當一份文件來讀的終端機瀏覽器。</a></p>
-          <div class="actions">
-            <a class="btn" href="https://github.com/vulcanshen/webu">GitHub</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card-head">
-            <img src="icons/sshu.svg" alt="">
-            <h3><a href="https://github.com/vulcanshen/sshu">sshu</a></h3>
-          </div>
-          <p>A terminal front end for ssh and sftp: hosts, many live sessions on one screen, and two-sided file transfer.</p>
-          <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/sshu/blob/main/README-zh_TW.md">ssh 與 sftp 的終端機前端：host 收在一處、多個 shell 並排、兩台機器之間直接搬檔案。</a></p>
-          <div class="actions">
-            <a class="btn" href="https://github.com/vulcanshen/sshu">GitHub</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card-head">
-            <img src="icons/filu.svg" alt="">
-            <h3><a href="https://github.com/vulcanshen/filu">filu</a></h3>
-          </div>
-          <p>A terminal file manager you don't have to learn: mark, copy and move across tabs, find by name or content, preview as you go.</p>
-          <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/filu/blob/main/README-zh_TW.md">不用學的終端機檔案管理器：收集檔案再放到別處、依檔名或內容找東西、邊走邊預覽。</a></p>
-          <div class="actions">
-            <a class="btn" href="https://github.com/vulcanshen/filu">GitHub</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card-head">
-            <img src="icons/kbu.svg" alt="">
-            <h3><a href="https://github.com/vulcanshen/kbu">kbu</a></h3>
-          </div>
-          <p>A single-pane Kubernetes workspace: relatives navigation, YAML compare, and a persistent shell built in.</p>
-          <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/kbu/blob/main/README-zh_TW.md">終端機裡的一頁式 Kubernetes 工作區：跟著關聯走、比對 YAML，還內建一個不會斷的 shell。</a></p>
-          <div class="actions">
-            <a class="btn" href="https://github.com/vulcanshen/kbu">GitHub</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card-head">
-            <img src="icons/hostu.svg" alt="">
-            <h3><a href="https://github.com/vulcanshen/hostu">hostu</a></h3>
-          </div>
-          <p>Switch the hosts file between profiles, in the terminal: the office, home, a client's site, one key each.</p>
-          <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/hostu/blob/main/README-zh_TW.md">在終端機裡用 profile 切換 hosts 檔：公司、家裡、客戶現場，按一個鍵就換過去。</a></p>
-          <div class="actions">
-            <a class="btn" href="https://github.com/vulcanshen/hostu">GitHub</a>
-          </div>
-        </article>
+
+      <!-- A terminal with a tab per app: click a tab, the app's name is typed and its demo runs
+           (the GIF in the app's own repo, so it stays current; a lazy image, so only the open tab's
+           demo loads). The tabs are built by the script; without it every app is shown in turn. -->
+      <div class="term reveal" data-term>
+        <div class="term-top">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        <div class="term-screen">
+          <section class="term-app" id="app-tetru">
+            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">tetru</span></p>
+            <div class="out">
+              <div class="demo">
+                <img src="https://raw.githubusercontent.com/vulcanshen/tetru/HEAD/docs/demo.gif" width="1000" height="760" loading="lazy"
+                     alt="tetru running in a terminal">
+              </div>
+              <div class="about">
+                <img src="icons/tetru.svg" alt="">
+                <h3>tetru</h3>
+                <p>A falling-block game for the terminal: move and turn the pieces as they fall, fill a row to clear it, and set the keys to suit your hands.</p>
+                <p class="zh" lang="zh-Hant">在終端機裡玩的落塊消行遊戲：趁方塊落下時移動、旋轉，排滿一整行就消掉，按鍵也能照自己的習慣改。</p>
+                <p class="refs"><a href="https://github.com/vulcanshen/tetru">github.com/vulcanshen/tetru</a><a href="https://github.com/vulcanshen/tetru/blob/main/README-zh_TW.md" lang="zh-Hant">README-zh_TW.md</a></p>
+              </div>
+            </div>
+          </section>
+          <section class="term-app" id="app-catu">
+            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">catu</span></p>
+            <div class="out">
+              <div class="demo">
+                <img src="https://raw.githubusercontent.com/vulcanshen/catu/HEAD/docs/demo.gif" width="1200" height="760" loading="lazy"
+                     alt="catu running in a terminal">
+              </div>
+              <div class="about">
+                <img src="icons/catu.svg" alt="">
+                <h3>catu</h3>
+                <p>A file viewer for the terminal: Markdown drawn as a document, mermaid as diagrams, any other file in colour.</p>
+                <p class="zh" lang="zh-Hant">終端機裡看檔案的工具：Markdown 畫成文件、mermaid 畫成圖，其他檔案照它的顏色。</p>
+                <p class="refs"><a href="https://github.com/vulcanshen/catu">github.com/vulcanshen/catu</a><a href="https://github.com/vulcanshen/catu/blob/main/README-zh_TW.md" lang="zh-Hant">README-zh_TW.md</a></p>
+              </div>
+            </div>
+          </section>
+          <section class="term-app" id="app-ccdrawu">
+            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">ccdrawu</span></p>
+            <div class="out">
+              <div class="demo">
+                <img src="https://raw.githubusercontent.com/vulcanshen/ccdrawu/HEAD/docs/demo.gif" width="1500" height="860" loading="lazy"
+                     alt="ccdrawu running in a terminal">
+              </div>
+              <div class="about">
+                <img src="icons/ccdrawu.svg" alt="">
+                <h3>ccdrawu</h3>
+                <p>A sidebar and status line for Claude Code: usage limits, context, cost, git and session stats beside the transcript or under the prompt.</p>
+                <p class="zh" lang="zh-Hant">Claude Code 的側邊欄與狀態列：用量上限、context、花費、git 與 session 統計，放在對話旁邊或輸入框下方。</p>
+                <p class="refs"><a href="https://github.com/vulcanshen/ccdrawu">github.com/vulcanshen/ccdrawu</a><a href="https://github.com/vulcanshen/ccdrawu/blob/main/README-zh_TW.md" lang="zh-Hant">README-zh_TW.md</a></p>
+              </div>
+            </div>
+          </section>
+          <section class="term-app" id="app-locku">
+            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">locku</span></p>
+            <div class="out">
+              <div class="demo">
+                <img src="https://raw.githubusercontent.com/vulcanshen/locku/HEAD/docs/demo.gif" width="1200" height="720" loading="lazy"
+                     alt="locku running in a terminal">
+              </div>
+              <div class="about">
+                <img src="icons/locku.svg" alt="">
+                <h3>locku</h3>
+                <p>A screensaver with a PIN lock, for the terminal, wired into tmux and screen.</p>
+                <p class="zh" lang="zh-Hant">終端機的螢幕保護程式加 PIN 鎖，接得上 tmux 與 screen。</p>
+                <p class="refs"><a href="https://github.com/vulcanshen/locku">github.com/vulcanshen/locku</a><a href="https://github.com/vulcanshen/locku/blob/main/README-zh_TW.md" lang="zh-Hant">README-zh_TW.md</a></p>
+              </div>
+            </div>
+          </section>
+          <section class="term-app" id="app-webu">
+            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">webu</span></p>
+            <div class="out">
+              <div class="demo">
+                <img src="https://raw.githubusercontent.com/vulcanshen/webu/HEAD/docs/demo.gif" width="1200" height="720" loading="lazy"
+                     alt="webu running in a terminal">
+              </div>
+              <div class="about">
+                <img src="icons/webu.svg" alt="">
+                <h3>webu</h3>
+                <p>A terminal browser that reads a web page as a document.</p>
+                <p class="zh" lang="zh-Hant">把網頁當一份文件來讀的終端機瀏覽器。</p>
+                <p class="refs"><a href="https://github.com/vulcanshen/webu">github.com/vulcanshen/webu</a><a href="https://github.com/vulcanshen/webu/blob/main/README-zh_TW.md" lang="zh-Hant">README-zh_TW.md</a></p>
+              </div>
+            </div>
+          </section>
+          <section class="term-app" id="app-sshu">
+            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">sshu</span></p>
+            <div class="out">
+              <div class="demo">
+                <img src="https://raw.githubusercontent.com/vulcanshen/sshu/HEAD/docs/demo-grid.gif" width="1200" height="720" loading="lazy"
+                     alt="sshu running in a terminal">
+              </div>
+              <div class="about">
+                <img src="icons/sshu.svg" alt="">
+                <h3>sshu</h3>
+                <p>A terminal front end for ssh and sftp: hosts, many live sessions on one screen, and two-sided file transfer.</p>
+                <p class="zh" lang="zh-Hant">ssh 與 sftp 的終端機前端：host 收在一處、多個 shell 並排、兩台機器之間直接搬檔案。</p>
+                <p class="refs"><a href="https://github.com/vulcanshen/sshu">github.com/vulcanshen/sshu</a><a href="https://github.com/vulcanshen/sshu/blob/main/README-zh_TW.md" lang="zh-Hant">README-zh_TW.md</a></p>
+              </div>
+            </div>
+          </section>
+          <section class="term-app" id="app-filu">
+            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">filu</span></p>
+            <div class="out">
+              <div class="demo">
+                <img src="https://raw.githubusercontent.com/vulcanshen/filu/HEAD/docs/demo-basics.gif" width="1200" height="720" loading="lazy"
+                     alt="filu running in a terminal">
+              </div>
+              <div class="about">
+                <img src="icons/filu.svg" alt="">
+                <h3>filu</h3>
+                <p>A terminal file manager you don't have to learn: mark, copy and move across tabs, find by name or content, preview as you go.</p>
+                <p class="zh" lang="zh-Hant">不用學的終端機檔案管理器：收集檔案再放到別處、依檔名或內容找東西、邊走邊預覽。</p>
+                <p class="refs"><a href="https://github.com/vulcanshen/filu">github.com/vulcanshen/filu</a><a href="https://github.com/vulcanshen/filu/blob/main/README-zh_TW.md" lang="zh-Hant">README-zh_TW.md</a></p>
+              </div>
+            </div>
+          </section>
+          <section class="term-app" id="app-kbu">
+            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">kbu</span></p>
+            <div class="out">
+              <div class="demo">
+                <img src="https://raw.githubusercontent.com/vulcanshen/kbu/HEAD/docs/demo-basics.gif" width="1200" height="720" loading="lazy"
+                     alt="kbu running in a terminal">
+              </div>
+              <div class="about">
+                <img src="icons/kbu.svg" alt="">
+                <h3>kbu</h3>
+                <p>A single-pane Kubernetes workspace: relatives navigation, YAML compare, and a persistent shell built in.</p>
+                <p class="zh" lang="zh-Hant">終端機裡的一頁式 Kubernetes 工作區：跟著關聯走、比對 YAML，還內建一個不會斷的 shell。</p>
+                <p class="refs"><a href="https://github.com/vulcanshen/kbu">github.com/vulcanshen/kbu</a><a href="https://github.com/vulcanshen/kbu/blob/main/README-zh_TW.md" lang="zh-Hant">README-zh_TW.md</a></p>
+              </div>
+            </div>
+          </section>
+          <section class="term-app" id="app-hostu">
+            <p class="prompt"><span class="cwd">~</span> <span class="sigil">$</span> <span class="cmd">hostu</span></p>
+            <div class="out">
+              <div class="demo">
+                <img src="https://raw.githubusercontent.com/vulcanshen/hostu/HEAD/docs/demo.gif" width="1200" height="640" loading="lazy"
+                     alt="hostu running in a terminal">
+              </div>
+              <div class="about">
+                <img src="icons/hostu.svg" alt="">
+                <h3>hostu</h3>
+                <p>Switch the hosts file between profiles, in the terminal: the office, home, a client's site, one key each.</p>
+                <p class="zh" lang="zh-Hant">在終端機裡用 profile 切換 hosts 檔：公司、家裡、客戶現場，按一個鍵就換過去。</p>
+                <p class="refs"><a href="https://github.com/vulcanshen/hostu">github.com/vulcanshen/hostu</a><a href="https://github.com/vulcanshen/hostu/blob/main/README-zh_TW.md" lang="zh-Hant">README-zh_TW.md</a></p>
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
-      <div class="build" style="--accent-light: #205090; --accent-dark: #f2b753">
-        <h3>Build your own terminu app</h3>
-        <p lang="zh-Hant">自己做一個 terminu app</p>
-        <div class="tiles">
-          <article class="card tile">
-            <p class="overline">Design language</p>
-            <h4><a href="https://github.com/vulcanshen/terminu">terminu design</a></h4>
-            <p>The keys and screens every terminu app shares.</p>
-            <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/terminu/blob/main/README-zh_TW.md">每個 terminu app 共用的按鍵與畫面設計原則。</a></p>
-          </article>
-          <article class="card tile">
-            <p class="overline">Go library</p>
-            <h4><a href="https://github.com/vulcanshen/terminu-go">terminu-go</a></h4>
-            <p>Draws and drives a terminal UI the way terminu design says.</p>
-            <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/terminu-go/blob/main/README-zh_TW.md">照 terminu design 畫出並驅動終端機介面的 Go 函式庫。</a></p>
-          </article>
-          <article class="card tile">
-            <p class="overline">Claude Code plugin</p>
-            <h4><a href="https://github.com/vulcanshen/terminu-harness">terminu-harness</a></h4>
-            <p>Builds a TUI app with terminu design and terminu-go, from what you want to a finished app.</p>
-            <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/terminu-harness/blob/main/README-zh_TW.md">照 terminu design、用 terminu-go 做 TUI app 的 Claude Code plugin，從想法一路做到完成。</a></p>
-          </article>
+
+      <div class="build reveal">
+        <div class="build-head">
+          <h3>Build your own terminu app</h3>
+          <p lang="zh-Hant">自己做一個 terminu app</p>
+        </div>
+        <!-- An orbit: the design, the library and the plugin, then building with Claude Code,
+             hitting a problem and opening an issue, round and round, until the app is ready and
+             leaves by the branch below. A comet runs the ring and lights each stop as it passes.
+             The legend beside it carries the words and links. -->
+        <div class="loop">
+          <div class="orbit">
+          <svg class="orbit-svg" viewBox="0 0 560 660" aria-hidden="true">
+            <defs><linearGradient id="comet-tail" gradientUnits="userSpaceOnUse" x1="157.1" y1="194" x2="280" y2="130"><stop offset="0" stop-color="#7aa8ff" stop-opacity="0"/><stop offset="1" stop-color="#cfe0ff"/></linearGradient></defs>
+            <path class="ticks" d="M280 102L280 92M295.8 99.7L296.2 94.7M311.4 101.7L312.3 96.8M326.8 105.2L328.1 100.3M341.9 109.9L343.6 105.2M356.5 116L358.6 111.4M369 125.8L374 117.2M383.8 131.7L386.7 127.6M396.3 141.3L399.6 137.5M408 152L411.5 148.5M418.7 163.7L422.5 160.4M428.3 176.2L432.4 173.3M434.2 191L442.8 186M444 203.5L448.6 201.4M450.1 218.1L454.8 216.4M454.8 233.2L459.7 231.9M458.3 248.6L463.2 247.7M460.3 264.2L465.3 263.8M458 280L468 280M460.3 295.8L465.3 296.2M458.3 311.4L463.2 312.3M454.8 326.8L459.7 328.1M450.1 341.9L454.8 343.6M444 356.5L448.6 358.6M434.2 369L442.8 374M428.3 383.8L432.4 386.7M418.7 396.3L422.5 399.6M408 408L411.5 411.5M396.3 418.7L399.6 422.5M383.8 428.3L386.7 432.4M369 434.2L374 442.8M356.5 444L358.6 448.6M341.9 450.1L343.6 454.8M326.8 454.8L328.1 459.7M311.4 458.3L312.3 463.2M295.8 460.3L296.2 465.3M280 458L280 468M264.2 460.3L263.8 465.3M248.6 458.3L247.7 463.2M233.2 454.8L231.9 459.7M218.1 450.1L216.4 454.8M203.5 444L201.4 448.6M191 434.2L186 442.8M176.2 428.3L173.3 432.4M163.7 418.7L160.4 422.5M152 408L148.5 411.5M141.3 396.3L137.5 399.6M131.7 383.8L127.6 386.7M125.8 369L117.2 374M116 356.5L111.4 358.6M109.9 341.9L105.2 343.6M105.2 326.8L100.3 328.1M101.7 311.4L96.8 312.3M99.7 295.8L94.7 296.2M102 280L92 280M99.7 264.2L94.7 263.8M101.7 248.6L96.8 247.7M105.2 233.2L100.3 231.9M109.9 218.1L105.2 216.4M116 203.5L111.4 201.4M125.8 191L117.2 186M131.7 176.2L127.6 173.3M141.3 163.7L137.5 160.4M152 152L148.5 148.5M163.7 141.3L160.4 137.5M176.2 131.7L173.3 127.6M191 125.8L186 117.2M203.5 116L201.4 111.4M218.1 109.9L216.4 105.2M233.2 105.2L231.9 100.3M248.6 101.7L247.7 96.8M264.2 99.7L263.8 94.7"/>
+            <circle class="inner" cx="280" cy="280" r="112"/>
+            <circle class="track" cx="280" cy="280" r="150"/>
+            <path class="chev" d="M-4 -5L2 0L-4 5" transform="translate(355 150.1) rotate(30)"/>
+            <path class="chev" d="M-4 -5L2 0L-4 5" transform="translate(430 280) rotate(90)"/>
+            <path class="chev" d="M-4 -5L2 0L-4 5" transform="translate(355 409.9) rotate(150)"/>
+            <path class="chev" d="M-4 -5L2 0L-4 5" transform="translate(205 409.9) rotate(210)"/>
+            <path class="chev" d="M-4 -5L2 0L-4 5" transform="translate(130 280) rotate(270)"/>
+            <path class="chev" d="M-4 -5L2 0L-4 5" transform="translate(205 150.1) rotate(330)"/>
+            <g class="comet"><path d="M157.1 194A150 150 0 0 1 280 130" stroke="url(#comet-tail)"/><circle cx="280" cy="130" r="4"/></g>
+            <g class="stop-dot" style="--d: 0s"><circle cx="280" cy="130" r="15"/><text x="280" y="130.5">01</text></g>
+            <g class="stop-dot" style="--d: 1.2s"><circle cx="409.9" cy="205" r="15"/><text x="409.9" y="205.5">02</text></g>
+            <g class="stop-dot" style="--d: 2.3s"><circle cx="409.9" cy="355" r="15"/><text x="409.9" y="355.5">03</text></g>
+            <g class="stop-dot" style="--d: 3.5s"><circle cx="280" cy="430" r="15"/><text x="280" y="430.5">04</text></g>
+            <g class="stop-dot" style="--d: 4.7s"><circle cx="150.1" cy="355" r="15"/><text x="150.1" y="355.5">05</text></g>
+            <g class="stop-dot" style="--d: 5.8s"><circle cx="150.1" cy="205" r="15"/><text x="150.1" y="205.5">06</text></g>
+            <path class="branch" d="M280 447L280 538"/>
+            <path class="chev" d="M-4 -5L2 0L-4 5" transform="translate(280 492.5) rotate(90)"/>
+            <circle class="spark" cx="280" cy="447" r="3"/>
+            <g class="stop-dot ship"><circle cx="280" cy="560" r="16"/><text x="280" y="560.5">✓</text></g>
+            <text class="hub" x="280" y="276">terminu</text>
+            <text class="hub-sub" x="280" y="300">↻ loop</text>
+          </svg>
+          <span class="orbit-label top" style="left: 50%; top: 15.2%">terminu design</span>
+          <span class="orbit-label right" style="left: 78.6%; top: 31.1%">terminu-go</span>
+          <span class="orbit-label right" style="left: 78.6%; top: 53.8%">terminu-harness<br><span class="claude">+ Claude Code</span></span>
+          <span class="orbit-label left" style="left: 44.6%; top: 65.2%">Build with Claude Code</span>
+          <span class="orbit-label left" style="left: 22.2%; top: 53.8%">Hit a problem</span>
+          <span class="orbit-label left" style="left: 22.2%; top: 31.1%">Open an issue</span>
+          <span class="orbit-label bottom" style="left: 50%; top: 89.4%">Release your app</span>
+          </div>
+          <ol class="legend">
+            <li>
+              <span class="n">01</span>
+              <div>
+                <p class="overline">Design language</p>
+                <h4><a href="https://github.com/vulcanshen/terminu">terminu design</a></h4>
+                <p>The keys and screens every terminu app shares.</p>
+                <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/terminu/blob/main/README-zh_TW.md">每個 terminu app 共用的按鍵與畫面設計原則。</a></p>
+              </div>
+            </li>
+            <li>
+              <span class="n">02</span>
+              <div>
+                <p class="overline">Go library</p>
+                <h4><a href="https://github.com/vulcanshen/terminu-go">terminu-go</a></h4>
+                <p>Draws and drives a terminal UI the way terminu design says.</p>
+                <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/terminu-go/blob/main/README-zh_TW.md">照 terminu design 畫出並驅動終端機介面的 Go 函式庫。</a></p>
+              </div>
+            </li>
+            <li>
+              <span class="n">03</span>
+              <div>
+                <p class="overline">Claude Code plugin</p>
+                <h4><a href="https://github.com/vulcanshen/terminu-harness">terminu-harness</a></h4>
+                <p>Builds a TUI app with terminu design and terminu-go, from what you want to a finished app.</p>
+                <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/terminu-harness/blob/main/README-zh_TW.md">照 terminu design、用 terminu-go 做 TUI app 的 Claude Code plugin，從想法一路做到完成。</a></p>
+              </div>
+            </li>
+            <li>
+              <span class="n">04</span>
+              <div>
+                <p class="overline">Your app</p>
+                <h4><span>Build with Claude Code</span></h4>
+                <p>Describe what you want; Claude Code builds it with terminu-harness.</p>
+                <p class="zh" lang="zh-Hant">說出你要什麼，Claude Code 就用 terminu-harness 把它做出來。</p>
+              </div>
+            </li>
+            <li>
+              <span class="n">✓</span>
+              <div>
+                <p class="overline">Your app</p>
+                <h4><span>Release your app</span></h4>
+                <p>When it&#39;s ready, ship it. That&#39;s the way out of the loop.</p>
+                <p class="zh" lang="zh-Hant">做好了就發布，這就是離開循環的出口。</p>
+              </div>
+            </li>
+            <li>
+              <span class="n">05</span>
+              <div>
+                <p class="overline">Feedback</p>
+                <h4><span>Hit a problem</span></h4>
+                <p>Something in the design, the library or the plugin gets in your way.</p>
+                <p class="zh" lang="zh-Hant">設計原則、函式庫或 plugin 有地方卡住你。</p>
+              </div>
+            </li>
+            <li>
+              <span class="n">06</span>
+              <div>
+                <p class="overline">Feedback</p>
+                <h4><a href="https://github.com/vulcanshen/terminu/issues">Open an issue</a></h4>
+                <p>Report it on terminu. The fix comes back round through all three.</p>
+                <p class="zh" lang="zh-Hant">到 terminu 回報，修正會一路回到這三個專案裡。</p>
+              </div>
+            </li>
+          </ol>
         </div>
       </div>
     </div>
@@ -295,5 +461,80 @@
     <a href="https://github.com/vulcanshen">github.com/vulcanshen</a>
   </div>
 </footer>
+<script>
+  const still = matchMedia("(prefers-reduced-motion: reduce)");
+
+  // The app videos play only while on screen, and not at all with Reduce Motion on.
+  const seen = new IntersectionObserver(entries => entries.forEach(({ target, isIntersecting }) => {
+    if (isIntersecting && !still.matches) target.play().catch(() => {});
+    else target.pause();
+  }), { threshold: 0.25 });
+  document.querySelectorAll("video[data-play]").forEach(v => seen.observe(v));
+
+  // Sections rise into place the first time they come on screen.
+  const reveal = new IntersectionObserver(entries => entries.forEach(({ target, isIntersecting }) => {
+    if (isIntersecting) { target.classList.add("in"); reveal.unobserve(target); }
+  }), { threshold: 0.08 });
+  document.querySelectorAll(".reveal").forEach(el => reveal.observe(el));
+
+  // The terminal apps: a tab per app; picking one types the app's name and runs its demo.
+  document.querySelectorAll("[data-term]").forEach(term => {
+    const panels = [...term.querySelectorAll(".term-app")];
+    const bar = document.createElement("div");
+    bar.className = "term-tabs";
+    bar.setAttribute("role", "tablist");
+    bar.setAttribute("aria-label", "Terminal apps");
+    let timer = 0;
+    const tabs = panels.map(panel => {
+      const name = panel.querySelector("h3").textContent;
+      const tab = document.createElement("button");
+      tab.type = "button";
+      tab.id = `tab-${name}`;
+      tab.textContent = name;
+      tab.setAttribute("role", "tab");
+      tab.setAttribute("aria-controls", panel.id);
+      panel.setAttribute("role", "tabpanel");
+      panel.setAttribute("aria-labelledby", tab.id);
+      panel.querySelector(".prompt").setAttribute("aria-hidden", "true");
+      tab.addEventListener("click", () => pick(tabs.indexOf(tab)));
+      bar.append(tab);
+      return tab;
+    });
+    const pick = (i, focus) => {
+      tabs.forEach((t, j) => {
+        t.setAttribute("aria-selected", String(i === j));
+        t.tabIndex = i === j ? 0 : -1;
+        panels[j].hidden = i !== j;
+      });
+      if (focus) tabs[i].focus();
+      // Keep the picked tab in view along the bar, without scrolling the page.
+      const t = tabs[i];
+      if (t.offsetLeft < bar.scrollLeft || t.offsetLeft + t.offsetWidth > bar.scrollLeft + bar.clientWidth)
+        bar.scrollLeft = t.offsetLeft - 12;
+      const panel = panels[i], cmd = panel.querySelector(".cmd"), text = cmd.dataset.text || cmd.textContent;
+      cmd.dataset.text = text;
+      clearInterval(timer);
+      if (still.matches) { cmd.textContent = text; panel.classList.add("printed"); return; }
+      panel.classList.remove("printed");
+      cmd.textContent = "";
+      let n = 0;
+      timer = setInterval(() => {
+        cmd.textContent = text.slice(0, ++n);
+        if (n >= text.length) { clearInterval(timer); panel.classList.add("printed"); }
+      }, 60);
+    };
+    // Arrow keys move between tabs, as in any tab list; Tab moves on to the README's links.
+    bar.addEventListener("keydown", e => {
+      const at = tabs.indexOf(document.activeElement);
+      const to = { ArrowRight: at + 1, ArrowLeft: at - 1, Home: 0, End: tabs.length - 1 }[e.key];
+      if (to === undefined) return;
+      e.preventDefault();
+      pick((to + tabs.length) % tabs.length, true);
+    });
+    term.querySelector(".term-top").append(bar);
+    term.classList.add("live");
+    pick(0);
+  });
+</script>
 </body>
 </html>

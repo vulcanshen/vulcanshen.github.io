@@ -13,7 +13,7 @@ App Store Connect 的「行銷網址」、「支援網址」與「隱私權政�
 ## 結構
 
 ```
-index.html            首頁：分 Apple apps、瀏覽器擴充功能、Terminal apps 三區，每個作品一張卡片
+index.html            首頁：只有深色。Apple apps、瀏覽器擴充功能各作品一段跨版的展示；Terminal apps 是一個有分頁的終端機視窗
 home.css              首頁的樣式
 favicon.svg           網站的 icon，首頁頂部列也用它；favicon.ico、apple-touch-icon.png 是從它轉出來的 PNG 版本
 og.png                首頁分享到社群時的預覽圖（1200×630）
@@ -35,15 +35,23 @@ icons/                首頁上其他作品的 icon（<名稱>.svg）
 1. **支援頁與隱私權政策**：把 `template/support/`、`template/privacy/`（連同裡面的 `zh-Hant/`）複製成 `<app>/support/`、`<app>/privacy/`，把 `{{…}}` 換掉、照註解填內容，最後刪掉註解。這兩頁每個 app 都長一樣，只換內容，不改版面與樣式。
 2. **推廣頁**：`<app>/index.html` 依該 app 的特性與受眾自己設計，版面、文案、樣式、中英文怎麼分都由各 app 決定，不跟其他 app 統一。樣式放在該 app 的資料夾裡（例如 `alphade/promo.css`），不要加進共用的 `style.css`。
 3. **icon**：放 `<app>/icon.png`，有深色版就再放 `icon-dark.png`。
-4. **首頁與上面的表格**：各加一行，在該 app 的分支加；表頭在 main。卡片放在首頁的 Apple apps 那一區，照現有的卡片複製一張：名稱上方的小字寫平台（例如 `Mac`、`iPhone · iPad`），app 名稱連到推廣頁，中文簡介整句連到中文推廣頁（沒有另外做中文頁的話連到同一頁），下面的按鈕指向支援頁與隱私權政策（英文按鈕連英文頁，中文按鈕連 `zh-Hant/`）。
+4. **首頁與上面的表格**：各加一行，在該 app 的分支加；表頭在 main。首頁的 Apple apps 那一區，照現有的 `<article class="spread">` 複製一段，左右跟上一段相反（加或拿掉 `flip`）：
+   - `style="--brand: R, G, B"` 設 app 的主色（逗號分隔的 RGB），按鈕、光暈、背景的空心大字都用它。
+   - `.ghost` 是背景的空心大字，寫 app 名稱。
+   - 名稱上方的 `.overline` 寫平台（例如 `Mac`、`iPhone · iPad`），`h3` 放 icon 與名稱、連到推廣頁；中文簡介整句連到中文推廣頁（沒有另外做中文頁的話連到同一頁）。
+   - 按鈕是下載或商店（`.btn`）加上 `Learn more`（`.more`，連到推廣頁）；下面一排連到支援頁與隱私權政策（英文連英文頁，中文連 `zh-Hant/`）。
+   - 右側或左側的 `.spread-visual` 放 app 本身的畫面：Mac app 用推廣頁的錄影（`<video data-play …>`，會在捲到時才播放），iPhone app 用兩張截圖。
 5. **搜尋引擎**：每一頁的 `<title>` 下一行放 `<link rel="canonical" href="https://vulcanshen.github.io/<這一頁的路徑>/">`（範本裡已經有，換掉 `{{app}}` 就好），並把每一頁的網址加進 `sitemap.xml`，`lastmod` 寫最後修改的日期。推廣頁另外要有 `<meta name="description">` 和 Open Graph 分享圖。
 
 ## 首頁上的其他作品
 
 首頁是挑選過的作品入口，不是每個 repo 都放。
 
-- 瀏覽器擴充功能與 Terminal apps 不在這個網站做頁面：卡片的名稱連到作品自己的頁面（有的話）或 GitHub repo，中文簡介連到中文的頁面或 README。這類卡片直接在 main 加，不用開分支。
-- icon 從作品的 repo 複製一份到 `icons/<名稱>.svg`；作品沒有 icon 的話，卡片就不放圖。
+- 瀏覽器擴充功能與 Terminal apps 不在這個網站做頁面：名稱連到作品自己的頁面（有的話）或 GitHub repo，中文簡介連到中文的頁面或 README。這類作品直接在 main 加，不用開分支。
+- 瀏覽器擴充功能跟 Apple apps 一樣用一段 `spread`。
+- Terminal apps 在終端機視窗裡一個 app 一個分頁：照現有的 `<section class="term-app">` 複製一段，分頁由 script 自動產生。`.demo` 的圖直接連到該 repo 的 demo GIF（`https://raw.githubusercontent.com/vulcanshen/<repo>/HEAD/docs/….gif`，寫上 GIF 的寬高、`loading="lazy"`），所以 repo 換了 demo，首頁跟著換；只有打開的分頁會下載。
+- Build your own 那條流程線上是不是 app 的作品（設計原則、函式庫、plugin），不放 icon。
+- icon 從作品的 repo 複製一份到 `icons/<名稱>.svg`；作品沒有 icon 的話就不放圖。
 - 開了 GitHub Pages 的 repo 會佔用 `/<repo 名稱>/`（目前有 `yi-translate`），這個網站的資料夾不要跟它們同名；首頁連到這類頁面時寫完整網址，本機預覽才連得到。
 
 ## 支援頁與隱私權政策的規則
@@ -62,7 +70,7 @@ icons/                首頁上其他作品的 icon（<名稱>.svg）
   - app 內也有政策的，兩邊逐字一致：照這裡的章節寫，app 內的版本跟著改。政策改了，最後更新日期一起改。
 - **聯絡方式**：先放 issues，再放 email（`vulcan.shen.2304@gmail.com`）給沒有 GitHub 帳號的人；email 主旨預先帶 `[App 名稱]`。issues 用這個 repo 的，標題也預先帶 `[App 名稱]`；app 有自己公開、開著 Issues 的 repo 時（例如 Alphade），改連那個 repo 的 issues，標題就不用帶。文字照範本，支援頁可以再加一句請對方附上哪些資訊。隱私權政策有「聯絡」一節時也用同一組。
 - **頁尾**：內容最後放一組 `.section-links`（app 名稱連到推廣頁、支援、隱私權政策、所有 app），連到同一種語言的頁面；推廣頁沒有這種語言的話，app 名稱連到英文推廣頁。最下面是 `© 年份 Vulcan Shen`。
-- **主色**：在 `<html>` 上設 `--accent-light`（淺色模式）與 `--accent-dark`（深色模式），首頁的卡片也一樣設在卡片上。
+- **主色**：在 `<html>` 上設 `--accent-light`（淺色模式）與 `--accent-dark`（深色模式）。（首頁不用這兩個，見上面的 `--brand`。）
 - **icon**：macOS 的 icon 檔本身已經有形狀與陰影，直接放；iOS 的 icon 檔是滿版正方形，在 `<html>` 上設 `--icon-radius`（約 `22.37%`）。
 - **警示**：需要醒目提醒時用 `<p class="notice">`。
 
