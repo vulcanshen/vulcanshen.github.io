@@ -1,31 +1,27 @@
-/* Home page only; support pages and privacy policies use style.css. Layout after Bootstrap 5
-   (a 1140px container, responsive card grid), surfaces after Material Design (elevated cards,
-   tonal buttons, chips). A card sets its app's accent like a page does:
-   style="--accent-light: #1e66f5; --accent-dark: #89b4fa"; without one it uses --primary. */
+/* Home page only; support pages and privacy policies use style.css.
+   A showcase rather than a list: each app gets a panel in its own colours with the app
+   itself on show (a recording, its screens), the terminal apps sit in a terminal window,
+   and the page around them follows light or dark. The panels keep their colours in both. */
 :root {
-  --bg: #f6f7f9;
-  --surface: #ffffff;
-  --surface-2: #eceff3;
-  --fg: #1b1c1f;
-  --muted: #5f6368;
-  --outline: #dadce0;
-  --primary: #0b57d0;
-  --shadow-1: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-  --shadow-3: 0 1px 3px rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
+  --bg: #f4f5f7;
+  --fg: #16171a;
+  --muted: #5d6168;
+  --line: #dcdfe4;
+  --link: #0b57d0;
+  --display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", "PingFang TC", "Noto Sans TC", sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --terminu-blue: #205090;
+  --terminu-gold: #f2b753;
   color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #111317;
-    --surface: #1c1f24;
-    --surface-2: #252930;
-    --fg: #e4e5e8;
-    --muted: #a9adb4;
-    --outline: #3a3e46;
-    --primary: #a8c7fa;
-    --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.6), 0 1px 3px 1px rgba(0, 0, 0, 0.3);
-    --shadow-3: 0 1px 3px rgba(0, 0, 0, 0.6), 0 4px 8px 3px rgba(0, 0, 0, 0.3);
+    --bg: #0c0d10;
+    --fg: #e8e9ec;
+    --muted: #a3a8b0;
+    --line: #262a31;
+    --link: #a8c7fa;
   }
 }
 
@@ -43,34 +39,35 @@ body {
   color: var(--fg);
   font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 a {
-  color: var(--primary);
+  color: var(--link);
 }
 
 .container {
-  max-width: 1140px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
-/* Top app bar */
+/* Top bar */
 .topbar {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: color-mix(in srgb, var(--bg) 85%, transparent);
-  -webkit-backdrop-filter: saturate(180%) blur(12px);
-  backdrop-filter: saturate(180%) blur(12px);
-  border-bottom: 1px solid var(--outline);
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
 }
 
 .topbar .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 56px;
+  height: 60px;
 }
 
 .brand {
@@ -78,239 +75,433 @@ a {
   align-items: center;
   gap: 10px;
   color: var(--fg);
-  font-size: 1.05rem;
   font-weight: 700;
   text-decoration: none;
 }
 
-.brand img {
-  width: 28px;
-  height: 28px;
+.topnav {
+  display: flex;
+  gap: 28px;
 }
 
-.topbar-link {
-  padding: 6px 14px;
-  border-radius: 999px;
+.topnav a {
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 500;
   text-decoration: none;
 }
 
-.topbar-link:hover {
-  background: var(--surface-2);
+.topnav a:hover {
   color: var(--fg);
 }
 
-/* Hero */
+/* Hero: the line in big type, then the apps fanned out under it. */
 .hero {
-  padding: 72px 0 32px;
+  padding: 96px 0 0;
+  text-align: center;
 }
 
 .hero h1 {
   margin: 0;
-  font-size: clamp(2rem, 1.2rem + 3vw, 3.25rem);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  font: 800 clamp(2.9rem, 8.2vw, 6.2rem)/1.02 var(--display);
+  letter-spacing: -0.045em;
 }
 
-.hero .tagline {
-  margin: 10px 0 0;
+.tagline {
+  margin: 22px 0 0;
+  font-size: clamp(1.3rem, 2.6vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.lead {
+  margin: 14px auto 0;
+  max-width: 40rem;
   color: var(--muted);
-  font-size: clamp(1.25rem, 1rem + 1vw, 1.6rem);
-  font-weight: 500;
+  font-size: 1.08rem;
 }
 
-.hero .lead {
-  margin: 24px 0 0;
-  color: var(--muted);
-  font-size: 1.05rem;
+.fan {
+  position: relative;
+  max-width: 1060px;
+  height: clamp(220px, 34vw, 400px);
+  margin: 64px auto 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent);
+  mask-image: linear-gradient(to bottom, #000 72%, transparent);
 }
 
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 28px;
+.fan a {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  transition: transform 0.4s ease;
 }
 
-.chip {
-  display: inline-flex;
-  align-items: center;
-  height: 36px;
-  padding: 0 16px;
-  border: 1px solid var(--outline);
-  border-radius: 8px;
-  background: var(--surface);
-  color: var(--fg);
-  font-size: 0.95rem;
-  font-weight: 500;
-  text-decoration: none;
+.fan img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
-.chip:hover {
-  background: var(--surface-2);
+.fan-card {
+  top: 18%;
+  width: 46%;
+  border-radius: 18px;
+}
+
+.fan-card.left {
+  left: 3%;
+  transform: rotate(-7deg);
+}
+
+.fan-card.right {
+  right: 3%;
+  transform: rotate(7deg);
+}
+
+.fan-phone {
+  left: 50%;
+  top: 0;
+  width: 25%;
+  border: 6px solid #111;
+  border-radius: 36px;
+  transform: translateX(-50%);
+}
+
+.fan .left:hover {
+  transform: rotate(-5deg) translateY(-8px);
+}
+
+.fan .right:hover {
+  transform: rotate(5deg) translateY(-8px);
+}
+
+.fan .fan-phone:hover {
+  transform: translateX(-50%) translateY(-8px);
 }
 
 /* Sections */
 .section {
-  padding: 32px 0;
-  scroll-margin-top: 56px;
+  padding: 88px 0 0;
 }
 
 .section-head {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 4px 12px;
-  margin-bottom: 20px;
+  gap: 4px 16px;
+  margin-bottom: 28px;
 }
 
 .section-head h2 {
   margin: 0;
-  font-size: 1.6rem;
-  letter-spacing: -0.01em;
+  font: 800 clamp(2rem, 4.4vw, 3rem)/1.1 var(--display);
+  letter-spacing: -0.035em;
 }
 
 .section-head p {
   margin: 0;
   color: var(--muted);
+  font-size: 1.05rem;
 }
 
-.grid {
+/* An app's panel: its words on one side, the app itself on the other. */
+.feature {
+  --panel: #111;
+  --glow: transparent;
+  --text: #f1f2f4;
+  --soft: rgba(241, 242, 244, 0.72);
+  --accent: #fff;
+  --on-accent: #000;
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
-  gap: 20px;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 24px;
+  padding: 48px;
+  overflow: hidden;
+  border-radius: 28px;
+  background: radial-gradient(70% 90% at 78% 50%, var(--glow), transparent 70%), var(--panel);
+  color: var(--text);
 }
 
-/* Cards */
-.card {
-  --accent: var(--accent-light, var(--primary));
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  border-radius: 16px;
-  background: var(--surface);
-  box-shadow: var(--shadow-1);
-  transition: box-shadow 0.2s, transform 0.2s;
+.feature:nth-of-type(even) {
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  background: radial-gradient(70% 90% at 22% 50%, var(--glow), transparent 70%), var(--panel);
 }
 
-@media (prefers-color-scheme: dark) {
-  .card {
-    --accent: var(--accent-dark, var(--primary));
-  }
+.feature:nth-of-type(even) .feature-text {
+  order: 2;
 }
 
-.card:hover {
-  box-shadow: var(--shadow-3);
-  transform: translateY(-2px);
+.feature a {
+  color: inherit;
 }
 
-.card-head {
+.app-id {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 14px;
 }
 
-.card-head img {
-  display: block;
-  width: 56px;
-  height: 56px;
+.app-id img {
+  width: 64px;
+  height: 64px;
   flex: none;
-  border-radius: var(--icon-radius, 0);
+  border-radius: 14px;
+}
+
+.app-id img.ios {
+  border-radius: 22.37%;
 }
 
 .overline {
-  margin: 0;
-  color: var(--muted);
+  margin: 0 0 2px;
+  color: var(--soft);
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.card h3 {
+.feature h3 {
   margin: 0;
-  font-size: 1.2rem;
-  line-height: 1.3;
+  font: 800 clamp(1.9rem, 3.4vw, 2.6rem)/1.05 var(--display);
+  letter-spacing: -0.03em;
 }
 
-.card h3 a {
-  color: var(--fg);
+.feature h3 a {
   text-decoration: none;
 }
 
-.card p {
-  margin: 0 0 8px;
+.pitch {
+  margin: 24px 0 0;
+  font-size: 1.22rem;
+  line-height: 1.45;
 }
 
-.card .zh {
-  color: var(--muted);
-  font-size: 0.95rem;
+.feature .zh {
+  margin: 8px 0 0;
+  color: var(--soft);
 }
 
-.card .zh a {
-  color: inherit;
+.feature .zh a,
+.term-app .zh a,
+.tile .zh a {
   text-decoration: none;
 }
 
-.card h3 a:hover,
-.card .zh a:hover {
-  color: var(--accent);
+.feature .zh a:hover,
+.term-app .zh a:hover,
+.tile .zh a:hover {
   text-decoration: underline;
 }
 
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: auto;
-  padding-top: 12px;
-}
-
-/* Buttons of one language stay on one row together. */
-.btn-group {
-  display: flex;
-  gap: 8px;
-}
-
-/* Tonal button */
 .btn {
-  display: inline-flex;
-  align-items: center;
-  height: 34px;
-  padding: 0 14px;
+  display: inline-block;
+  margin-top: 28px;
+  padding: 11px 26px;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--accent) 12%, transparent);
-  color: var(--accent);
-  font-size: 0.875rem;
-  font-weight: 600;
+  background: var(--accent);
+  color: var(--on-accent) !important;
+  font-weight: 650;
   text-decoration: none;
-  white-space: nowrap;
+  transition: filter 0.2s;
 }
 
 .btn:hover {
-  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  filter: brightness(1.08);
 }
 
-/* Filled button: where to get the app */
-.btn-filled,
-.btn-filled:hover {
-  background: var(--accent);
-  color: var(--surface);
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 20px 0 0;
+  font-size: 0.9rem;
 }
 
-.btn-filled:hover {
-  box-shadow: var(--shadow-1);
+.links a {
+  color: var(--soft);
+  text-decoration: none;
 }
 
-/* Terminal apps: what the family shares, and how to build one */
+.links a:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+.feature-visual {
+  display: block;
+}
+
+.feature-visual.screen video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 30px 70px -25px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  background: #000;
+}
+
+/* Two phones, the second one a step behind. */
+.feature-visual.phones {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  height: 440px;
+}
+
+.feature-visual.phones img {
+  width: 196px;
+  height: auto;
+  align-self: flex-start;
+  border: 5px solid #0b0b0d;
+  border-radius: 32px;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6);
+}
+
+.feature-visual.phones img + img {
+  margin: 48px 0 0 -36px;
+  transform: rotate(5deg);
+}
+
+.feature-visual.phones img:first-child {
+  position: relative;
+  z-index: 1;
+  transform: rotate(-4deg);
+}
+
+/* Yi: a page with each line followed by its translation. */
+.feature-visual.page {
+  overflow: hidden;
+  border-radius: 14px;
+  background: #fbf8f1;
+  color: #1d2733;
+  text-decoration: none;
+  box-shadow: 0 30px 70px -25px rgba(0, 0, 0, 0.7);
+}
+
+.page-bar {
+  display: flex;
+  gap: 7px;
+  padding: 12px 16px;
+  background: #ece6d8;
+}
+
+.page-bar i,
+.term-bar i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #cfc6b2;
+}
+
+.page-body {
+  display: block;
+  padding: 28px 34px 34px;
+  font-family: "New York", ui-serif, Georgia, "Songti TC", serif;
+  font-size: 1.12rem;
+  line-height: 1.55;
+}
+
+.page-body span {
+  display: block;
+}
+
+.page-body .tr {
+  margin: 6px 0 22px;
+  padding-left: 14px;
+  border-left: 3px solid #c4a35a;
+  color: #0066cc;
+  font-family: -apple-system, "PingFang TC", "Noto Sans TC", sans-serif;
+  font-size: 1.02rem;
+}
+
+.page-body .tr:last-child {
+  margin-bottom: 0;
+}
+
+/* Panel colours, from each app's icon and page. */
+.alphade {
+  --panel: #11111b;
+  --glow: rgba(137, 180, 250, 0.22);
+  --text: #cdd6f4;
+  --soft: #a6adc8;
+  --accent: #89b4fa;
+  --on-accent: #11111b;
+}
+
+.helpknock {
+  --panel: linear-gradient(135deg, #1b3a6b, #0c1d3a);
+  --glow: rgba(157, 184, 230, 0.28);
+  --text: #eef3fb;
+  --soft: #b9c9e6;
+  --accent: #ffffff;
+  --on-accent: #1b3a6b;
+}
+
+.ciscrux {
+  --panel: #000;
+  --glow: rgba(217, 184, 108, 0.16);
+  --text: #ececec;
+  --soft: #a2a2a8;
+  --accent: #d9b86c;
+  --on-accent: #000;
+}
+
+.yi {
+  --panel: #0a2540;
+  --glow: rgba(196, 163, 90, 0.22);
+  --text: #eef4fb;
+  --soft: #a9bfd6;
+  --accent: #c4a35a;
+  --on-accent: #0a2540;
+}
+
+/* Terminal apps: a terminal window in the terminu blue and gold. */
+.terminal {
+  overflow: hidden;
+  border: 1px solid #22262d;
+  border-radius: 20px;
+  background: #0a0b0e;
+  color: #d9dce1;
+  box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.5);
+}
+
+.term-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 13px 18px;
+  border-bottom: 1px solid #1c1f25;
+  background: #13151a;
+}
+
+.term-bar i {
+  background: #2c3038;
+}
+
+.term-bar span {
+  flex: 1;
+  margin-right: 46px;
+  color: #7d838d;
+  font: 0.85rem var(--mono);
+  text-align: center;
+}
+
+.term-body {
+  padding: 36px 40px 40px;
+}
+
 .callout {
-  margin-bottom: 20px;
-  padding: 20px 24px;
-  border-radius: 16px;
-  background: var(--surface-2);
+  padding-bottom: 28px;
+  border-bottom: 1px dashed #2a2e36;
+  font-size: 1.02rem;
 }
 
 .callout p {
@@ -319,86 +510,158 @@ a {
 
 .callout p + p {
   margin-top: 8px;
+  color: #9aa0a9;
 }
 
 kbd {
+  display: inline-block;
+  min-width: 1.9em;
   padding: 1px 7px;
-  border: 1px solid var(--outline);
-  border-radius: 6px;
-  background: var(--surface);
-  font: 0.85em ui-monospace, SFMono-Regular, Menlo, monospace;
+  border: 1px solid #353a44;
+  border-bottom-width: 3px;
+  border-radius: 7px;
+  background: #171a20;
+  color: var(--terminu-gold);
+  font: 600 0.82em/1.5 var(--mono);
+  text-align: center;
   white-space: nowrap;
 }
 
-.build {
-  margin-top: 20px;
-  padding: 20px 24px;
-  border: 1px solid var(--outline);
-  border-radius: 16px;
+.term-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 30px 36px;
+  margin-top: 30px;
 }
 
-.build h3 {
+.term-app {
+  display: flex;
+  gap: 16px;
+}
+
+.term-app img {
+  width: 52px;
+  height: 52px;
+  flex: none;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px #262a31;
+}
+
+.term-app h3 {
+  margin: 2px 0 4px;
+  font: 700 1.08rem/1.3 var(--mono);
+}
+
+.term-app h3 a {
+  color: var(--terminu-gold);
+  text-decoration: none;
+}
+
+.term-app h3 a::before {
+  content: "$ ";
+  color: #5b84c4;
+}
+
+.term-app h3 a:hover {
+  text-decoration: underline;
+}
+
+.term-app p {
   margin: 0;
-  font-size: 1.1rem;
+  color: #c3c7ce;
+  font-size: 0.93rem;
+  line-height: 1.55;
+}
+
+.term-app .zh {
+  margin-top: 6px;
+}
+
+.term-app .zh a {
+  color: #8e959f;
+}
+
+/* Build your own: not apps, so no icon; the name in a terminal font on the terminu blue. */
+.build {
+  margin-top: 56px;
+}
+
+.build > h3 {
+  margin: 0;
+  font: 800 1.6rem/1.2 var(--display);
+  letter-spacing: -0.02em;
 }
 
 .build > p {
-  margin: 2px 0 0;
+  margin: 4px 0 0;
   color: var(--muted);
 }
 
-.build .tiles {
+.tiles {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 16px;
-  margin-top: 16px;
+  margin-top: 20px;
 }
 
-/* Not apps, so no icon: a smaller card set in type instead, the name in a terminal
-   font on a tonal button of the terminu icon blue, like GitHub's but with square
-   corners, its text in the family's blue (amber in the dark). */
 .tile {
-  padding: 16px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
   font-size: 0.95rem;
+}
+
+.tile .overline {
+  color: var(--muted);
 }
 
 .tile h4 {
   margin: 8px 0 12px;
-  font: 600 1.05rem/1.3 ui-monospace, SFMono-Regular, Menlo, monospace;
+  font: 600 1.05rem/1.3 var(--mono);
 }
 
 .tile h4 a {
   display: inline-block;
   padding: 6px 12px;
   border-radius: 8px;
-  background: color-mix(in srgb, #205090 14%, transparent);
-  color: var(--accent);
+  background: color-mix(in srgb, var(--terminu-blue) 14%, transparent);
+  color: var(--terminu-blue);
   text-decoration: none;
 }
 
 .tile h4 a:hover {
-  background: color-mix(in srgb, #205090 24%, transparent);
+  background: color-mix(in srgb, var(--terminu-blue) 24%, transparent);
 }
 
-/* On a dark card the blue needs more of itself to show. */
-@media (prefers-color-scheme: dark) {
-  .tile h4 a {
-    background: color-mix(in srgb, #205090 45%, transparent);
-  }
-
-  .tile h4 a:hover {
-    background: color-mix(in srgb, #205090 60%, transparent);
-  }
+.tile p {
+  margin: 0;
 }
 
 .tile .zh {
+  margin-top: 6px;
+  color: var(--muted);
   font-size: 0.9rem;
+}
+
+.tile .zh a {
+  color: inherit;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tile h4 a {
+    background: color-mix(in srgb, var(--terminu-blue) 45%, transparent);
+    color: var(--terminu-gold);
+  }
+
+  .tile h4 a:hover {
+    background: color-mix(in srgb, var(--terminu-blue) 60%, transparent);
+  }
 }
 
 /* Footer */
 .footer {
-  margin-top: 32px;
-  border-top: 1px solid var(--outline);
+  margin-top: 96px;
+  border-top: 1px solid var(--line);
   color: var(--muted);
   font-size: 0.9rem;
 }
@@ -415,13 +678,96 @@ kbd {
   color: inherit;
 }
 
+@media (max-width: 900px) {
+  .feature,
+  .feature:nth-of-type(even) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+    padding: 36px 32px;
+  }
+
+  .feature:nth-of-type(even) .feature-text {
+    order: 0;
+  }
+
+  .feature-visual.phones {
+    height: 400px;
+  }
+}
+
+@media (max-width: 760px) {
+  .topnav .section-link {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 64px;
+  }
+
+  .fan-phone {
+    width: 34%;
+    border-width: 4px;
+    border-radius: 24px;
+  }
+
+  .fan-card {
+    width: 56%;
+  }
+
+  .fan-card.left {
+    left: -6%;
+  }
+
+  .fan-card.right {
+    right: -6%;
+  }
+
+  .section {
+    padding-top: 64px;
+  }
+
+  .feature,
+  .feature:nth-of-type(even) {
+    padding: 28px 22px;
+    border-radius: 22px;
+  }
+
+  .app-id img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .pitch {
+    font-size: 1.1rem;
+  }
+
+  .feature-visual.phones {
+    height: 330px;
+  }
+
+  .feature-visual.phones img {
+    width: 150px;
+    border-radius: 24px;
+  }
+
+  .page-body {
+    padding: 22px;
+    font-size: 1rem;
+  }
+
+  .term-body {
+    padding: 26px 20px 28px;
+  }
+}
+
 @media (max-width: 575.98px) {
   .container {
     padding: 0 16px;
   }
 
-  .hero {
-    padding-top: 48px;
+  .footer .container {
+    flex-direction: column;
+    gap: 4px;
   }
 }
 
@@ -430,11 +776,7 @@ kbd {
     scroll-behavior: auto;
   }
 
-  .card {
+  .fan a {
     transition: none;
-  }
-
-  .card:hover {
-    transform: none;
   }
 }
