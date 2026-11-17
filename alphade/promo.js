@@ -7,4 +7,11 @@
   document.querySelectorAll("main section > .wrap").forEach(el => {
     if (el.getBoundingClientRect().top > innerHeight) { el.classList.add("reveal"); rise.observe(el); }
   });
+
+  // Copy the Homebrew command; the button shows a tick for a moment.
+  document.querySelectorAll("button.copy").forEach(b => b.addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText(b.dataset.copy); } catch { return; }
+    b.classList.add("done");
+    setTimeout(() => b.classList.remove("done"), 1600);
+  }));
 })();
