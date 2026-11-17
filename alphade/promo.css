@@ -1,5 +1,7 @@
 /* Alphade promo pages (alphade/ in English, alphade/<de|es|fr|ja|ko|zh-Hant>/). Dark, like a video
-   editor, in the Catppuccin Mocha colours of the app icon. Not shared with other apps. */
+   editor, in the Catppuccin Mocha colours of the app icon. Over a faint alpha checkerboard and
+   blue light; no boxes, glow instead of frames; chapters stamped with a timecode; the app's
+   screens tipped back like monitors. Not shared with other apps. */
 :root {
   color-scheme: dark;
   --crust: #11111b;
@@ -18,13 +20,39 @@
   box-sizing: border-box;
 }
 
+html {
+  background: var(--crust);
+}
+
 body {
   margin: 0;
-  background: var(--crust);
   color: var(--text);
   font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
+}
+
+/* Behind everything: blue and lavender light, and the checkerboard every editor uses to show
+   transparency, fading out down the page. */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+body::before {
+  background:
+    radial-gradient(1000px 560px at 50% -12%, rgba(137, 180, 250, 0.26), transparent 70%),
+    radial-gradient(800px 600px at 105% 105%, rgba(180, 190, 254, 0.12), transparent 70%);
+}
+
+body::after {
+  background: conic-gradient(rgba(205, 214, 244, 0.045) 25%, transparent 0 50%, rgba(205, 214, 244, 0.045) 0 75%, transparent 0) 0 0 / 28px 28px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 75% at 50% 0%, #000 20%, transparent 85%);
+  mask-image: radial-gradient(ellipse 90% 75% at 50% 0%, #000 20%, transparent 85%);
 }
 
 /* PingFang TC comes first above, which would draw Japanese kanji in their Chinese forms. */
@@ -149,13 +177,13 @@ a {
 .hero {
   padding-bottom: 32px;
   text-align: center;
-  background: radial-gradient(70% 55% at 50% 0%, rgba(137, 180, 250, 0.16), transparent 70%);
 }
 
 .hero .icon {
   width: 112px;
   height: 112px;
   margin-top: 40px;
+  filter: drop-shadow(0 18px 40px rgba(137, 180, 250, 0.35));
 }
 
 .hero h1 {
@@ -201,10 +229,18 @@ a {
   font-size: 0.9rem;
 }
 
+/* The before and after, tipped back like a monitor; it sits up when pointed at. */
 .stage {
   position: relative;
   max-width: 1040px;
-  margin: 48px auto 0;
+  margin: 56px auto 0;
+  transform: perspective(1800px) rotateX(12deg);
+  transform-origin: 50% 100%;
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.stage:hover {
+  transform: perspective(1800px) rotateX(3deg);
 }
 
 .stage video,
@@ -214,7 +250,7 @@ a {
   height: auto;
   border: 1px solid var(--surface0);
   border-radius: 16px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 120px rgba(137, 180, 250, 0.12);
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.8), 0 0 140px -10px rgba(137, 180, 250, 0.35);
 }
 
 /* With reduced motion, a still frame instead of the loop. */
@@ -251,13 +287,36 @@ a {
   right: 14px;
 }
 
-/* Sections. */
+/* Sections, a blue hairline between them, each stamped with a timecode. */
+main {
+  counter-reset: chapter;
+}
+
 main section {
+  position: relative;
   padding: 112px 0;
 }
 
-main section.alt {
-  background: var(--mantle);
+main section + section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(640px, 80%);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(137, 180, 250, 0.45), transparent);
+  transform: translateX(-50%);
+}
+
+.kicker::before {
+  counter-increment: chapter;
+  content: "00:0" counter(chapter);
+  margin-right: 12px;
+  padding-right: 12px;
+  border-right: 1px solid rgba(180, 190, 254, 0.4);
+  color: var(--lavender);
+  font: 600 0.85rem ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 0.02em;
 }
 
 .kicker {
@@ -274,6 +333,10 @@ main h2 {
   font-size: clamp(1.9rem, 4vw, 2.8rem);
   line-height: 1.15;
   letter-spacing: -0.015em;
+  background: linear-gradient(180deg, #ffffff 30%, var(--lavender));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .intro {
@@ -287,11 +350,27 @@ main h2 {
 .trio {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 44px;
 }
 
 .trio figure {
+  position: relative;
   margin: 0;
+}
+
+/* An arrow from each crop to the next. */
+.trio figure:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  top: 0;
+  right: -32px;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  aspect-ratio: auto;
+  height: calc((100% - 34px));
+  color: var(--overlay);
+  font-size: 1.2rem;
 }
 
 .trio img,
@@ -301,6 +380,12 @@ main h2 {
   height: auto;
   border: 1px solid var(--surface0);
   border-radius: 12px;
+}
+
+/* The restored crop, lit up. */
+.trio .win img {
+  border-color: rgba(137, 180, 250, 0.6);
+  box-shadow: 0 0 0 1px rgba(137, 180, 250, 0.3), 0 0 50px -6px rgba(137, 180, 250, 0.55);
 }
 
 .trio figcaption {
@@ -325,24 +410,20 @@ main h2 {
   counter-reset: step;
 }
 
-.steps li {
-  overflow: hidden;
-  border: 1px solid var(--surface0);
-  border-radius: 16px;
-  background: var(--base);
-}
-
+/* No cards: each step's piece of the app floats in its own light, the words under it. */
 .steps img {
   display: block;
   width: 100%;
   height: auto;
   aspect-ratio: 19 / 10;
   object-fit: cover;
-  border-bottom: 1px solid var(--surface0);
+  border: 1px solid var(--surface0);
+  border-radius: 12px;
+  box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.8), 0 0 60px -20px rgba(137, 180, 250, 0.4);
 }
 
 .steps .text {
-  padding: 20px 22px 24px;
+  padding: 22px 4px 0;
 }
 
 .steps h3 {
@@ -359,10 +440,11 @@ main h2 {
   height: 26px;
   margin-right: 10px;
   border-radius: 50%;
-  background: var(--blue);
+  background: linear-gradient(135deg, var(--blue), var(--lavender));
   color: var(--crust);
   font-size: 0.85rem;
   vertical-align: 2px;
+  box-shadow: 0 0 16px rgba(137, 180, 250, 0.7);
 }
 
 .steps p {
@@ -370,9 +452,17 @@ main h2 {
   color: var(--subtext);
 }
 
+/* Compare mode, tipped back like a monitor; it sits up when pointed at. */
 .shot {
   border-radius: 14px;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.8), 0 0 120px -20px rgba(137, 180, 250, 0.35);
+  transform: perspective(1800px) rotateX(10deg);
+  transform-origin: 50% 100%;
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.shot:hover {
+  transform: perspective(1800px) rotateX(2deg);
 }
 
 /* Privacy and price. */
@@ -382,11 +472,11 @@ main h2 {
   gap: 24px;
 }
 
+/* No cards here either: an emblem in blue light over a gradient line. */
 .card {
-  padding: 36px;
-  border: 1px solid var(--surface0);
-  border-radius: 18px;
-  background: var(--base);
+  padding: 30px 8px 0 0;
+  border-top: 1px solid transparent;
+  border-image: linear-gradient(90deg, rgba(137, 180, 250, 0.6), rgba(180, 190, 254, 0.1)) 1;
 }
 
 .card svg {
@@ -394,6 +484,7 @@ main h2 {
   height: 40px;
   margin-bottom: 18px;
   color: var(--blue);
+  filter: drop-shadow(0 0 12px rgba(137, 180, 250, 0.7));
 }
 
 .card h3 {
@@ -414,6 +505,7 @@ main h2 {
 .closing img {
   width: 96px;
   height: 96px;
+  filter: drop-shadow(0 0 30px rgba(137, 180, 250, 0.45));
 }
 
 .closing h2 {
@@ -450,6 +542,125 @@ footer nav a:hover {
   color: var(--text);
 }
 
+/* The Homebrew command: a terminal-style box with a copy button that turns into a tick. */
+.brew-cmd {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.brew-cmd.install {
+  align-items: flex-start;
+  margin-top: 40px;
+}
+
+.brew-cmd p {
+  margin: 0;
+  color: var(--subtext);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cmd {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 100%;
+  padding: 7px 7px 7px 20px;
+  border: 1px solid rgba(137, 180, 250, 0.45);
+  border-radius: 12px;
+  background: rgba(8, 8, 12, 0.75);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 44px -12px rgba(137, 180, 250, 0.65);
+}
+
+.cmd code {
+  overflow-x: auto;
+  color: #f2f3f5;
+  font: 500 0.95rem/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+
+.cmd code span {
+  color: rgb(137, 180, 250);
+}
+
+.copy {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--subtext);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+.copy:hover,
+.copy:focus-visible {
+  border-color: rgba(137, 180, 250, 0.8);
+  color: #fff;
+}
+
+.copy svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.copy .ok,
+.copy.done .clip {
+  display: none;
+}
+
+.copy.done .ok {
+  display: block;
+}
+
+.copy.done {
+  border-color: rgba(137, 180, 250, 0.8);
+  background: rgba(137, 180, 250, 0.18);
+  color: rgb(137, 180, 250);
+}
+
+/* Sections below the fold rise into place once (promo.js marks them). */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 1s ease, transform 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .stage,
+  .shot {
+    transition: none;
+  }
+}
+
 @media (max-width: 760px) {
   main section {
     padding: 72px 0;
@@ -461,7 +672,25 @@ footer nav a:hover {
     grid-template-columns: 1fr;
   }
 
-  .card {
-    padding: 28px;
+  .trio {
+    gap: 40px;
+  }
+
+  /* Stacked, the arrows point down. */
+  .trio figure:not(:last-child)::after {
+    content: "↓";
+    top: auto;
+    right: auto;
+    bottom: -34px;
+    left: 50%;
+    height: 28px;
+    transform: translateX(-50%);
+  }
+
+  .stage,
+  .stage:hover,
+  .shot,
+  .shot:hover {
+    transform: none;
   }
 }

@@ -152,7 +152,10 @@
       <h2>Alphade</h2>
       <p class="intro">Works best with semi-transparent watermarks that stay in one place. <a href="support/">See which videos work</a>.</p>
       <a class="download" href="https://github.com/vulcanshen/alphade/releases/latest/download/Alphade.zip">Download for Mac</a>
-      <p class="fineprint">Or with Homebrew: <code>brew install --cask vulcanshen/tap/alphade</code></p>
+      <div class="brew-cmd">
+        <p>Or with Homebrew</p>
+        <div class="cmd"><code><span aria-hidden="true">$ </span>brew install --cask vulcanshen/tap/alphade</code><button type="button" class="copy" data-copy="brew install --cask vulcanshen/tap/alphade" aria-label="Copy"><svg class="clip" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.6"/><path d="M10.5 5.5V4a1.5 1.5 0 0 0-1.5-1.5H4A1.5 1.5 0 0 0 2.5 4v5A1.5 1.5 0 0 0 4 10.5h1.5"/></svg><svg class="ok" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></button></div>
+      </div>
     </div>
   </section>
 </main>
@@ -174,5 +177,6 @@
   document.addEventListener("click", e => { if (!langs.contains(e.target)) langs.open = false; });
   document.addEventListener("keydown", e => { if (e.key === "Escape") langs.open = false; });
 </script>
+<script src="promo.js"></script>
 </body>
 </html>
