@@ -603,6 +603,61 @@
     player.focus();
   }));
 
+  // The night sky behind the page: a slow aurora (in the stylesheet) and a starfield that
+  // twinkles, with now and then a falling star. With Reduce Motion on, the stars hold still.
+  const sky = document.createElement("div");
+  sky.className = "sky";
+  sky.setAttribute("aria-hidden", "true");
+  const canvas = sky.appendChild(document.createElement("canvas"));
+  document.body.prepend(sky);
+  if (canvas.getContext) {
+    const ctx = canvas.getContext("2d");
+    let w = 0, h = 0, stars = [], streak = null, next = 4000;
+    const size = () => {
+      const dpr = Math.min(devicePixelRatio || 1, 2);
+      w = innerWidth; h = innerHeight;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      stars = Array.from({ length: Math.round(w * h / 4200) }, () => ({
+        x: Math.random() * w, y: Math.random() * h, r: Math.random() * 1.1 + 0.25,
+        phase: Math.random() * 6.28, speed: 0.3 + Math.random() * 1.1, gold: Math.random() < 0.1,
+      }));
+    };
+    const draw = t => {
+      ctx.clearRect(0, 0, w, h);
+      for (const s of stars) {
+        ctx.globalAlpha = reducedMotion.matches ? 0.6 : 0.25 + 0.45 * (0.5 + 0.5 * Math.sin(s.phase + t / 1000 * s.speed));
+        ctx.fillStyle = s.gold ? "#f0d9a0" : "#dfe6ff";
+        ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 6.283); ctx.fill();
+      }
+      if (reducedMotion.matches) return;
+      if (!streak && t > next) streak = { x: Math.random() * w * 0.8 + w * 0.2, y: Math.random() * h * 0.4, t0: t };
+      if (streak) {
+        const k = (t - streak.t0) / 900;
+        if (k >= 1) { streak = null; next = t + 5000 + Math.random() * 7000; }
+        else {
+          const x = streak.x - k * 260, y = streak.y + k * 120;
+          const g = ctx.createLinearGradient(x, y, x + 90, y - 42);
+          g.addColorStop(0, "rgba(255, 255, 255, 0.9)"); g.addColorStop(1, "rgba(255, 255, 255, 0)");
+          ctx.globalAlpha = 1 - k; ctx.strokeStyle = g; ctx.lineWidth = 1.2;
+          ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + 90, y - 42); ctx.stroke();
+        }
+      }
+      requestAnimationFrame(draw);
+    };
+    size();
+    addEventListener("resize", () => { size(); if (reducedMotion.matches) draw(0); });
+    requestAnimationFrame(draw);
+  }
+
+  // Sections below the fold rise into place the first time they come on screen.
+  const rise = new IntersectionObserver(entries => entries.forEach(({ target, isIntersecting }) => {
+    if (isIntersecting) { target.classList.add("in"); rise.unobserve(target); }
+  }), { threshold: 0.08 });
+  document.querySelectorAll("main section > .wrap").forEach(el => {
+    if (el.getBoundingClientRect().top > innerHeight) { el.classList.add("reveal"); rise.observe(el); }
+  });
+
   // Close the language menu on a click outside it, or on Esc.
   const langs = document.querySelector(".langs");
   if (langs) {
