@@ -415,16 +415,12 @@ a {
   color: var(--muted);
 }
 
-.spread .zh a,
-.tui .zh a,
-.tile .zh a {
+.spread .zh a {
   color: inherit;
   text-decoration: none;
 }
 
-.spread .zh a:hover,
-.tui .zh a:hover,
-.tile .zh a:hover {
+.spread .zh a:hover {
   text-decoration: underline;
 }
 
@@ -452,24 +448,71 @@ a {
   box-shadow: 0 0 30px -4px rgba(var(--brand), 0.8);
 }
 
-/* The page's own address, set like a path. */
-.path {
-  color: var(--muted);
-  font: 500 0.9rem var(--mono);
+/* Learn more: a glass pill in the app's colour, its arrow turning to point the way. */
+.more {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 6px 6px 6px 22px;
+  overflow: hidden;
+  border: 1px solid rgba(var(--brand), 0.35);
+  border-radius: 999px;
+  background: rgba(var(--brand), 0.07);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: var(--fg);
+  font-weight: 600;
   text-decoration: none;
+  transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
 }
 
-.path::after {
-  content: " →";
-  transition: margin 0.2s;
+/* A sheen that sweeps across on hover. */
+.more::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.16) 50%, transparent 65%);
+  transform: translateX(-100%);
+  transition: transform 0.7s ease;
 }
 
-.path:hover {
+.more-icon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(var(--brand), 0.2);
   color: rgb(var(--brand));
+  transform: rotate(-45deg);
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), background-color 0.3s, color 0.3s;
 }
 
-.path:hover::after {
-  margin-left: 4px;
+.more-icon svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.more:hover {
+  border-color: rgba(var(--brand), 0.85);
+  background: rgba(var(--brand), 0.13);
+  box-shadow: 0 0 34px -8px rgba(var(--brand), 0.75);
+}
+
+.more:hover::after {
+  transform: translateX(100%);
+}
+
+.more:hover .more-icon {
+  background: rgb(var(--brand));
+  color: #05060a;
+  transform: none;
 }
 
 .links {
@@ -568,7 +611,7 @@ a {
 }
 
 .page-bar i,
-.term-bar i {
+.dots i {
   width: 11px;
   height: 11px;
   border-radius: 50%;
@@ -630,261 +673,316 @@ kbd {
   white-space: nowrap;
 }
 
-.tui {
+.term {
   overflow: hidden;
   border: 1px solid #23272e;
   border-radius: 16px;
   background: rgba(7, 8, 11, 0.94);
-  box-shadow: 0 60px 120px -60px rgba(32, 80, 144, 0.9), 0 0 0 1px rgba(242, 183, 83, 0.04);
-  font-family: var(--mono);
+  box-shadow: 0 60px 120px -60px rgba(32, 80, 144, 0.9);
 }
 
-.term-bar {
+/* The window's top: its three dots, then a tab per app (added by the script). */
+.term-top {
   display: flex;
-  align-items: center;
-  gap: 7px;
-  padding: 12px 18px;
+  align-items: flex-end;
+  gap: 18px;
+  padding: 0 0 0 18px;
   border-bottom: 1px solid #1c1f25;
-  background: #101217;
+  background: #0f1116;
 }
 
-.term-bar i {
+.dots {
+  display: flex;
+  gap: 7px;
+  padding: 16px 0;
+}
+
+.dots i {
   background: #2c3038;
 }
 
-.term-bar span {
+.term-tabs {
+  position: relative;
+  display: flex;
   flex: 1;
-  margin-right: 46px;
-  color: #7d838d;
-  font-size: 0.85rem;
-  text-align: center;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 48px), transparent);
+  mask-image: linear-gradient(90deg, #000 calc(100% - 48px), transparent);
 }
 
-/* Without a script, or on a narrow screen: every app in a plain list. */
-.tui-body {
-  padding: 8px 0;
-  background: repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.016) 0 1px, transparent 1px 3px);
-}
-
-.tui-item {
-  padding: 20px 24px;
-  border-bottom: 1px dashed #20242b;
-}
-
-.tui-item:last-child {
-  border-bottom: 0;
-}
-
-.tui-item h3 {
-  margin: 0 0 10px;
-  font: 700 1.1rem/1.3 var(--mono);
-}
-
-.tui-item h3 a {
-  color: var(--terminu-gold);
-  text-decoration: none;
-}
-
-.tui-item h3 a::before {
-  content: "$ ";
-  color: #5b84c4;
-}
-
-.detail img {
-  float: left;
-  width: 48px;
-  height: 48px;
-  margin: 2px 16px 8px 0;
-  border-radius: 10px;
-}
-
-.detail p {
-  margin: 0;
-  color: #c9cdd4;
-  font: 0.95rem/1.6 var(--sans);
-}
-
-.detail .zh {
-  margin-top: 6px;
-  color: #8e959f;
-}
-
-.detail .repo {
-  margin-top: 12px;
-  font: 0.85rem var(--mono);
-}
-
-.detail .repo a {
-  color: #5b84c4;
-  text-decoration: none;
-}
-
-.detail .repo a::after {
-  content: " ↗";
-}
-
-.detail .repo a:hover {
-  color: var(--terminu-gold);
-}
-
-.detail::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-
-.tui-status {
+.term-tabs::-webkit-scrollbar {
   display: none;
 }
 
-/* With a script on a wide screen: the list on the left, the picked one on the right. */
-@media (min-width: 761px) {
-  .tui-body.live {
-    position: relative;
-    min-height: 430px;
-    padding: 14px 0;
-  }
-
-  .tui-body.live::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 260px;
-    border-left: 1px solid #1d2128;
-  }
-
-  .tui-body.live .tui-item {
-    width: 260px;
-    padding: 0 14px;
-    border: 0;
-  }
-
-  .tui-body.live .tui-item h3 {
-    margin: 0;
-    font-size: 1rem;
-  }
-
-  .tui-body.live .tui-item h3 a {
-    display: block;
-    padding: 9px 14px;
-    border-radius: 6px;
-    color: #c3c8d0;
-    outline: none;
-  }
-
-  .tui-body.live .tui-item h3 a::before {
-    content: "  ";
-    white-space: pre;
-  }
-
-  .tui-body.live .tui-item.on h3 a {
-    background: var(--terminu-blue);
-    color: var(--terminu-gold);
-  }
-
-  .tui-body.live .tui-item.on h3 a::before {
-    content: "▸ ";
-  }
-
-  .tui-body.live .detail {
-    display: none;
-  }
-
-  .tui-body.live .on .detail {
-    display: block;
-    position: absolute;
-    top: 40px;
-    left: 300px;
-    right: 48px;
-    animation: type-in 0.35s ease;
-  }
-
-  .tui-body.live .detail img {
-    float: none;
-    display: block;
-    width: 112px;
-    height: 112px;
-    margin: 0 0 26px;
-    border-radius: 18px;
-    box-shadow: 0 0 0 1px #262a31, 0 20px 50px -15px rgba(32, 80, 144, 0.9);
-  }
-
-  .tui-body.live .detail p {
-    max-width: 36rem;
-    font-size: 1.12rem;
-    line-height: 1.6;
-  }
-
-  .tui-body.live .detail .zh {
-    margin-top: 12px;
-    font-size: 1rem;
-  }
-
-  .tui:has(.live) .tui-status {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 18px;
-    border-top: 1px solid #1c1f25;
-    background: #101217;
-    color: #7d838d;
-    font-size: 0.8rem;
-  }
-
-  .tui-status kbd {
-    margin-right: 4px;
-  }
+.term-tabs button {
+  position: relative;
+  flex: none;
+  margin: 8px 0 0;
+  padding: 9px 20px 11px;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  border-radius: 10px 10px 0 0;
+  background: none;
+  color: #7d838d;
+  font: 600 0.9rem var(--mono);
+  cursor: pointer;
+  transition: color 0.2s, background-color 0.2s;
 }
 
-@keyframes type-in {
-  from { opacity: 0; transform: translateX(-8px); }
+.term-tabs button:hover {
+  color: #d9dce1;
+  background: rgba(255, 255, 255, 0.03);
 }
 
-/* Build your own: not apps, so no icon; three columns ruled apart, the name in a terminal
-   font on the terminu blue. */
+.term-tabs button[aria-selected="true"] {
+  border-color: #23272e;
+  background: rgba(7, 8, 11, 1);
+  color: var(--terminu-gold);
+}
+
+/* The open tab joins the screen below it, with a gold line on top. */
+.term-tabs button[aria-selected="true"]::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  top: -1px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--terminu-gold);
+  box-shadow: 0 0 12px rgba(242, 183, 83, 0.8);
+}
+
+.term-tabs button[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: rgba(7, 8, 11, 1);
+}
+
+.term-tabs button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -4px;
+}
+
+.term-screen {
+  padding: 30px 40px 40px;
+  background: repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.016) 0 1px, transparent 1px 3px);
+  font-family: var(--mono);
+}
+
+.term.live .term-screen {
+  min-height: 400px;
+}
+
+.term-app[hidden] {
+  display: none;
+}
+
+.term-app + .term-app {
+  margin-top: 36px;
+}
+
+.prompt {
+  margin: 0 0 24px;
+  color: #d9dce1;
+  font-size: 0.95rem;
+}
+
+.prompt .cwd {
+  color: #5b84c4;
+}
+
+.prompt .sigil {
+  color: var(--terminu-gold);
+}
+
+/* A block cursor while the command is typed. */
+.term.live .prompt::after {
+  content: "";
+  display: inline-block;
+  width: 0.55em;
+  height: 1.15em;
+  margin-left: 3px;
+  vertical-align: -0.2em;
+  background: var(--terminu-gold);
+  animation: blink 1s steps(1) infinite;
+}
+
+.term.live .printed .prompt::after {
+  display: none;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.out {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+/* With the script, the README prints once the command is typed. */
+.term.live .out {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.term.live .printed .out {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.out img {
+  flex: none;
+  width: 112px;
+  height: 112px;
+  border-radius: 18px;
+  box-shadow: 0 0 0 1px #262a31, 0 20px 50px -15px rgba(32, 80, 144, 0.9);
+}
+
+.out h3 {
+  margin: 0 0 12px;
+  color: var(--terminu-gold);
+  font: 700 1.9rem/1.1 var(--mono);
+  letter-spacing: -0.01em;
+  text-shadow: 0 0 24px rgba(242, 183, 83, 0.35);
+}
+
+.out p {
+  max-width: 40rem;
+  margin: 0;
+  color: #c9cdd4;
+  font: 1.1rem/1.6 var(--sans);
+}
+
+.out .zh {
+  margin-top: 10px;
+  color: #8e959f;
+  font-size: 1rem;
+}
+
+.refs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+  margin-top: 26px !important;
+  padding-top: 18px;
+  border-top: 1px dashed #262a31;
+  font: 0.88rem var(--mono) !important;
+}
+
+.refs a {
+  color: #7aa2e0;
+  text-decoration: none;
+}
+
+.refs a::after {
+  content: " ↗";
+}
+
+.refs a:hover {
+  color: var(--terminu-gold);
+  text-decoration: underline;
+}
+
+/* Build your own: not apps, so no icon. A pipeline from the design to your app, a light
+   running along it; each name in a terminal font on the terminu blue. */
 .build {
-  margin-top: 88px;
+  margin-top: 104px;
 }
 
 .build-head h3 {
   margin: 0;
-  font: 800 1.6rem/1.2 var(--display);
-  letter-spacing: -0.02em;
+  font: 800 clamp(1.8rem, 3.4vw, 2.4rem)/1.15 var(--display);
+  letter-spacing: -0.03em;
 }
 
 .build-head p {
-  margin: 4px 0 0;
+  margin: 6px 0 0;
   color: var(--muted);
+  font-size: 1.05rem;
 }
 
-.tiles {
+.flow {
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 28px;
-  border-top: 1px solid var(--line);
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+  gap: 32px;
+  margin: 44px 0 0;
+  padding: 0;
+  list-style: none;
 }
 
-.tile {
-  padding: 26px 28px 8px 0;
+/* The line through every node, and the light running along it. */
+.flow::before,
+.flow::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  right: 60px;
+  height: 2px;
+}
+
+.flow::before {
+  background: linear-gradient(90deg, rgba(32, 80, 144, 0.9), rgba(242, 183, 83, 0.6));
+}
+
+.flow::after {
+  background: linear-gradient(90deg, transparent, rgba(255, 230, 170, 0.95), transparent);
+  background-size: 22% 100%;
+  background-repeat: no-repeat;
+  animation: run 3.6s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+@keyframes run-down {
+  from { background-position: 0 -30%; }
+  to { background-position: 0 130%; }
+}
+
+@keyframes run {
+  from { background-position: -30% 0; }
+  to { background-position: 130% 0; }
+}
+
+.node {
+  position: relative;
+  padding-top: 38px;
   font-size: 0.95rem;
 }
 
-.tile + .tile {
-  padding-left: 28px;
-  border-left: 1px solid var(--line);
+/* The node on the line. */
+.node::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--terminu-gold);
+  border-radius: 50%;
+  background: var(--bg);
+  box-shadow: 0 0 0 5px rgba(242, 183, 83, 0.1), 0 0 16px rgba(242, 183, 83, 0.6);
 }
 
-.tile .overline {
+.node .overline {
+  margin: 0;
   color: var(--faint);
-  margin-bottom: 0;
 }
 
-.tile h4 {
+.node h4 {
   margin: 10px 0 14px;
   font: 600 1.05rem/1.3 var(--mono);
 }
 
-.tile h4 a {
+.node h4 a {
   display: inline-block;
   padding: 6px 12px;
   border-radius: 8px;
@@ -893,18 +991,50 @@ kbd {
   text-decoration: none;
 }
 
-.tile h4 a:hover {
+.node h4 a:hover {
   background: color-mix(in srgb, var(--terminu-blue) 65%, transparent);
 }
 
-.tile p {
+.node p {
   margin: 0;
 }
 
-.tile .zh {
+.node .zh {
   margin-top: 6px;
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+.node .zh a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.node .zh a:hover {
+  text-decoration: underline;
+}
+
+/* Where the line ends: your app, still to be made. */
+.node.end {
+  padding-top: 0;
+}
+
+.node.end::before {
+  display: none;
+}
+
+.node.end span {
+  display: grid;
+  place-items: center;
+  width: 92px;
+  height: 92px;
+  margin-top: -38px;
+  border: 1px dashed rgba(242, 183, 83, 0.7);
+  border-radius: 50%;
+  color: var(--terminu-gold);
+  font: 600 0.8rem var(--mono);
+  text-align: center;
+  box-shadow: inset 0 0 30px rgba(242, 183, 83, 0.12);
 }
 
 /* Things rise into place once (only with scripts on, so nothing stays hidden without). */
@@ -968,15 +1098,52 @@ kbd {
     width: auto;
   }
 
-  .tiles {
+  .flow {
     grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+    padding-left: 40px;
   }
 
-  .tile,
-  .tile + .tile {
-    padding: 22px 0;
-    border-left: 0;
-    border-bottom: 1px solid var(--line);
+  .flow::before,
+  .flow::after {
+    top: 7px;
+    bottom: 22px;
+    left: 7px;
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+
+  .flow::before {
+    background: linear-gradient(180deg, rgba(32, 80, 144, 0.9), rgba(242, 183, 83, 0.6));
+  }
+
+  .flow::after {
+    background: linear-gradient(180deg, transparent, rgba(255, 230, 170, 0.95), transparent);
+    background-size: 100% 22%;
+    animation-name: run-down;
+  }
+
+  .node {
+    padding-top: 0;
+  }
+
+  .node::before {
+    left: -40px;
+  }
+
+  .node.end::before {
+    display: block;
+    border-style: dashed;
+  }
+
+  .node.end span {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    margin: -6px 0 0;
+    padding: 4px 14px;
+    border-radius: 999px;
   }
 }
 
@@ -1043,8 +1210,26 @@ kbd {
     font-size: 1rem;
   }
 
-  .tui-item {
-    padding: 18px;
+  .term-screen {
+    padding: 24px 20px 30px;
+  }
+
+  .out {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .out img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .out h3 {
+    font-size: 1.5rem;
+  }
+
+  .out p {
+    font-size: 1rem;
   }
 }
 
@@ -1066,8 +1251,17 @@ kbd {
 
   .backdrop::after,
   .eyebrow::before,
-  .tui-body.live .on .detail {
+  .flow::after,
+  .term.live .prompt::after {
     animation: none !important;
+  }
+
+  .more::after {
+    display: none;
+  }
+
+  .term.live .printed .out {
+    transition: none;
   }
 
   .js .reveal {
