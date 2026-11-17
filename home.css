@@ -910,10 +910,9 @@ kbd {
   text-decoration: underline;
 }
 
-/* Build your own: not apps, so no icon. A ring of arrow bands, like a DevOps loop without the
-   figure 8. The three projects along the top, their names on the bands; building with Claude
-   Code, hitting a problem and opening an issue back along the bottom; a turn at each end. A
-   light runs the bands in order, so the way round shows. */
+/* Build your own: not apps, so no icon. An orbit: six stops round a thin glowing ring, a
+   comet running clockwise and lighting each stop as it passes, a HUD scale round the outside.
+   A numbered legend beside it, each project's name in a terminal font on the terminu blue. */
 .build {
   margin-top: 104px;
 }
@@ -931,204 +930,273 @@ kbd {
 }
 
 .loop {
-  --t: 46px;         /* band thickness */
-  --g: 64px;         /* space between the two lanes */
-  --tip: 18px;       /* depth of an arrow's point and notch */
-  --step: 78px;      /* a stop on the way back: its band and the line under it */
-  --r: calc(var(--t) + var(--g) / 2);
-  position: relative;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--g) 6px;
-  margin: 44px 0 0;
-  padding: 0 calc(var(--r) + 8px);
-  list-style: none;
-}
-
-.stop {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  font-size: 0.95rem;
-}
-
-.stop .overline {
-  margin: 0 0 8px;
-  color: var(--faint);
-}
-
-.stop p {
-  margin: 0;
-}
-
-.project p:not(.overline) {
-  padding-right: 28px;
-}
-
-.stop .zh {
-  margin-top: 6px;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.stop .zh a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.stop .zh a:hover {
-  text-decoration: underline;
-}
-
-/* A band: an arrow with a notch at its tail and a point at its head. */
-.band {
-  position: relative;
-  isolation: isolate;
-  display: flex;
+  grid-template-columns: minmax(0, 560px) minmax(0, 1fr);
   align-items: center;
-  height: var(--t);
-  margin: 0;
-  padding: 0 calc(var(--tip) + 12px);
-  color: #fff;
-  font: 700 0.98rem/1 var(--mono);
+  gap: 48px;
+  margin-top: 36px;
+}
+
+.orbit {
+  position: relative;
+  aspect-ratio: 1;
+}
+
+.orbit-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.orbit-svg .ticks {
+  fill: none;
+  stroke: rgba(150, 180, 255, 0.22);
+  stroke-width: 1;
+}
+
+.orbit-svg .inner {
+  fill: none;
+  stroke: rgba(150, 180, 255, 0.12);
+  stroke-dasharray: 2 6;
+}
+
+.orbit-svg .track {
+  fill: none;
+  stroke: rgba(122, 168, 255, 0.4);
+  stroke-width: 1.5;
+}
+
+.orbit-svg .chev {
+  fill: none;
+  stroke: rgba(122, 168, 255, 0.85);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.orbit-svg .comet {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+  animation: orbit 7s linear infinite;
+  filter: drop-shadow(0 0 6px rgba(160, 200, 255, 0.9));
+}
+
+.orbit-svg .comet path {
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+.orbit-svg .comet circle {
+  fill: #eef4ff;
+}
+
+@keyframes orbit {
+  to { transform: rotate(360deg); }
+}
+
+.orbit-svg .stop-dot circle {
+  fill: var(--bg);
+  stroke-width: 2;
+}
+
+.orbit-svg .stop-dot text {
+  font: 700 10px var(--mono);
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.orbit-svg .project circle {
+  stroke: var(--terminu-gold);
+}
+
+.orbit-svg .project text {
+  fill: var(--terminu-gold);
+}
+
+.orbit-svg .step circle {
+  stroke: #7aa8ff;
+}
+
+.orbit-svg .step text {
+  fill: #a9c4ff;
+}
+
+/* Each stop lights up as the comet goes by. */
+.orbit-svg .stop-dot {
+  animation: ping 7s linear infinite;
+  animation-delay: var(--d);
+}
+
+.orbit-svg .project {
+  --glow: rgba(242, 183, 83, 0.9);
+}
+
+.orbit-svg .step {
+  --glow: rgba(122, 168, 255, 0.9);
+}
+
+@keyframes ping {
+  0% { filter: drop-shadow(0 0 10px var(--glow)) brightness(1.5); }
+  10%, 100% { filter: drop-shadow(0 0 0 transparent); }
+}
+
+.orbit-svg .hub {
+  fill: #e6e9ee;
+  font: 700 20px var(--mono);
+  text-anchor: middle;
+}
+
+.orbit-svg .hub-sub {
+  fill: #7aa8ff;
+  font: 500 12px var(--mono);
+  letter-spacing: 0.12em;
+  text-anchor: middle;
+}
+
+/* The names by the stops. */
+.orbit-label {
+  position: absolute;
+  color: #d9dce1;
+  font: 600 0.85rem/1.35 var(--mono);
   white-space: nowrap;
 }
 
-.band::before,
-.band::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  clip-path: polygon(0 0, calc(100% - var(--tip)) 0, 100% 50%, calc(100% - var(--tip)) 100%, 0 100%, var(--tip) 50%);
+.orbit-label.project {
+  color: var(--terminu-gold);
 }
 
-.band::before {
-  background: var(--c);
+.orbit-label.top {
+  transform: translate(-50%, -100%);
+  text-align: center;
 }
 
-/* The light that runs round the ring, one band after another. */
-.band::after {
-  background: linear-gradient(90deg, transparent 30%, rgba(255, 255, 255, 0.55) 50%, transparent 70%) no-repeat;
-  background-size: 60% 100%;
-  background-position: -100% 0;
-  animation: flow 4.8s linear infinite;
-  animation-delay: var(--at, 0s);
+.orbit-label.bottom {
+  transform: translateX(-50%);
+  text-align: center;
 }
 
-@keyframes flow {
-  0% { background-position: -100% 0; }
-  12% { background-position: 250% 0; }
-  100% { background-position: 250% 0; }
+.orbit-label.right {
+  transform: translateY(-50%);
 }
 
-.band a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.band a:hover {
-  text-decoration: underline;
-}
-
-.project .band {
-  margin-top: auto;
-  font-size: 1.02rem;
-}
-
-.project:nth-child(1) { --at: 0s; }
-.project:nth-child(2) { --at: 0.6s; }
-.project:nth-child(3) { --at: 1.2s; }
-
-/* The way back runs right to left: the arrows turn round, the words stay the right way up. */
-.step {
-  grid-row: 2;
-  height: var(--step);
-}
-
-.step .band {
-  color: #1d1306;
-  justify-content: flex-end;
-}
-
-.step .band::before,
-.step .band::after {
-  clip-path: polygon(var(--tip) 0, 100% 0, calc(100% - var(--tip)) 50%, 100% 100%, var(--tip) 100%, 0 50%);
-}
-
-.step .band::after {
-  background-image: linear-gradient(270deg, transparent 30%, rgba(255, 255, 255, 0.6) 50%, transparent 70%);
-  animation-name: flow-back;
-}
-
-@keyframes flow-back {
-  0% { background-position: 200% 0; }
-  12% { background-position: -150% 0; }
-  100% { background-position: -150% 0; }
-}
-
-.step .zh {
-  margin-top: 8px;
-  padding-right: calc(var(--tip) + 12px);
+.orbit-label.left {
+  transform: translate(-100%, -50%);
   text-align: right;
 }
 
-.step.build-it { grid-column: 3; --at: 2.4s; }
-.step.problem { grid-column: 2; --at: 3s; }
-.step.issue { grid-column: 1; --at: 3.6s; }
-
-/* The turns at each end: half a ring as thick as the bands. */
-.turn {
-  position: absolute;
-  bottom: calc(var(--step) - var(--t));
-  width: var(--r);
-  height: calc(var(--t) * 2 + var(--g));
-  border: var(--t) solid var(--c);
-  animation: glow 4.8s linear infinite;
-  animation-delay: var(--at);
+.orbit-label .claude {
+  color: #e08a6a;
+  font-weight: 500;
 }
 
-.turn.right {
-  --c: #d97757;
-  --at: 1.8s;
-  right: 2px;
-  border-left: 0;
-  border-radius: 0 999px 999px 0;
-}
-
-.turn.left {
-  --c: #4d6390;
-  --at: 4.2s;
-  left: 2px;
-  border-right: 0;
-  border-radius: 999px 0 0 999px;
-}
-
-@keyframes glow {
-  0%, 12%, 100% { filter: none; }
-  6% { filter: brightness(1.45); }
-}
-
-.turn span {
-  position: absolute;
-  top: 50%;
+/* The legend. */
+.legend {
   display: grid;
-  place-items: center;
-  color: #fff;
-  font: 700 0.85rem/1 var(--mono);
-  white-space: nowrap;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.turn.right span {
-  right: calc(var(--t) / -2);
-  transform: translate(50%, -50%);
-  writing-mode: vertical-rl;
+.legend li {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  align-items: baseline;
 }
 
-.turn.left span {
-  left: calc(var(--t) / -2);
-  transform: translate(-50%, -50%);
-  font-size: 1.2rem;
+.legend .n {
+  color: var(--accent);
+  font: 600 0.8rem var(--mono);
+}
+
+.legend .project .n {
+  color: var(--terminu-gold);
+}
+
+.legend p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.legend .overline {
+  margin-bottom: 6px;
+  color: var(--faint);
+}
+
+.legend h4 {
+  margin: 0 0 10px;
+  font: 600 1.02rem/1.3 var(--mono);
+}
+
+.legend h4 a {
+  display: inline-block;
+  padding: 5px 11px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--terminu-blue) 45%, transparent);
+  color: var(--terminu-gold);
+  text-decoration: none;
+}
+
+.legend h4 a:hover {
+  background: color-mix(in srgb, var(--terminu-blue) 65%, transparent);
+}
+
+.legend .zh {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.legend .zh a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.legend .zh a:hover {
+  text-decoration: underline;
+}
+
+/* The way back: one line each. */
+.legend .step {
+  padding-top: 14px;
+  border-top: 1px dashed var(--line);
+}
+
+.legend .step + .step {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.legend .step p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 14px;
+  align-items: baseline;
+}
+
+.legend .step .en {
+  color: #d9dce1;
+  font: 600 0.92rem var(--mono);
+  text-decoration: none;
+}
+
+.legend .step a.en {
+  color: #a9c4ff;
+}
+
+.legend .step a.en::after {
+  content: " ↗";
+}
+
+.legend .step a.en:hover {
+  color: var(--terminu-gold);
+  text-decoration: underline;
+}
+
+.legend .step .zh {
+  margin: 0;
 }
 
 /* Things rise into place once (only with scripts on, so nothing stays hidden without). */
@@ -1198,87 +1266,18 @@ kbd {
   }
 
   .loop {
-    --t: 34px;
     grid-template-columns: minmax(0, 1fr);
-    gap: 18px;
-    padding: 30px 46px 30px 58px;
+    gap: 28px;
   }
 
-  .loop .stop {
-    grid-row: auto;
-    grid-column: auto;
-    height: auto;
-    padding: 4px 0 8px;
+  /* No room for names round the ring: the numbers do, and the legend says the rest. */
+  .orbit {
+    width: min(100%, 420px);
+    margin: 0 auto;
   }
 
-  /* The band down the left of each stop. */
-  .stop::before {
-    content: "";
-    position: absolute;
-    top: -9px;
-    bottom: -9px;
-    left: -52px;
-    width: var(--t);
-    background: var(--c);
-    clip-path: polygon(0 0, 50% 12px, 100% 0, 100% calc(100% - 12px), 50% 100%, 0 calc(100% - 12px));
-  }
-
-  .project .band,
-  .step .band {
-    order: -1;
-    height: auto;
-    margin: 0 0 8px;
-    padding: 0;
-    color: var(--terminu-gold);
-    justify-content: flex-start;
-  }
-
-  .band::before,
-  .band::after,
-  .step .band::before,
-  .step .band::after {
+  .orbit-label {
     display: none;
-  }
-
-  .project p:not(.overline),
-  .step .zh {
-    padding-right: 0;
-    text-align: left;
-  }
-
-  .step .zh {
-    margin-top: 0;
-  }
-
-  .project .overline {
-    order: -2;
-  }
-
-  /* The way back: out of the last stop, up the right, and into the first again. */
-  .turn.right {
-    display: none;
-  }
-
-  .turn.left {
-    top: 0;
-    bottom: 0;
-    left: 23px;
-    right: 6px;
-    width: auto;
-    height: auto;
-    border-width: 12px;
-    border-right-style: solid;
-    border-right-color: var(--c);
-    border-left: 0;
-    border-radius: 0 40px 40px 0;
-    animation: none;
-  }
-
-  .turn.left span {
-    left: auto;
-    right: -6px;
-    transform: translate(50%, -50%);
-    font-size: 1rem;
   }
 }
 
@@ -1377,8 +1376,8 @@ kbd {
 
   .backdrop::after,
   .eyebrow::before,
-  .band::after,
-  .turn,
+  .orbit-svg .comet,
+  .orbit-svg .stop-dot,
   .term.live .prompt::after {
     animation: none !important;
   }

@@ -344,34 +344,72 @@
           <h3>Build your own terminu app</h3>
           <p lang="zh-Hant">自己做一個 terminu app</p>
         </div>
-        <!-- A ring of arrow bands, like a DevOps loop without the figure 8: the design, the
-             library and the plugin along the top, then building with Claude Code, hitting a
-             problem and opening an issue back along the bottom, and round again. -->
-        <ol class="loop">
-          <li class="stop project" style="--c: #1d4f91">
-            <p class="overline">Design language</p>
-            <p>The keys and screens every terminu app shares.</p>
-            <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/terminu/blob/main/README-zh_TW.md">每個 terminu app 共用的按鍵與畫面設計原則。</a></p>
-            <h4 class="band"><a href="https://github.com/vulcanshen/terminu">terminu design</a></h4>
+        <!-- An orbit: the design, the library and the plugin, then building with Claude Code,
+             hitting a problem and opening an issue, round and round. A comet runs the ring and
+             lights each stop as it passes. The legend beside it carries the words and links. -->
+        <div class="loop">
+          <div class="orbit">
+          <svg class="orbit-svg" viewBox="0 0 560 560" aria-hidden="true">
+            <defs><linearGradient id="comet-tail" gradientUnits="userSpaceOnUse" x1="157.1" y1="194" x2="280" y2="130"><stop offset="0" stop-color="#7aa8ff" stop-opacity="0"/><stop offset="1" stop-color="#cfe0ff"/></linearGradient></defs>
+            <path class="ticks" d="M280 102L280 92M295.8 99.7L296.2 94.7M311.4 101.7L312.3 96.8M326.8 105.2L328.1 100.3M341.9 109.9L343.6 105.2M356.5 116L358.6 111.4M369 125.8L374 117.2M383.8 131.7L386.7 127.6M396.3 141.3L399.6 137.5M408 152L411.5 148.5M418.7 163.7L422.5 160.4M428.3 176.2L432.4 173.3M434.2 191L442.8 186M444 203.5L448.6 201.4M450.1 218.1L454.8 216.4M454.8 233.2L459.7 231.9M458.3 248.6L463.2 247.7M460.3 264.2L465.3 263.8M458 280L468 280M460.3 295.8L465.3 296.2M458.3 311.4L463.2 312.3M454.8 326.8L459.7 328.1M450.1 341.9L454.8 343.6M444 356.5L448.6 358.6M434.2 369L442.8 374M428.3 383.8L432.4 386.7M418.7 396.3L422.5 399.6M408 408L411.5 411.5M396.3 418.7L399.6 422.5M383.8 428.3L386.7 432.4M369 434.2L374 442.8M356.5 444L358.6 448.6M341.9 450.1L343.6 454.8M326.8 454.8L328.1 459.7M311.4 458.3L312.3 463.2M295.8 460.3L296.2 465.3M280 458L280 468M264.2 460.3L263.8 465.3M248.6 458.3L247.7 463.2M233.2 454.8L231.9 459.7M218.1 450.1L216.4 454.8M203.5 444L201.4 448.6M191 434.2L186 442.8M176.2 428.3L173.3 432.4M163.7 418.7L160.4 422.5M152 408L148.5 411.5M141.3 396.3L137.5 399.6M131.7 383.8L127.6 386.7M125.8 369L117.2 374M116 356.5L111.4 358.6M109.9 341.9L105.2 343.6M105.2 326.8L100.3 328.1M101.7 311.4L96.8 312.3M99.7 295.8L94.7 296.2M102 280L92 280M99.7 264.2L94.7 263.8M101.7 248.6L96.8 247.7M105.2 233.2L100.3 231.9M109.9 218.1L105.2 216.4M116 203.5L111.4 201.4M125.8 191L117.2 186M131.7 176.2L127.6 173.3M141.3 163.7L137.5 160.4M152 152L148.5 148.5M163.7 141.3L160.4 137.5M176.2 131.7L173.3 127.6M191 125.8L186 117.2M203.5 116L201.4 111.4M218.1 109.9L216.4 105.2M233.2 105.2L231.9 100.3M248.6 101.7L247.7 96.8M264.2 99.7L263.8 94.7"/>
+            <circle class="inner" cx="280" cy="280" r="112"/>
+            <circle class="track" cx="280" cy="280" r="150"/>
+            <path class="chev" d="M-4 -5L2 0L-4 5" transform="translate(355 150.1) rotate(30)"/>
+            <path class="chev" d="M-4 -5L2 0L-4 5" transform="translate(430 280) rotate(90)"/>
+            <path class="chev" d="M-4 -5L2 0L-4 5" transform="translate(355 409.9) rotate(150)"/>
+            <path class="chev" d="M-4 -5L2 0L-4 5" transform="translate(205 409.9) rotate(210)"/>
+            <path class="chev" d="M-4 -5L2 0L-4 5" transform="translate(130 280) rotate(270)"/>
+            <path class="chev" d="M-4 -5L2 0L-4 5" transform="translate(205 150.1) rotate(330)"/>
+            <g class="comet"><path d="M157.1 194A150 150 0 0 1 280 130" stroke="url(#comet-tail)"/><circle cx="280" cy="130" r="4"/></g>
+            <g class="stop-dot project" style="--d: 0s"><circle cx="280" cy="130" r="15"/><text x="280" y="130.5">01</text></g>
+            <g class="stop-dot project" style="--d: 1.2s"><circle cx="409.9" cy="205" r="15"/><text x="409.9" y="205.5">02</text></g>
+            <g class="stop-dot project" style="--d: 2.3s"><circle cx="409.9" cy="355" r="15"/><text x="409.9" y="355.5">03</text></g>
+            <g class="stop-dot step" style="--d: 3.5s"><circle cx="280" cy="430" r="12"/><text x="280" y="430.5">04</text></g>
+            <g class="stop-dot step" style="--d: 4.7s"><circle cx="150.1" cy="355" r="12"/><text x="150.1" y="355.5">05</text></g>
+            <g class="stop-dot step" style="--d: 5.8s"><circle cx="150.1" cy="205" r="12"/><text x="150.1" y="205.5">06</text></g>
+            <text class="hub" x="280" y="276">terminu</text>
+            <text class="hub-sub" x="280" y="300">↻ loop</text>
+          </svg>
+          <span class="orbit-label top project" style="left: 50%; top: 17.9%">terminu design</span>
+          <span class="orbit-label right project" style="left: 78.6%; top: 36.6%">terminu-go</span>
+          <span class="orbit-label right project" style="left: 78.6%; top: 63.4%">terminu-harness<br><span class="claude">+ Claude Code</span></span>
+          <span class="orbit-label bottom step" style="left: 50%; top: 81.4%">Build with Claude Code</span>
+          <span class="orbit-label left step" style="left: 22.2%; top: 63.4%">Hit a problem</span>
+          <span class="orbit-label left step" style="left: 22.2%; top: 36.6%">Open an issue</span>
+          </div>
+          <ol class="legend">
+          <li class="project">
+            <span class="n">01</span>
+            <div>
+              <p class="overline">Design language</p>
+              <h4><a href="https://github.com/vulcanshen/terminu">terminu design</a></h4>
+              <p>The keys and screens every terminu app shares.</p>
+              <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/terminu/blob/main/README-zh_TW.md">每個 terminu app 共用的按鍵與畫面設計原則。</a></p>
+            </div>
           </li>
-          <li class="stop project" style="--c: #2a66b3">
-            <p class="overline">Go library</p>
-            <p>Draws and drives a terminal UI the way terminu design says.</p>
-            <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/terminu-go/blob/main/README-zh_TW.md">照 terminu design 畫出並驅動終端機介面的 Go 函式庫。</a></p>
-            <h4 class="band"><a href="https://github.com/vulcanshen/terminu-go">terminu-go</a></h4>
+          <li class="project">
+            <span class="n">02</span>
+            <div>
+              <p class="overline">Go library</p>
+              <h4><a href="https://github.com/vulcanshen/terminu-go">terminu-go</a></h4>
+              <p>Draws and drives a terminal UI the way terminu design says.</p>
+              <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/terminu-go/blob/main/README-zh_TW.md">照 terminu design 畫出並驅動終端機介面的 Go 函式庫。</a></p>
+            </div>
           </li>
-          <li class="stop project" style="--c: #3d80d4">
-            <p class="overline">Claude Code plugin</p>
-            <p>Builds a TUI app with terminu design and terminu-go, from what you want to a finished app.</p>
-            <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/terminu-harness/blob/main/README-zh_TW.md">照 terminu design、用 terminu-go 做 TUI app 的 Claude Code plugin，從想法一路做到完成。</a></p>
-            <h4 class="band"><a href="https://github.com/vulcanshen/terminu-harness">terminu-harness</a></h4>
+          <li class="project">
+            <span class="n">03</span>
+            <div>
+              <p class="overline">Claude Code plugin</p>
+              <h4><a href="https://github.com/vulcanshen/terminu-harness">terminu-harness</a></h4>
+              <p>Builds a TUI app with terminu design and terminu-go, from what you want to a finished app.</p>
+              <p class="zh" lang="zh-Hant"><a href="https://github.com/vulcanshen/terminu-harness/blob/main/README-zh_TW.md">照 terminu design、用 terminu-go 做 TUI app 的 Claude Code plugin，從想法一路做到完成。</a></p>
+            </div>
           </li>
-          <li class="stop step build-it" style="--c: #f2b753"><p class="band"><span>Build with Claude Code</span></p><p class="zh" lang="zh-Hant">用 Claude Code 開發</p></li>
-          <li class="stop step problem" style="--c: #e8933f"><p class="band"><span>Hit a problem</span></p><p class="zh" lang="zh-Hant">發現問題</p></li>
-          <li class="stop step issue" style="--c: #d9703a"><p class="band"><a href="https://github.com/vulcanshen/terminu/issues">Open an issue</a></p><p class="zh" lang="zh-Hant">發 issue</p></li>
-          <li class="turn right" aria-hidden="true"><span>+ Claude Code</span></li>
-          <li class="turn left" aria-hidden="true"><span>↻</span></li>
-        </ol>
+          <li class="step"><span class="n">04</span><p><span class="en">Build with Claude Code</span><span class="zh" lang="zh-Hant">用 Claude Code 開發</span></p></li>
+          <li class="step"><span class="n">05</span><p><span class="en">Hit a problem</span><span class="zh" lang="zh-Hant">發現問題</span></p></li>
+          <li class="step"><span class="n">06</span><p><a class="en" href="https://github.com/vulcanshen/terminu/issues">Open an issue</a><span class="zh" lang="zh-Hant">發 issue</span></p></li>
+          </ol>
+        </div>
       </div>
     </div>
   </section>
