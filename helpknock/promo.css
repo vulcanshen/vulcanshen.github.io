@@ -1,40 +1,46 @@
 /* HelpKnock promotion page only. The support and privacy pages use the shared ../style.css.
-   Navy is the app icon's; orange is the "needs help" color in the app. The hero stays dark in
-   both modes: it reads as night, no network, a beacon in the middle. */
+   Navy is the app icon's; orange is the "needs help" color in the app. Dark only: a night with no
+   network, a beacon in the middle sending out rings and a radar beam turning round it, a faint
+   dot grid like a map behind everything, no boxes. */
 :root {
   --navy: #1B3A6B;
   --navy-deep: #0D1F3C;
   --orange: #F28A1E;
-  --bg: #ffffff;
-  --fg: #172033;
-  --muted: #5A6476;
-  --soft: #F2F5FA;
-  --line: #DFE4EC;
-  --link: #1B3A6B;
-  color-scheme: light dark;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0A1222;
-    --fg: #EEF2F8;
-    --muted: #A3AEC2;
-    --soft: #111C33;
-    --line: #23304A;
-    --link: #9DB8E6;
-  }
+  --sky: #9DB8E6;
+  --bg: #070E1C;
+  --fg: #EEF2F8;
+  --muted: #A3AEC2;
+  --line: #23304A;
+  --link: #9DB8E6;
+  color-scheme: dark;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  background: var(--bg);
+}
+
 body {
   margin: 0;
-  background: var(--bg);
   color: var(--fg);
   font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
   -webkit-text-size-adjust: 100%;
+}
+
+/* Behind everything: navy light and a faint dot grid, like a map at night. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(rgba(157, 184, 230, 0.13) 1px, transparent 1.5px) 0 0 / 26px 26px,
+    radial-gradient(900px 600px at 15% 110%, rgba(27, 58, 107, 0.55), transparent 70%),
+    radial-gradient(800px 500px at 100% 40%, rgba(27, 58, 107, 0.35), transparent 70%);
 }
 
 /* PingFang TC comes first above, which would draw Japanese kanji in their Chinese forms. */
@@ -79,14 +85,59 @@ p {
   padding: 0 20px;
 }
 
-/* Hero: dark navy with beacon rings radiating from behind the phone. */
+/* Hero: dark navy with beacon rings radiating from behind the phone; a ring of signal keeps
+   going out from it and a radar beam turns round it. */
+@property --ring {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+@property --beam {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
 .hero {
+  position: relative;
+  isolation: isolate;
   color: #fff;
   background:
     repeating-radial-gradient(circle at 72% 58%, rgba(255, 255, 255, 0.07) 0 1px, transparent 1px 64px),
     radial-gradient(circle at 72% 58%, rgba(242, 138, 30, 0.22), transparent 42%),
     linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 70%);
   overflow: hidden;
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero::before {
+  background: radial-gradient(circle at 72% 58%, transparent calc(var(--ring) - 2px), rgba(242, 138, 30, 0.55) var(--ring), transparent calc(var(--ring) + 3px));
+  animation: signal 3.2s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
+}
+
+@keyframes signal {
+  from { --ring: 20px; opacity: 1; }
+  to { --ring: 640px; opacity: 0; }
+}
+
+.hero::after {
+  background: conic-gradient(from var(--beam) at 72% 58%, transparent 0 82%, rgba(242, 138, 30, 0.16) 97%, rgba(255, 200, 140, 0.28) 99.6%, transparent 100%);
+  animation: sweep 7s linear infinite;
+  -webkit-mask-image: radial-gradient(circle at 72% 58%, #000 0, #000 28%, transparent 60%);
+  mask-image: radial-gradient(circle at 72% 58%, #000 0, #000 28%, transparent 60%);
+}
+
+@keyframes sweep {
+  to { --beam: 360deg; }
 }
 
 .topbar {
@@ -227,18 +278,27 @@ p {
   height: auto;
   margin: 0 auto;
   border-radius: 11% / 5%;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 80px -10px rgba(242, 138, 30, 0.35);
 }
 
-/* Sections below the hero. */
+/* Sections below the hero, a navy hairline between them. */
 section {
-  padding: 72px 0;
+  position: relative;
+  padding: 88px 0;
 }
 
-.soft {
-  background: var(--soft);
+main section + section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(640px, 80%);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(157, 184, 230, 0.4), transparent);
+  transform: translateX(-50%);
 }
 
+/* Each section's label comes with a beacon, pulsing. */
 .kicker {
   color: var(--orange);
   font-weight: 700;
@@ -247,9 +307,30 @@ section {
   text-transform: uppercase;
 }
 
+.kicker::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 12px;
+  border-radius: 50%;
+  background: var(--orange);
+  vertical-align: 1px;
+  animation: beacon 2.4s ease-out infinite;
+}
+
+@keyframes beacon {
+  0% { box-shadow: 0 0 0 0 rgba(242, 138, 30, 0.7); }
+  70%, 100% { box-shadow: 0 0 0 10px rgba(242, 138, 30, 0); }
+}
+
 section h2 {
   margin-top: 8px;
   font-size: clamp(1.6rem, 4vw, 2.2rem);
+  background: linear-gradient(180deg, #ffffff 30%, var(--sky));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .intro {
@@ -266,11 +347,11 @@ section h2 {
   list-style: none;
 }
 
+/* No cards: each step under an orange line. */
 .steps li {
-  padding: 24px;
-  border-radius: 16px;
-  background: var(--bg);
-  border: 1px solid var(--line);
+  padding: 26px 8px 0 0;
+  border-top: 1px solid transparent;
+  border-image: linear-gradient(90deg, rgba(242, 138, 30, 0.7), rgba(242, 138, 30, 0.05)) 1;
 }
 
 .steps .num {
@@ -283,6 +364,7 @@ section h2 {
   color: #fff;
   font-weight: 800;
   font-size: 1.2rem;
+  box-shadow: 0 0 22px rgba(242, 138, 30, 0.65);
 }
 
 .steps h3 {
@@ -296,6 +378,7 @@ section h2 {
 }
 
 .feature {
+  position: relative;
   display: grid;
   gap: 40px;
   align-items: center;
@@ -322,11 +405,13 @@ section h2 {
   height: 10px;
   border-radius: 50%;
   background: var(--orange);
+  box-shadow: 0 0 10px rgba(242, 138, 30, 0.7);
 }
 
 .feature .phone {
   width: min(280px, 70vw);
-  box-shadow: 0 18px 44px rgba(13, 31, 60, 0.22);
+  box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.8), 0 0 70px -15px rgba(157, 184, 230, 0.45);
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 .privacy {
@@ -342,14 +427,23 @@ section h2 {
   margin-top: 12px;
 }
 
+/* The end: the badge with a beacon going behind it. */
 .cta {
+  isolation: isolate;
+  overflow: hidden;
   text-align: center;
   color: #fff;
-  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 80%);
 }
 
-.cta h2 {
-  color: #fff;
+.cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 62%, transparent calc(var(--ring) - 2px), rgba(242, 138, 30, 0.5) var(--ring), transparent calc(var(--ring) + 3px)),
+    radial-gradient(circle at 50% 62%, rgba(242, 138, 30, 0.18), transparent 40%);
+  animation: signal 3.2s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
 }
 
 footer {
@@ -371,10 +465,11 @@ footer p {
 .video {
   margin-top: 20px;
   aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
   border-radius: 16px;
   overflow: hidden;
   background: #000;
-  box-shadow: 0 16px 40px rgba(13, 31, 60, 0.18);
+  box-shadow: 0 40px 100px -30px #000, 0 0 100px -30px rgba(157, 184, 230, 0.5);
 }
 
 .video iframe {
@@ -387,6 +482,18 @@ footer p {
 /* A second video at the end of a feature section, below its text and screenshot. */
 .video-after {
   margin-top: 56px;
+}
+
+/* Sections below the fold rise into place once (promo.js marks them). */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 1s ease, transform 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
 }
 
 @media (min-width: 820px) {
@@ -405,5 +512,65 @@ footer p {
 
   .feature.reverse .text {
     order: 2;
+  }
+
+  /* The phone turned towards its words, with signal rings behind it; it faces you when
+     pointed at. */
+  .feature .phone {
+    transform: perspective(1400px) rotateY(-16deg);
+  }
+
+  .feature.reverse .phone {
+    transform: perspective(1400px) rotateY(16deg);
+  }
+
+  .feature .phone:hover {
+    transform: perspective(1400px) rotateY(0);
+  }
+
+  .feature::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -10%;
+    bottom: -10%;
+    left: 50%;
+    right: -10%;
+    background: repeating-radial-gradient(circle at 50% 50%, rgba(157, 184, 230, 0.09) 0 1px, transparent 1px 54px);
+    -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent);
+    mask-image: radial-gradient(closest-side, #000 30%, transparent);
+    pointer-events: none;
+  }
+
+  .feature.reverse::before {
+    left: -10%;
+    right: 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .hero::after,
+  .cta::after,
+  .kicker::before {
+    animation: none;
+  }
+
+  .hero::before {
+    display: none;
+  }
+
+  .cta::after {
+    background: radial-gradient(circle at 50% 62%, rgba(242, 138, 30, 0.18), transparent 40%);
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .feature .phone {
+    transition: none;
   }
 }
