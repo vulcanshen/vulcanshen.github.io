@@ -939,7 +939,7 @@ kbd {
 
 .orbit {
   position: relative;
-  aspect-ratio: 1;
+  aspect-ratio: 560 / 660;
 }
 
 .orbit-svg {
@@ -977,7 +977,7 @@ kbd {
 
 .orbit-svg .comet {
   transform-box: view-box;
-  transform-origin: 50% 50%;
+  transform-origin: 280px 280px; /* the ring centre, not the box: the box is taller */
   animation: orbit 7s linear infinite;
   filter: drop-shadow(0 0 6px rgba(160, 200, 255, 0.9));
 }
@@ -1007,34 +1007,60 @@ kbd {
   dominant-baseline: middle;
 }
 
-.orbit-svg .project circle {
+.orbit-svg .stop-dot circle {
   stroke: var(--terminu-gold);
 }
 
-.orbit-svg .project text {
+.orbit-svg .stop-dot text {
   fill: var(--terminu-gold);
-}
-
-.orbit-svg .step circle {
-  stroke: #7aa8ff;
-}
-
-.orbit-svg .step text {
-  fill: #a9c4ff;
 }
 
 /* Each stop lights up as the comet goes by. */
 .orbit-svg .stop-dot {
+  --glow: rgba(242, 183, 83, 0.9);
   animation: ping 7s linear infinite;
   animation-delay: var(--d);
 }
 
-.orbit-svg .project {
-  --glow: rgba(242, 183, 83, 0.9);
+/* The way out: a branch from building down to the released app, a spark falling down it each
+   time the comet passes building, and the way out lighting up as it lands. */
+.orbit-svg .branch {
+  fill: none;
+  stroke: rgba(242, 183, 83, 0.6);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 5;
+  animation: drain 1.2s linear infinite;
 }
 
-.orbit-svg .step {
-  --glow: rgba(122, 168, 255, 0.9);
+@keyframes drain {
+  to { stroke-dashoffset: -18; }
+}
+
+.orbit-svg .spark {
+  fill: #fff1cf;
+  opacity: 0;
+  filter: drop-shadow(0 0 5px rgba(242, 183, 83, 0.95));
+  animation: fall 7s linear infinite;
+  animation-delay: 3.5s;
+}
+
+@keyframes fall {
+  0% { opacity: 1; transform: translateY(0); }
+  9% { opacity: 1; transform: translateY(80px); }
+  10%, 100% { opacity: 0; transform: translateY(80px); }
+}
+
+.orbit-svg .ship {
+  --d: 4.1s;
+}
+
+.orbit-svg .ship circle {
+  fill: var(--terminu-gold);
+}
+
+.orbit-svg .ship text {
+  fill: var(--bg);
+  font-size: 14px;
 }
 
 @keyframes ping {
@@ -1058,13 +1084,9 @@ kbd {
 /* The names by the stops. */
 .orbit-label {
   position: absolute;
-  color: #d9dce1;
+  color: var(--terminu-gold);
   font: 600 0.85rem/1.35 var(--mono);
   white-space: nowrap;
-}
-
-.orbit-label.project {
-  color: var(--terminu-gold);
 }
 
 .orbit-label.top {
@@ -1087,14 +1109,14 @@ kbd {
 }
 
 .orbit-label .claude {
-  color: #e08a6a;
+  color: var(--muted);
   font-weight: 500;
 }
 
-/* The legend. */
+/* The legend: the same for every stop, a kind, a name, a line in each language. */
 .legend {
   display: grid;
-  gap: 22px;
+  gap: 20px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -1107,32 +1129,29 @@ kbd {
 }
 
 .legend .n {
-  color: var(--accent);
-  font: 600 0.8rem var(--mono);
-}
-
-.legend .project .n {
   color: var(--terminu-gold);
+  font: 600 0.8rem var(--mono);
 }
 
 .legend p {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 0.93rem;
 }
 
 .legend .overline {
   margin-bottom: 6px;
   color: var(--faint);
+  font-size: 0.7rem;
 }
 
 .legend h4 {
-  margin: 0 0 10px;
-  font: 600 1.02rem/1.3 var(--mono);
+  margin: 0 0 8px;
+  font: 600 1rem/1.3 var(--mono);
 }
 
-.legend h4 a {
+.legend h4 > * {
   display: inline-block;
-  padding: 5px 11px;
+  padding: 4px 10px;
   border-radius: 8px;
   background: color-mix(in srgb, var(--terminu-blue) 45%, transparent);
   color: var(--terminu-gold);
@@ -1143,10 +1162,14 @@ kbd {
   background: color-mix(in srgb, var(--terminu-blue) 65%, transparent);
 }
 
+.legend h4 a[href*="/issues"]::after {
+  content: " ↗";
+}
+
 .legend .zh {
-  margin-top: 4px;
+  margin-top: 3px;
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: 0.86rem;
 }
 
 .legend .zh a {
@@ -1156,47 +1179,6 @@ kbd {
 
 .legend .zh a:hover {
   text-decoration: underline;
-}
-
-/* The way back: one line each. */
-.legend .step {
-  padding-top: 14px;
-  border-top: 1px dashed var(--line);
-}
-
-.legend .step + .step {
-  padding-top: 0;
-  border-top: 0;
-}
-
-.legend .step p {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2px 14px;
-  align-items: baseline;
-}
-
-.legend .step .en {
-  color: #d9dce1;
-  font: 600 0.92rem var(--mono);
-  text-decoration: none;
-}
-
-.legend .step a.en {
-  color: #a9c4ff;
-}
-
-.legend .step a.en::after {
-  content: " ↗";
-}
-
-.legend .step a.en:hover {
-  color: var(--terminu-gold);
-  text-decoration: underline;
-}
-
-.legend .step .zh {
-  margin: 0;
 }
 
 /* Things rise into place once (only with scripts on, so nothing stays hidden without). */
@@ -1378,6 +1360,7 @@ kbd {
   .eyebrow::before,
   .orbit-svg .comet,
   .orbit-svg .stop-dot,
+  .orbit-svg .branch,
   .term.live .prompt::after {
     animation: none !important;
   }
