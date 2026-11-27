@@ -525,13 +525,33 @@ main h2 {
   text-wrap: balance;
 }
 
-/* The link holds together, so Ko-fi never breaks at its hyphen; Japanese breaks between phrases. */
-.closing .tip a {
+/* The coffee phrase holds together, so Ko-fi never breaks at its hyphen; Japanese breaks between phrases. */
+.closing .tip span {
   white-space: nowrap;
 }
 
 :lang(ja) .closing .tip {
   word-break: auto-phrase;
+}
+
+/* Ko-fi's own button under the line; it only comes in English, so the line above keeps the page's language. */
+.closing .kofi {
+  display: block;
+  width: fit-content;
+  margin: 14px auto 0;
+  border-radius: 10px;
+  line-height: 0;
+  transition: transform 0.15s, filter 0.15s;
+}
+
+.closing .kofi:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
+
+.closing .kofi img {
+  width: 198px;
+  height: 40px;
 }
 
 footer {
